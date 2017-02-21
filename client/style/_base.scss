@@ -1,0 +1,347 @@
+/**
+* @see {@link http://julian.io/how-to-use-postcss-in-meteor/}
+* @see {@link https://medium.com/@juliancwirko/how-to-use-css-linter-in-meteor-c60b2f24f969#.bvya24363}
+* @see {@link http://julian.io/some-things-you-may-think-about-postcss-and-you-might-be-wrong/}
+*/
+
+
+// @import '{}/node_modules/@blueprintjs/core/dist/variables.scss';
+// @import "~react-toolbox/lib/commons";
+// @import '{}/node_modules/react-toolbox/lib/commons';
+
+/**
+* Classes prefixed with 'cm' refer to custome classes (created by me), ie, not
+* classes defined by the Mobi.css framework.
+*/
+$red-color: #9e0b0f;
+$blue-color: #009fe8;
+$green-color: #2d7230;
+$ultra-light-grey-color: #f8f8f8;
+$light-grey-color: #efefef;
+$mid-grey-color: #676766;
+$dark-grey-color: #333333;
+$input-textarea-grey-color: #c8c8c8;
+$font-stack: 'Open Sans', sans-serif;
+$font-size: 16px;
+// $app-width: 1050px;
+$footer-height: 130px;
+$header-height: 50px;
+
+@mixin rounded($amount) {
+  -moz-border-radius: $amount;
+  -webkit-border-radius: $amount;
+  border-radius: $amount;
+}
+
+/* html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+} */
+
+/* html, body {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  margin: 0;
+  font: {
+    size: $font-size;
+    family: $font-stack;
+  }
+} */
+
+/* body {
+  max-width: 600px;
+  margin: 0 auto !important;
+} */
+
+/* body {
+  margin-top: 50px;
+} */
+
+#react-root {
+  // height: calc(100% - $header-height);
+  height: 100%;
+}
+
+//------------------------------------------------------------------------------
+// Custome style for wingcss classes
+//------------------------------------------------------------------------------
+.container {
+  max-width: 600px !important;
+}
+
+//------------------------------------------------------------------------------
+// Custome style for antd classes
+//------------------------------------------------------------------------------
+.ant-layout {
+  background-color: #fff !important;
+}
+
+.ant-layout-header {
+  background-color: #fcfcfc !important;
+  border-bottom: 1px solid #eee !important;
+  height: 50px !important;
+  line-height: 50px !important;
+  padding: 0 20px !important;
+}
+
+.ant-layout-sider {
+  background-color: #fff !important;
+  border-right: 1px solid #eee !important;
+  // position: fixed !important;
+
+  ul {
+    margin-top: 50px;
+  }
+}
+
+.ant-menu-item {
+  padding-left: 14px !important;
+}
+
+.ant-menu-item-selected {
+  border-right: none !important;
+}
+
+.ant-menu-inline, .ant-menu-vertical {
+  border-right: none !important;
+}
+
+.ant-menu-inline .ant-menu-item, .ant-menu-vertical .ant-menu-item {
+  border-right: none !important;
+}
+
+.ant-layout-content {
+  padding: 10px !important;
+  // border: 1px solid #eee !important;
+  // border-top: none !important;
+}
+
+/* .ant-popover-inner-content {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 150px !important;
+
+  ul {
+    padding: 0;
+
+    li {
+      line-height: 32px !important;
+      height: 32px !important;
+      padding-left: 14px !important;
+      padding-right: 14px !important;
+      margin-bottom: 14px !important;
+      border-bottom: 1px solid #e9e9e9 !important;
+
+      &:last-child {
+        border-bottom: none !important;
+      }
+    }
+  }
+} */
+
+/* .ant-popover-inner-content {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 150px !important;
+
+  table {
+    width: 100%;
+
+    tr {
+      line-height: 50px;
+      height: 50px;
+      border-bottom: 1px solid #e9e9e9;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #eee;
+      }
+
+      td {
+        &:first-child {
+          padding-left: 14px;
+          padding-right: 14px;
+          text-align: center;
+        }
+        &:last-child {
+          padding-right: 14px;
+          text-align: left;
+        }
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+} */
+//------------------------------------------------------------------------------
+// Custome style for @blueprint classes
+//------------------------------------------------------------------------------
+.pt-timepicker {
+  display: block !important;
+  padding: 0 !important;
+  white-space: nowrap;
+  margin-top: 5px !important;
+}
+
+.cm-fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cm-hidden {
+  display: none;
+  visibility: hidden;
+}
+
+a {
+  text-decoration: none;
+  // color: $blue-color;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+    // color: $blue-color;
+  }
+  &:active {
+    text-decoration: none;
+    // color: $blue-color;
+  }
+  &:visited {
+    text-decoration: none;
+    // color: $blue-color;
+  }
+}
+
+h6 {
+  margin: 0;
+}
+
+pre {
+  background-color: inherit;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  word-break: normal;
+  white-space: pre-wrap;
+}
+
+.hidden {
+  display: none;
+}
+
+.red-color {
+  color: $red-color;
+}
+
+.blue-color {
+  color: $blue-color;
+}
+
+
+//------------------------------------------------------------------------------
+// Custome classes
+//------------------------------------------------------------------------------
+.cm-container {
+  margin: 0 auto !important;
+}
+
+.cm-w600 {
+  max-width: 600px !important;
+}
+
+.cm-top-gap-header-height {
+  margin-top: $header-height;
+}
+
+.cm-full-width {
+  width: 100%;
+}
+
+.cm-full-viewport-height {
+  // min-height: calc(100vh - #{$header-height} - 41px);
+  min-height: calc(100vh - #{$header-height});
+}
+
+.cm-full-height {
+  height: 100%;
+}
+
+.cm-clearfix {
+  clear: both;
+  *zoom: 1;
+
+  &:before, &:after {
+    content: '';
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.cm-background-transparent {
+  background-color: transparent;
+}
+
+.cm-mobile-background {
+  // padding-top: $header-height;
+  background: url('/images/mobile-background.jpg') 50% 0 no-repeat;
+  background-size: auto 100%;
+  // background-size: 100% 100%;
+  min-height: 100%;
+  background-attachment: fixed;
+}
+
+.cm-w0-p0 {
+  width: 0 !important;
+  padding: 0 !important;
+}
+
+/* a.cm-anchor-wrapper {
+  color: black !important;
+
+  .cm-info-window {
+    p {
+      font-size: 20px;
+    }
+  }
+}
+
+h4.cm-heading {
+  margin: 0;
+} */
+
+.cm-float-button {
+  position: fixed !important;
+  top: 80px !important;
+  left: calc(50% - (146px / 2));
+  z-index: 2;
+}
+
+.cm-float-buttons {
+  position: fixed !important;
+  bottom: 65px !important;
+  left: calc(50% - (166px / 2));
+  z-index: 2;
+}
+
+.cm-participant-image {
+  height: 60px;
+  width: 60px;
+  border: 1px solid #eee;
+  @include rounded(50%);
+  margin-right: 10px;
+}

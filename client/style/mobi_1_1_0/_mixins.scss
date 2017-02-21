@@ -1,0 +1,15 @@
+@mixin scroll-view() {
+  max-height: $max-height-scroll-view;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@mixin flex-container() {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+@mixin flex-width($percentage) {
+  flex-basis: $percentage;
+  max-width: $percentage;
+}

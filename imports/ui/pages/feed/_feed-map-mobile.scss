@@ -1,0 +1,8 @@
+// .feed-map-mobile {
+  #feed-map {
+    position: absolute;
+    width: 100%;
+    height: calc(100% - #{$header-height});
+    // max-height: 100vh;
+  }
+// }

@@ -1,0 +1,9 @@
+{
+	"facebook": {
+  	"appId": "xxxxxxxxxxxxxx",
+	 	"secret": "xxxxxxxxxxxxxx"
+	},
+	"googleMaps": {
+		"apiKey": "AIzaSyD8GhU55QZgv9pXvgktuzRmQPpPcBP0t74"
+	}
+}
