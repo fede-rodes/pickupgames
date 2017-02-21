@@ -109,7 +109,17 @@ class DefaultLayout extends Component {
         </main>
         {withFooter && (
           <footer>
-            <p>pickupgames.net ©2015-2017 Created by Federico Rodes</p>
+            <p>
+              pickupgames.net ©2017
+              &nbsp;&nbsp;
+              <a
+                href="https://github.com/fede-rodes/pickupgames"
+                target="_blank"
+                style={{ color: 'black' }}
+              >
+                <Icon type="github" style={{ fontSize: '20px' }} />
+              </a>
+            </p>
           </footer>
         )}
       </div>
