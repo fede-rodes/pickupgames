@@ -1,6 +1,6 @@
 ### pickupgames.net, Meteor React Redux FlowRouter ES6 web app
-Web app for easily organize sport activities and connect players. Previous
-version of the app (Meteor 1.2 + Blaze) can be found here: https://www.fulbacho.net
+Web app for easily organize sport activities and connect players. Current version of the app hosted here: https://pickupgamess.herokuapp.com
+Previous version of the app (Meteor 1.2 + Blaze) can be found here: https://www.fulbacho.net
 
 The aim of this project is to make a Progressive Web App(1,2) picking
 some of the ideas / structure used in fulbacho.net. The stack used for this
