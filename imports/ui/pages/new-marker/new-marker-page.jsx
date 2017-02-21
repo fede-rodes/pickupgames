@@ -28,27 +28,7 @@ class NewMarkerPage extends Component {
     this.handleFormInputChange = this.handleFormInputChange.bind(this);
     this.handleLocationOptionSelect = this.handleLocationOptionSelect.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
-    /* this.state = {
-      errorKey: '',
-    }; */
   }
-
-  /* componentWillUpdate(nextProps, nextState) {
-    // const { reduxState, reduxActions } = this.props;
-    // const { reduxState: nextReduxState, meteorData: nextMeteorData } = nextProps;
-
-    // Scroll top on error
-    // if (reduxState.canSubmit && nextReduxState.canSubmit) {
-    if (this.state.errorKey !== nextState.errorKey && nextState.errorKey.length > 0) {
-      console.log('nextState.errorKey', nextState.errorKey);
-      const elemYOffset = $(`#${nextState.errorKey}`).offset().top;
-      // const elemYOffset = document.getElementById(elem).scrollTop;
-      console.log('elemYOffset', elemYOffset);
-      window.scrollTo(0, elemYOffset - 100);
-    }
-
-    return true;
-  } */
 
   handleFormInputChange({ fieldName, value }) {
     const { reduxState, reduxActions } = this.props;
@@ -87,17 +67,6 @@ class NewMarkerPage extends Component {
     }
   }
 
-  /* scrollTo(elem) {
-    console.log('elem', elem);
-    const elemYOffset = $(`#${elem}`).offset().top;
-    // const elemYOffset = document.getElementById(elem).scrollTop;
-    console.log('elemYOffset', elemYOffset);
-    // window.scrollTo(0, elemYOffset - 100);
-    $(window).scrollTop();
-    // window.scrollTo(0, 100);
-    // document.body.scrollIntoView();
-  } */
-
   handleFormSubmit(e) {
     e.nativeEvent.preventDefault();
     const { reduxState, reduxActions } = this.props;
@@ -128,13 +97,15 @@ class NewMarkerPage extends Component {
     // In case of errors, warn user and prevent the meteor method to be called
     if (AuxFunctions.hasErrors(errors)) {
       reduxActions.dispatchSetErrors(errors);
-      // Re-enable submit button
-      reduxActions.dispatchSetBooleanField('canSubmit', true);
       // TODO: Scroll to first error field
       // const errorKey = AuxFunctions.getFirstError(errors).key;
-      // this.setState({ errorKey });
-      // this.scrollTo(elem);
+      // const elemYOffset = $(`#${elem}`).offset().top;
+      // const elemYOffset = document.getElementById(elem).scrollTop;
+      // console.log('elemYOffset', elemYOffset);
+      // window.scrollTo(0, elemYOffset - 100);
       Bert.alert('The form has errors', 'danger', 'growl-top-right');
+      // Re-enable submit button
+      reduxActions.dispatchSetBooleanField('canSubmit', true);
       return;
     }
 
