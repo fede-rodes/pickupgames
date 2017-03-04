@@ -21,12 +21,13 @@ const HomeMobile = (props) => {
       <img
         src="/images/logo.png"
         alt="logo"
-        style={{ width: '100%', maxWidth: '300px', display: 'block', margin: '0 auto' }}
+        className="block my0 mx-auto"
+        style={{ width: '100%', maxWidth: '300px' }}
       />
-      <h1 style={{ textAlign: 'center' }}>
+      <h1 className="center">
         Find pick-up games in your <br /> city or neighborhood...
       </h1>
-      <Form className="top-gap" style={{ maxWidth: '300px', display: 'block', margin: '10px auto' }}>
+      <Form className="block mt1 mx-auto" style={{ maxWidth: '300px' }}>
         <FormItem>
           <GoogleAutoCompleteControlled
             id="searchText"
@@ -35,7 +36,6 @@ const HomeMobile = (props) => {
             onChange={handleSearchTextChange}
             onSelect={handleLocationOptionSelect}
             // errorText={AuxFunctions.getFieldNameErrors(errors, 'searchText')}
-            // style={{ width: '100%' }}
           />
         </FormItem>
       </Form>

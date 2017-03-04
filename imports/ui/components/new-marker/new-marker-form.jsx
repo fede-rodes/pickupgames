@@ -157,10 +157,10 @@ class NewMarkerForm extends Component {
             value={address}
             onChange={onChange}
             onSelect={onSelect}
-            style={{ width: '100%' }}
+            // style={{ width: '100%' }}
           />
         </FormItem>
-        <div id="new-marker-map" className="top-gap" style={{ width: '100%', height: '200px', marginTop: '14px' }}></div>
+        <div id="new-marker-map" className="mt1 mb2" style={{ width: '100%', height: '200px' }}></div>
         <FormItem
           label="Maximum number of participants*"
           validateStatus={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants') && 'error' || ''}

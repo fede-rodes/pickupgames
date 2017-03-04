@@ -50,7 +50,7 @@ const FeedListMobile = (props) => {
           <span>NEW <Icon type="plus" /></span>
         </Button>
       </Button.Group>
-      <div className="top-gap">
+      <div className="mt1">
         <Row type="flex" justify="space-around" align="middle">
           <Col span={24}>
             <Form>
@@ -62,18 +62,18 @@ const FeedListMobile = (props) => {
                   onChange={handleSearchTextChange}
                   onSelect={handlePlaceChange}
                   // errorText={AuxFunctions.getFieldNameErrors(errors, 'searchText')}
-                  style={{ width: '100%' }}
+                  // style={{ width: '100%' }}
                 />
               </FormItem>
             </Form>
           </Col>
         </Row>
         {searchType === 'place' && radius && _.isNumber(radius) && radius > 0 && (
-          <div className="flex-center flex-middle units-gap">
-            <div className="unit-0">
+          <div className="flex items-center justify-between">
+            <div className="flex-none">
               Radius:
             </div>
-            <div className="unit">
+            <div className="flex-auto mx2">
               <SliderControlled
                 id="radius"
                 min={Constants.FEED_MIN_RADIUS}
@@ -82,13 +82,13 @@ const FeedListMobile = (props) => {
                 onChange={handlePlaceChange}
               />
             </div>
-            <div className="unit-0 text-right">
+            <div className="flex-none">
               {radius} mile(s)
             </div>
           </div>
         )}
       </div>
-      <div className="top-gap-big">
+      <div className="mt2">
         <CardsContainer
           items={markers}
           itemsReady={markersReady}

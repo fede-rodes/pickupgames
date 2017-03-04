@@ -103,7 +103,7 @@ class FeedMapMobile extends Component {
             NEW&nbsp;<Icon type="plus" />
           </Button>
         </Button.Group>
-        <div id="feed-map" />
+        <div id="feed-map" /* see _feed-map.scss */ />
       </DefaultLayoutContainer>
     );
   }

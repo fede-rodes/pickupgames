@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import moment from 'moment';
+import '../../../node_modules/basscss/css/basscss.css';
 // import '../../../node_modules/@blueprintjs/core/dist/blueprint.css';
 // import '../../../node_modules/@blueprintjs/datetime/dist/blueprint-datetime.css';
 // import '../../../node_modules/wingcss/dist/wing.css';
