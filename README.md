@@ -19,9 +19,8 @@ reason I'll focus on mobile view only.
 1. meteor npm install
 2. setup ESlint with your IDE, see https://guide.meteor.com/code-style.html
 
-## Observations
-1. We are using Mobi.css (http://getmobicss.com/) as the base UI framework; it's
-easy to pick up, focus on mobile and has great documentation.
+## CSS
+1. We are using basscss (http://basscss.com) utility library for atomic CSS, ant design (https://ant.design) for built in components and CSS-Modules (https://github.com/nathantreid/meteor-css-modules) to make our life easier :)
 
 ## Contribute
 1. Slack channel: https://fulbacho.slack.com
