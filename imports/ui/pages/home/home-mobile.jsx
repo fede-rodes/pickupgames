@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Form } from 'antd';
 const FormItem = Form.Item;
-import DefaultLayoutContainer from '../../layouts/default-layout.jsx';
+import DefaultLayout from '../../layouts/default/default-layout.jsx';
 import GoogleAutoCompleteControlled from '../../components/forms/google-auto-complete-controlled.jsx';
 
 //------------------------------------------------------------------------------
@@ -17,7 +17,7 @@ const HomeMobile = (props) => {
   const { searchText, errors } = reduxState;
 
   return (
-    <DefaultLayoutContainer width="350px" padding="20px 15px 0" withHeader={false}>
+    <DefaultLayout width="350px" padding="20px 15px 0" withHeader={false}>
       <img
         src="/images/logo.png"
         alt="logo"
@@ -37,7 +37,7 @@ const HomeMobile = (props) => {
           />
         </FormItem>
       </Form>
-    </DefaultLayoutContainer>
+    </DefaultLayout>
   );
 };
 

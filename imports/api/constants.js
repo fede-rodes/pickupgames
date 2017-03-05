@@ -2,6 +2,8 @@
 * @namespace Constants
 */
 const Constants = {
+  SITE_BRAND: 'Pick-up Games',
+  DOMAIN_NAME: 'pickupgames.net',
   MARKER_SPORTS_ARRAY: [
     'archery',
     'badminton',

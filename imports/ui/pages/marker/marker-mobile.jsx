@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Card } from 'antd';
-import DefaultLayoutContainer from '../../layouts/default-layout.jsx';
+import DefaultLayout from '../../layouts/default/default-layout.jsx';
 import MarkerDetails from '../../components/marker/marker-details.jsx';
 import MarkerParticipants from '../../components/marker/marker-participants.jsx';
 import PostsSystemContainer from '../../components/posts-system/posts-system.jsx';
@@ -19,7 +19,7 @@ const MarkerMobile = (props) => {
   const { marker, curUserId } = meteorData;
 
   return (
-    <DefaultLayoutContainer width="600px" padding="20px 15px 0" forceLogin>
+    <DefaultLayout width="600px" padding="20px 15px 0" forceLogin>
       <Card className="top-gap">
         <MarkerDetails
           marker={marker}
@@ -37,7 +37,7 @@ const MarkerMobile = (props) => {
         <h2>Comments</h2>
         <PostsSystemContainer postedOn={marker._id} />
       </Card>
-    </DefaultLayoutContainer>
+    </DefaultLayout>
   );
 };
 

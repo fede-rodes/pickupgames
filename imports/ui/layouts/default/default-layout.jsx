@@ -1,4 +1,60 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
+import HeaderContainer from '../../components/header/header.jsx';
+import Footer from '../../components/footer/footer.jsx';
+import styles from './styles.scss';
+
+//------------------------------------------------------------------------------
+// COMPONENT:
+//------------------------------------------------------------------------------
+const DefaultLayout = (props) => {
+  const {
+    children,
+    withHeader,
+    withFooter,
+    width,
+    padding,
+    center,
+  } = props;
+
+  return (
+    <div className={styles.DefaultLayout}>
+      {withHeader && <HeaderContainer />}
+      <main
+        className={`${center && 'flex items-center justify-center'}`}
+        style={{ maxWidth: width, padding }}
+      >
+        <div className={`${center && 'flex-auto'}`}>
+          {children}
+        </div>
+      </main>
+      {withFooter && <Footer />}
+    </div>
+  );
+};
+
+DefaultLayout.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.array,
+  ]).isRequired,
+  withHeader: PropTypes.bool.isRequired,
+  withFooter: PropTypes.bool.isRequired,
+  width: PropTypes.string.isRequired, // '600px', '90%', defaults to '100%'
+  padding: PropTypes.string.isRequired, // '0', '30px 15px', defaults to '0'
+  center: PropTypes.bool.isRequired,
+};
+
+DefaultLayout.defaultProps = {
+  withHeader: true,
+  withFooter: true,
+  width: '100%',
+  padding: '0',
+  center: false,
+};
+
+export default DefaultLayout;
+
+/* import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
@@ -79,7 +135,7 @@ class DefaultLayout extends Component {
     });
 
     return (
-      <div className={styles.defaultLayout}>
+      <div className={styles.DefaultLayout}>
         {withHeader && (
           <header>
             <Popover placement="bottomRight" content={rows} trigger="click">
@@ -97,7 +153,7 @@ class DefaultLayout extends Component {
                 alt={curUser.profile.name}
                 height="25"
               />
-            ) : (/* placeholder */
+            ) : (
               <div style={{ height: 25, width: 25 }} />
             )}
           </header>
@@ -153,7 +209,7 @@ DefaultLayout.propTypes = {
 /**
 * @summary Wrapper around the 'Page' component to handle UI State (Redux)
 * integration.
-*/
+
 const namespace = 'login';
 
 function mapStateToProps(state) {
@@ -184,7 +240,7 @@ function mapDispatchToProps(dispatch) {
 * @summary Wrapper around the 'Page' component to handle Domain State Meteor
 * reactivity (component-level subscriptions etc etc), and pass data down to
 * 'Page' component.
-*/
+
 const DefaultLayoutContainer = createContainer((props) => {
   const {
     children,
@@ -213,3 +269,4 @@ const DefaultLayoutContainer = createContainer((props) => {
 }, connect(mapStateToProps, mapDispatchToProps)(DefaultLayout));
 
 export default DefaultLayoutContainer;
+*/

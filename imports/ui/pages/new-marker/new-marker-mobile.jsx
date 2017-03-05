@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import Constants from '../../../api/constants.js';
-import DefaultLayoutContainer from '../../layouts/default-layout.jsx';
+import DefaultLayout from '../../layouts/default/default-layout.jsx';
 import NewMarkerForm from '../../components/new-marker/new-marker-form.jsx';
 
 //------------------------------------------------------------------------------
@@ -15,7 +15,7 @@ const NewMarkerMobile = (props) => {
   } = props;
 
   return (
-    <DefaultLayoutContainer width="600px" padding="20px 15px 0" forceLogin>
+    <DefaultLayout width="600px" padding="20px 15px 0" forceLogin>
       <h1>Create Activity</h1>
       <NewMarkerForm
         {...reduxState}
@@ -23,7 +23,7 @@ const NewMarkerMobile = (props) => {
         onSelect={handleLocationOptionSelect}
         onSubmit={handleFormSubmit}
       />
-    </DefaultLayoutContainer>
+    </DefaultLayout>
   );
 };
 

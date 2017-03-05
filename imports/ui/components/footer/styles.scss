@@ -1,0 +1,7 @@
+.Footer {
+  height: 130px; // $footer-height;
+  // TODO: how to compose basscss classes??
+  // composes: flex items-end justify-center px1 py2 from '^client/style/basscss.css';
+  // composes: flex items-end justify-center px1 py2 from '../../../../client/style/basscss.css';
+  // composes: :global(flex) :global(items-end) :global(justify-center) :global(px1) :global(py2);
+}

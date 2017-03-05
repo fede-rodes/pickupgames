@@ -4,7 +4,7 @@ import _ from 'underscore';
 import { Button, Icon } from 'antd';
 import GoogleMaps from '../../../api/google-maps/namespace.js';
 import '../../../api/google-maps/api.js'; // GoogleMaps.api
-import DefaultLayoutContainer from '../../layouts/default-layout.jsx';
+import DefaultLayout from '../../layouts/default/default-layout.jsx';
 // import AuxFunctions from '../../../api/aux-functions.js';
 // import Constants from '../../../api/constants.js';
 
@@ -76,7 +76,7 @@ class FeedMapMobile extends Component {
     } = this.props;
 
     return (
-      <DefaultLayoutContainer>
+      <DefaultLayout>
         {reduxState.showRecalculateMarkersButton && (
           <Button
             type="primary"
@@ -104,7 +104,7 @@ class FeedMapMobile extends Component {
           </Button>
         </Button.Group>
         <div id="feed-map" /* see _feed-map.scss */ />
-      </DefaultLayoutContainer>
+      </DefaultLayout>
     );
   }
 }

@@ -3,7 +3,7 @@ import Waypoint from 'react-waypoint';
 import _ from 'underscore';
 import { Row, Col, Form, Button, Icon } from 'antd';
 const FormItem = Form.Item;
-import DefaultLayoutContainer from '../../layouts/default-layout.jsx';
+import DefaultLayout from '../../layouts/default/default-layout.jsx';
 // import AuxFunctions from '../../../api/aux-functions.js';
 import Constants from '../../../api/constants.js';
 import GoogleAutoCompleteControlled from '../../components/forms/google-auto-complete-controlled.jsx';
@@ -29,7 +29,7 @@ const FeedListMobile = (props) => {
   const { markers, markersReady, numLoadedMarkers, numTotalMarkers } = meteorData;
 
   return (
-    <DefaultLayoutContainer width="600px" padding="20px 15px 0">
+    <DefaultLayout width="600px" padding="20px 15px 0">
       <Button.Group
         size="larger"
         className="cm-float-buttons"
@@ -100,7 +100,7 @@ const FeedListMobile = (props) => {
           onEnter={handlePageLimitReached}
         />
       )}
-    </DefaultLayoutContainer>
+    </DefaultLayout>
   );
 };
 

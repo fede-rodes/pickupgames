@@ -1,5 +1,5 @@
 /* import React, { PropTypes } from 'react';
-import DefaultLayout from '../../layouts/default-layout.jsx';
+import DefaultLayout from '../../layouts/default/default-layout.jsx';
 import FixedWidth from '../../layouts/fixed-width.jsx';
 import MarkersList from '../../components/profile/markers-list.jsx';
 
