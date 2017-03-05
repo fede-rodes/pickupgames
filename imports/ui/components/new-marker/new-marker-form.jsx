@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+/* import React, { Component, PropTypes } from 'react';
 import _ from 'underscore';
 import { Form, Button } from 'antd';
 const FormItem = Form.Item;
@@ -34,12 +34,12 @@ class NewMarkerForm extends Component {
     const nextPlace = nextProps.selectedLocation;
     const curPlace = this.props.selectedLocation;
 
-    /* console.log('------------------');
-    console.log('willReceiveProps');
-    console.log('GoogleMaps.api.placeIsEmpty(nextPlace):');
-    console.log(GoogleMaps.api.placeIsEmpty(nextPlace));
-    console.log('GoogleMaps.api.placesAreEqual(curPlace, nextPlace):');
-    console.log(GoogleMaps.api.placesAreEqual(curPlace, nextPlace)); */
+    // console.log('------------------');
+    // console.log('willReceiveProps');
+    // console.log('GoogleMaps.api.placeIsEmpty(nextPlace):');
+    // console.log(GoogleMaps.api.placeIsEmpty(nextPlace));
+    // console.log('GoogleMaps.api.placesAreEqual(curPlace, nextPlace):');
+    // console.log(GoogleMaps.api.placesAreEqual(curPlace, nextPlace));
     // TODO: try to use _.isEmpty instead of GoogleMaps.api.placeIsEmpty
     if (GoogleMaps.api.placeIsEmpty(nextPlace)) {
       return false; // do not re-render
@@ -232,3 +232,4 @@ NewMarkerForm.propTypes = {
 };
 
 export default NewMarkerForm;
+*/
