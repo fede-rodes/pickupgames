@@ -3,13 +3,6 @@ import { connect } from 'react-redux';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import Actions from '../../../api/redux/client/actions.js';
-// import { Bert } from 'meteor/themeteorchef:bert';
-// import Users from '../../../api/users/namespace.js';
-// import '../../../api/users/api.js'; // Users.api
-/* import Dialog from 'material-ui/Dialog';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton'; */
-// import { UserNotLoggedInModalContent } from '../components/force-login-email-verified/user-not-logged-in-modal-content.jsx';
 
 //------------------------------------------------------------------------------
 // COMPONENT DEFINITION:
@@ -32,15 +25,15 @@ class ForceLogin extends Component {
 
   render() {
     const { children, reduxState, meteorData } = this.props;
-    const { isOpen } = reduxState;
-    const { curUserId } = meteorData;
+    const { isOpen } = reduxState; // TODO: use a better name
+    const { loggedIn } = meteorData;
 
-    const overlayClass = (!isOpen && !curUserId) ? 'overlay' : '';
+    const applyOverlay = !loggedIn && !isOpen;
 
     return (
-      <div className="force-login-component">
+      <div className="relative">
         <div
-          className={overlayClass}
+          className={`${applyOverlay && 'absolute z2 top-0 left-0 full-height full-width' || ''}`}
           onClick={this.handleBackDropClick}
         />
         {children}
@@ -59,7 +52,7 @@ ForceLogin.propTypes = {
   }).isRequired,
   reduxActions: PropTypes.object.isRequired,
   meteorData: PropTypes.shape({
-    curUserId: PropTypes.string,
+    loggedIn: PropTypes.bool.isRequired,
   }).isRequired,
 };
 //------------------------------------------------------------------------------
@@ -105,7 +98,7 @@ const ForceLoginContainer = createContainer(({ children }) => {
   return {
     children,
     meteorData: {
-      curUserId: Meteor.userId(),
+      loggedIn: !!Meteor.userId(),
     },
   };
 }, connect(mapStateToProps, mapDispatchToProps)(ForceLogin));
