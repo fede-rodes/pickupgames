@@ -9,6 +9,7 @@ import Constants from '../../../api/constants.js';
 import GoogleAutoCompleteControlled from '../../components/forms/google-auto-complete-controlled.jsx';
 import SliderControlled from '../../components/forms/slider-controlled';
 import CardsContainer from '../../components/feed/marker-cards/cards-container.jsx';
+import styles from './styles.scss';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -24,6 +25,7 @@ const FeedListMobile = (props) => {
     handleMarkerCardClick,
     handlePageLimitReached,
   } = props;
+
   const { searchText, searchType, place, mapBounds, errors } = reduxState;
   const { radius } = place;
   const { markers, markersReady, numLoadedMarkers, numTotalMarkers } = meteorData;
@@ -32,7 +34,7 @@ const FeedListMobile = (props) => {
     <DefaultLayout width="600px" padding="20px 15px 0">
       <Button.Group
         size="larger"
-        className="cm-float-buttons"
+        className={styles.floatButtons}
       >
         {/* Only display change view button if either search type is set */}
         {(!_.isEmpty(place) || !_.isEmpty(mapBounds)) && (
@@ -61,8 +63,6 @@ const FeedListMobile = (props) => {
                   value={searchText}
                   onChange={handleSearchTextChange}
                   onSelect={handlePlaceChange}
-                  // errorText={AuxFunctions.getFieldNameErrors(errors, 'searchText')}
-                  // style={{ width: '100%' }}
                 />
               </FormItem>
             </Form>

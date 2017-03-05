@@ -5,6 +5,7 @@ import { Button, Icon } from 'antd';
 import GoogleMaps from '../../../api/google-maps/namespace.js';
 import '../../../api/google-maps/api.js'; // GoogleMaps.api
 import DefaultLayout from '../../layouts/default/default-layout.jsx';
+import styles from './styles.scss';
 // import AuxFunctions from '../../../api/aux-functions.js';
 // import Constants from '../../../api/constants.js';
 
@@ -56,7 +57,7 @@ class FeedMapMobile extends Component {
     }
 
     const center = reduxState[searchType].center; // place.center || mapBounds.center
-    GoogleMaps.api.init('feed-map', center, zoom);
+    GoogleMaps.api.init('js-feed-map', center, zoom);
     GoogleMaps.api.addEventListenerIdle(handleMapPan);
     placeMarkers(searchType, markers);
   }
@@ -80,7 +81,7 @@ class FeedMapMobile extends Component {
         {reduxState.showRecalculateMarkersButton && (
           <Button
             type="primary"
-            className="cm-float-button"
+            className={styles.redoSearchButton}
             onClick={handleRecalculateMarkersMapButtonClick}
           >
             Redo search here&nbsp;<Icon type="reload" />
@@ -88,7 +89,7 @@ class FeedMapMobile extends Component {
         )}
         <Button.Group
           size="larger"
-          className="cm-float-buttons"
+          className={styles.floatButtons}
         >
           <Button
             type="primary"
@@ -103,7 +104,7 @@ class FeedMapMobile extends Component {
             NEW&nbsp;<Icon type="plus" />
           </Button>
         </Button.Group>
-        <div id="feed-map" /* see _feed-map.scss */ />
+        <div id="js-feed-map" className={styles.feedMap} />
       </DefaultLayout>
     );
   }

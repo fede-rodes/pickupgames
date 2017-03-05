@@ -1,0 +1,28 @@
+.feedMap {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - #{$header-height});
+}
+
+// TODO: change pre-procesor? use 'Property Lookup' to refer to property without
+// using an intermediate variable. Stylus? CSSnext?
+// TODO: compose
+// Fixed and centered
+$width: 146px;
+.redoSearchButton {
+  position: fixed;
+  top: 80px;
+  left: calc(50% - (#{$width} / 2));
+  width: $width;
+  z-index: 2;
+}
+
+// Fixed and centered
+$width: 166px;
+.floatButtons {
+  position: fixed;
+  bottom: 65px;
+  left: calc(50% - (#{$width} / 2));
+  width: $width;
+  z-index: 2;
+}
