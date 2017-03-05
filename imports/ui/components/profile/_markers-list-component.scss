@@ -1,0 +1,18 @@
+.markers-list-component {
+
+  div.listing {
+    border: 2px solid $mid-grey-color;
+    // @include rounded(3px);
+    padding: 15px;
+    max-width: 100%;
+    margin-bottom: 20px;
+    cursor: pointer;
+
+    p {
+      pointer-events: none;
+    }
+    p.marker-status {
+      color: $red-color;
+    }
+  }
+}

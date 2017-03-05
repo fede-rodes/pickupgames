@@ -1,0 +1,49 @@
+/**
+* @see {@link http://julian.io/how-to-use-postcss-in-meteor/}
+* @see {@link https://medium.com/@juliancwirko/how-to-use-css-linter-in-meteor-c60b2f24f969#.bvya24363}
+* @see {@link http://julian.io/some-things-you-may-think-about-postcss-and-you-might-be-wrong/}
+*/
+
+
+// @import '{}/node_modules/@blueprintjs/core/dist/variables.scss';
+// @import "~react-toolbox/lib/commons";
+// @import '{}/node_modules/react-toolbox/lib/commons';
+// @import '{}/node_modules/basscss/css/basscss.css';
+
+/**
+* Classes prefixed with 'cm' refer to custome classes (created by me), ie, not
+* classes defined by the Mobi.css framework.
+*/
+$red-color: #9e0b0f;
+$blue-color: #009fe8;
+$green-color: #2d7230;
+$ultra-light-grey-color: #f8f8f8;
+$light-grey-color: #efefef;
+$mid-grey-color: #676766;
+$dark-grey-color: #333333;
+$input-textarea-grey-color: #c8c8c8;
+$font-stack: 'Open Sans', sans-serif;
+$font-size: 16px;
+// $app-width: 1050px;
+$footer-height: 130px;
+$header-height: 50px;
+
+#react-root {
+  height: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.w600 {
+  max-width: 600px;
+}
+
+.w300 {
+  max-width: 300px;
+}
