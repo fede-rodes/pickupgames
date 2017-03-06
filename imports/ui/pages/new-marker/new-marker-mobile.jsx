@@ -166,7 +166,7 @@ class NewMarkerMobile extends Component {
               onSelect={handleLocationOptionSelect}
             />
           </FormItem>
-          <div id="js-new-marker-map" className="mt1 mb2 full-width" style={{ height: '200px' }}></div>
+          <div id="js-new-marker-map" className="mt1 mb2 full-width h200"></div>
           <FormItem
             label="Maximum number of participants*"
             validateStatus={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants') && 'error' || ''}

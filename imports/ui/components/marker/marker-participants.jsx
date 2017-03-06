@@ -14,14 +14,19 @@ const MarkerParticipants = (props) => {
   } = props;
 
   const items = participants.map(({ userName, userAvatar }, index) => (
-    <li key={index}>
+    <div
+      key={index}
+      className="p1"
+      title={userName}
+    >
       <img
         src={userAvatar}
         alt={userName}
-        className="cm-participant-image"
+        className="circle block"
+        height="40"
       />
-      <span>{userName}</span>
-    </li>
+      <span>{userName.length <= 8 ? userName : `${userName.slice(0, 6)}...`}</span>
+    </div>
   ));
 
   // Determine button's text
@@ -29,14 +34,14 @@ const MarkerParticipants = (props) => {
   const text = curUserIsInParticipantsList ? 'UNJOIN' : 'JOIN';
 
   return (
-    <div className="marker-participants-component">
+    <div>
       <h2>Participants</h2>
       <Button onClick={onJoinUnjoinButtonClick}>
         {text}
       </Button>
-      <ul>
+      <div className="flex flex-wrap">
         {items}
-      </ul>
+      </div>
     </div>
   );
 };

@@ -20,7 +20,7 @@ class MarkerDetails extends Component {
       lat: coordinates[1],
       lng: coordinates[0],
     };
-    GoogleMaps.api.init('map', center, 12); // 12 = zoom
+    GoogleMaps.api.init('js-map', center, 12); // 12 = zoom
     GoogleMaps.api.addMarker(center);
   }
 
@@ -40,50 +40,49 @@ class MarkerDetails extends Component {
     } = this.props.marker;
 
     return (
-      <div className="marker-details-component">
-        <div className="flex-left units-gap">
-          <div className="unit">
+      <div>
+        <div className="flex">
+          <div className="flex-auto">
             <h2>{title}</h2>
             <span title="Created by">
               <small>{createdByName}</small>
             </span>
           </div>
-          <div className="unit-0">
+          <div className="flex-none">
             <img
               src=""
               alt={sport}
               height="60"
               width="60"
-              style={{ float: 'right' }}
             />
           </div>
         </div>
-        <div className="top-gap">
+        <div className="mt1">
           <table>
             <tbody>
               <tr title="Date">
-                <td style={{ paddingRight: '10px' }}><Icon type="calendar" /></td>
+                <td className="pr1"><Icon type="calendar" /></td>
                 <td>{moment.utc(date).format('dddd MMM Do YYYY')}</td>
               </tr>
               <tr title="Time">
-                <td style={{ paddingRight: '10px' }}><Icon type="clock-circle-o" /></td>
+                <td className="pr1"><Icon type="clock-circle-o" /></td>
                 <td>{moment.utc(time).format('HH:mm')}h</td>
               </tr>
               <tr title="Cost per person">
-                <td style={{ paddingRight: '10px' }}><Icon type="credit-card" /></td>
+                <td className="pr1"><Icon type="credit-card" /></td>
                 <td>{cost}</td>
               </tr>
               <tr title="Address">
-                <td style={{ paddingRight: '10px' }}><Icon type="environment-o" /></td>
+                <td className="pr1"><Icon type="environment-o" /></td>
                 <td>{location.description}</td>
               </tr>
             </tbody>
           </table>
-          <div id="map" className="map top-gap" style={{ width: '100%', height: '200px', border: '1px solide #e9e9e9' }}></div>
+          <div id="js-map" className="full-width h200 mt1"></div>
           {description && description.length > 0 && (
             <div>
               <hr />
-              <pre className="top-gap">
+              <pre className="mt1">
                 <small>{description}</small>
               </pre>
             </div>

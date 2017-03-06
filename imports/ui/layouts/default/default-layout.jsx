@@ -22,10 +22,10 @@ const DefaultLayout = (props) => {
     <div className={styles.DefaultLayout}>
       {withHeader && <HeaderContainer />}
       <main
-        className={`${center && 'flex items-center justify-center'}`}
+        className={`${center && 'flex items-center justify-center' || ''}`}
         style={{ maxWidth: width, padding }}
       >
-        <div className={`${center && 'flex-auto'}`}>
+        <div className={`${center && 'flex-auto' || ''}`}>
           {forceLogin
             ? <ForceLoginContainer children={children} />
             : children

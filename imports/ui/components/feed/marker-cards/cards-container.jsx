@@ -34,7 +34,7 @@ const CardsContainer = ({ items, itemsReady, onItemClick }) => {
   }
 
   return (
-    <div className="cards-container-component">
+    <div>
       {cards}
       {noResultsOrLoading}
     </div>

@@ -1,9 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import moment from 'moment';
 import { Card, Icon } from 'antd';
-import _ from 'underscore';
-// import { Card, CardTitle, CardActions, CardHeader, CardText } from 'material-ui/Card';
-// import AuxFunctions from '../../../../api/aux-functions.js';
+// import _ from 'underscore';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -44,13 +42,13 @@ class MarkerCard extends Component {
     const avatars = participants.map((p, index) => (
       <div
         key={index}
-        className="unit-0"
-        style={{ width: '30px' }}
+        className="flex-none pr1"
+        title={p.name}
       >
         <img
           src={p.avatar}
           alt={p.name}
-          height="25"
+          height="30"
         />
       </div>
     )) || null;
@@ -78,7 +76,7 @@ class MarkerCard extends Component {
         {/* <p title="Participants / limit">
           <Icon type="user" />&nbsp;{`${participants.length} / ${maxParticipants}`}
         </p> */}
-        <div className="flex-left top-gap">
+        <div className="flex flex-wrap mt1">
           {avatars}
         </div>
       </Card>
@@ -113,23 +111,3 @@ MarkerCard.propTypes = {
 };
 
 export default MarkerCard;
-
-      /* <Card
-        onTouchTap={this.handleClick}
-        containerStyle={{ marginTop: '14px', cursor: 'pointer' }}
-      >
-        <CardTitle
-          title={title}
-          subtitle={`${moment.utc(date).format('ddd, MMM Do YYYY')}, ${moment.utc(time).format('HH:mm')}h`}
-        />
-        <CardText>
-          <p title="Location">
-            <i className="fa fa-map-marker"></i>
-            &nbsp;{location.description}
-          </p>
-          <p title="Participants / limit">
-            <i className="fa fa-users"></i>
-            &nbsp;{`${participants.length} / ${maxParticipants}`}
-          </p>
-        </CardText>
-      </Card> */

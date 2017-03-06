@@ -53,7 +53,8 @@ class Header extends Component {
       <img
         src={user.avatar}
         alt={user.profile.name}
-        height="25"
+        height="30"
+        className="circle"
       />
     );
   }
