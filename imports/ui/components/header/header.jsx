@@ -72,6 +72,7 @@ class Header extends Component {
       // Public links
       { icon: 'environment-o', text: 'Activities', key: 'feed' },
       { icon: 'plus', text: 'New Activity', key: 'new-marker' },
+      { icon: 'plus', text: 'Discussion', key: 'comments' },
       // Auth links
       { icon: 'export', text: 'Logout', key: 'logout', state: 'loggedIn' },
       { icon: 'select', text: 'Login', key: 'login', state: 'loggedOut' },

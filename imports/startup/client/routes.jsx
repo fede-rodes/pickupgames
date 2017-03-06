@@ -1,20 +1,17 @@
 import React from 'react';
 import { mount } from 'react-mounter';
-// import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 // import { EJSON } from 'meteor/ejson';
-// import { check, Match } from 'meteor/check';
 import Store from '../../api/redux/client/store.js';
 const { dispatch } = Store;
 import Actions from '../../api/redux/client/actions.js';
-// import Constants from '../../api/constants.js';
 import Root from '../../ui/layouts/root.jsx';
-// import AppContainer from '../../ui/layouts/app-container.jsx';
 import HomePageContainer from '../../ui/pages/home/home-page.jsx';
 import FeedPageContainer from '../../ui/pages/feed/feed-page.jsx';
 import NewMarkerPageContainer from '../../ui/pages/new-marker/new-marker-page.jsx';
 import MarkerPageContainer from '../../ui/pages/marker/marker-page.jsx';
 import ProfilePageContainer from '../../ui/pages/profile/profile-page.jsx';
+import CommentsPage from '../../ui/pages/comments-page.jsx';
 import NotFoundPage from '../../ui/pages/not-found-page.jsx';
 
 console.log('[router] loading routes');
@@ -131,6 +128,15 @@ FlowRouter.route('/profile', {
   action() {
     mount(Root, {
       content: () => <ProfilePageContainer />,
+    });
+  },
+});
+
+FlowRouter.route('/comments', {
+  name: 'comments',
+  action() {
+    mount(Root, {
+      content: () => <CommentsPage />,
     });
   },
 });
