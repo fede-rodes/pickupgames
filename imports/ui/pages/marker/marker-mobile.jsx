@@ -20,12 +20,12 @@ const MarkerMobile = (props) => {
 
   return (
     <DefaultLayout width="600px" padding="20px 15px 0" forceLogin>
-      <Card className="top-gap">
+      <Card className="mt1">
         <MarkerDetails
           marker={marker}
         />
       </Card>
-      <Card className="top-gap">
+      <Card className="mt1">
         <MarkerParticipants
           curUserId={curUserId}
           participants={marker.participants}
@@ -33,8 +33,7 @@ const MarkerMobile = (props) => {
           onJoinUnjoinButtonClick={handleJoinUnjoinButtonClick}
         />
       </Card>
-      <Card className="top-gap">
-        <h2>Comments</h2>
+      <Card className="mt1">
         <PostsSystemContainer postedOn={marker._id} />
       </Card>
     </DefaultLayout>

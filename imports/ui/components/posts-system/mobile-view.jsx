@@ -51,13 +51,13 @@ const MobileView = (props) => {
 
   return (
     <div className="posts-system-component">
+      <h2>Comments</h2>
       <NewPostForm
         value={newPostContent}
         onChange={handleNewPostContentChange}
         onSubmit={handleNewPostSubmit}
         errors={errors}
       />
-      <br />
       {items}
       {noResultsOrLoading}
     </div>
