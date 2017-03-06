@@ -1,10 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import moment from 'moment';
-import { Card, Icon, Popover, Form } from 'antd';
+import { Card, Icon, Form } from 'antd';
 const FormItem = Form.Item;
 import InputControlled from '../forms/input-controlled';
-// import TextFieldControlled from '../forms/text-field-controlled';
-// import RaisedButton from 'material-ui/RaisedButton';
 import AuxFunctions from '../../../api/aux-functions.js';
 
 //------------------------------------------------------------------------------
@@ -49,8 +47,6 @@ class Post extends Component {
       data,
       editPostId,
       editPostContent,
-      // onEditPostButtonClick,
-      // onEditPostContentChange,
       onSaveEditPostButtonClick,
       onCancelEditPostButtonClick,
       errors,
@@ -58,27 +54,9 @@ class Post extends Component {
 
     const { _id, createdAt, createdBy, content, createdByName } = data;
 
-    /* const editDeleteButtons = (
-      <div>
-        <p><Icon type="delete" />&nbsp;<a href="" onClick={this.handleEditButtonClick}>Edit</a></p>
-        <p><Icon type="edit" />&nbsp;<a href="" onClick={this.handleDeleteButtonClick}>Delete</a></p>
-      </div>
-    ); */
-
-    /* const editIcons = curUserId && curUserId === createdBy && (
-      <div className="icons-container">
-        <Popover content={editDeleteButtons} trigger="click">
-          <Icon
-            type="ellipsis"
-            style={{ float: 'right', cursor: 'pointer', position: 'relative', bottom: '-20px', fontSize: '20px' }}
-          />
-        </Popover>
-      </div>
-    ); */
-
     const editIcons = curUserId && curUserId === createdBy && (
-      <div className="icons-container">
-        <div style={{ float: 'right', cursor: 'pointer', position: 'relative', bottom: '-10px' }}>
+      <div className="relative">
+        <div className="absolute inline-block right-0">
           <a href="" onClick={this.handleEditButtonClick}><Icon type="edit" />&nbsp;Edit</a>
           &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
           <a href="" onClick={this.handleDeleteButtonClick}><Icon type="delete" />&nbsp;Delete</a>
@@ -89,7 +67,7 @@ class Post extends Component {
     if (editPostId !== _id) {
       return (
         <Card
-          className="post-component top-gap"
+          className="mt2"
           title={<span><Icon type="user" />&nbsp;{createdByName}</span>}
           extra={<span><Icon type="clock-circle-o" />&nbsp;{moment.utc(createdAt).format('ddd, MMM Do YYYY, HH:mm')}</span>}
         >
@@ -99,7 +77,7 @@ class Post extends Component {
       );
     }
     return (
-      <div className="edit-post-component">
+      <div className="my3">
         <Form>
           <FormItem
             validateStatus={AuxFunctions.getFieldNameErrors(errors, 'editPost') && 'error' || ''}
@@ -114,10 +92,10 @@ class Post extends Component {
             />
           </FormItem>
         </Form>
-        <div className="buttons-container">
-          <span onClick={onSaveEditPostButtonClick}>save</span>
+        <div className="mtn2">
+          <a href="#" onClick={onSaveEditPostButtonClick}>save</a>
           &nbsp;&nbsp;-&nbsp;&nbsp;
-          <span onClick={onCancelEditPostButtonClick}>cancel</span>
+          <a href="#" onClick={onCancelEditPostButtonClick}>cancel</a>
         </div>
       </div>
     );

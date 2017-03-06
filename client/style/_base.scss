@@ -10,26 +10,11 @@
 // @import '{}/node_modules/react-toolbox/lib/commons';
 // @import '{}/node_modules/basscss/css/basscss.css';
 
-#react-root {
-  height: 100%;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.full-height {
-  height: 100%;
-}
-
-.w600 {
-  max-width: 600px;
-}
-
-.w300 {
-  max-width: 300px;
-}
-
-.pointer {
-  cursor: pointer;
-}
+#react-root { height: 100%; }
+.full-width { width: 100%; }
+.full-height { height: 100%; }
+.w600 { max-width: 600px; }
+.w300 { max-width: 300px; }
+.pointer { cursor: pointer; }
+.mtn1{ margin-top: -.5rem; }
+.mtn2{ margin-top: -1rem }

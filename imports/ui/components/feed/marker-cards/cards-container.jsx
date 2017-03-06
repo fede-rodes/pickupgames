@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Alert } from 'antd';
 import MarkerCard from './marker-card.jsx';
 
 //------------------------------------------------------------------------------
@@ -20,14 +21,15 @@ const CardsContainer = ({ items, itemsReady, onItemClick }) => {
   // No results text or loading indicator
   let noResultsOrLoading = null;
   if (!itemsReady) {
-    noResultsOrLoading = <div className="loader">loading...</div>;
+    noResultsOrLoading = <div>loading...</div>;
   } else if (items.length === 0) {
     noResultsOrLoading = (
-      <p className="no-items">
-        No results are available for your search.
-        <br />
-        Try searching again by City, Neighbourhood or Postcode.
-      </p>
+      <Alert
+        message="No results are available for your search."
+        description="Try searching again by City, Neighbourhood or Postcode."
+        type="info"
+        showIcon
+      />
     );
   }
 

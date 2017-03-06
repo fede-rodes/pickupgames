@@ -118,7 +118,8 @@ class PostsSystemComponent extends Component {
     }
   }
 
-  handleSaveEditPostButtonClick() {
+  handleSaveEditPostButtonClick(e) {
+    e.preventDefault();
     const { reduxState, reduxActions } = this.props;
 
     // Disable submit button
@@ -154,7 +155,8 @@ class PostsSystemComponent extends Component {
     });
   }
 
-  handleCancelEditPostButtonClick() {
+  handleCancelEditPostButtonClick(e) {
+    e.preventDefault();
     const { reduxActions } = this.props;
 
     reduxActions.dispatchClearTextField('editPostId');

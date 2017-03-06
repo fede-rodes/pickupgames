@@ -24,7 +24,7 @@ const MobileView = (props) => {
   // No results text or loading indicator
   let noResultsOrLoading = null;
   if (!postsReady) {
-    noResultsOrLoading = <div className="loader">loading...</div>;
+    noResultsOrLoading = <div>loading...</div>;
   } else if (posts.length === 0) {
     noResultsOrLoading = (
       <div className="no-posts">

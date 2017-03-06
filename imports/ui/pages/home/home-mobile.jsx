@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Form } from 'antd';
+import { Form, Icon } from 'antd';
 const FormItem = Form.Item;
 import DefaultLayout from '../../layouts/default/default-layout.jsx';
 import GoogleAutoCompleteControlled from '../../components/forms/google-auto-complete-controlled.jsx';
