@@ -26,7 +26,7 @@ const CardsContainer = ({ items, itemsReady, onItemClick }) => {
       <p className="no-items">
         No results are available for your search.
         <br />
-        Try searching again by Neighbourhood, City or Country.
+        Try searching again by City, Neighbourhood or Postcode.
       </p>
     );
   }

@@ -22,6 +22,6 @@ reason I'll focus on mobile view only.
 ## CSS
 1. We are using basscss (http://basscss.com) utility library for atomic CSS, ant design (https://ant.design) for built in components and CSS-Modules (https://github.com/nathantreid/meteor-css-modules) to make our life easier :)
 
-## Contribute
-1. Slack channel: https://fulbacho.slack.com
-2. Trello: https://trello.com/b/4lLTveMj/general
+## Contribute :)
+I'm looking for some help. If you like the project, don't hesitate to create and
+issue to say 'hello', or contact me via twitter (@fede_rodes).
