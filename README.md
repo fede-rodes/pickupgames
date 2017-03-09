@@ -19,6 +19,9 @@ reason I'll focus on mobile view only.
 1. meteor npm install
 2. setup ESlint with your IDE, see https://guide.meteor.com/code-style.html
 
+## Run
+1. to run the project type: meteor --settings settings-dev.json (you won't be able to use the login system though, you need some facebook credentials in order to do that, but you can let me know me know and I'll give you mine!)
+
 ## CSS
 1. We are using basscss (http://basscss.com) utility library for atomic CSS, ant design (https://ant.design) for built in components and CSS-Modules (https://github.com/nathantreid/meteor-css-modules) to make our life easier :)
 
