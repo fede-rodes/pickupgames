@@ -23,6 +23,9 @@ The aim of this project is to re-build fulbacho.net using a much modern stack (M
 3. install npm dependencies: meteor npm install
 4. run the app: meteor --settings settings-dev.json
 
+## Run
+1. to run the project type: meteor --settings settings-dev.json (you won't be able to use the login system though, you need some facebook credentials in order to do that, but you can let me know me know and I'll give you mine!)
+
 ## CSS
 1. We are using basscss (http://basscss.com) utility library for atomic CSS, ant design (https://ant.design) for built in components and CSS-Modules (https://github.com/nathantreid/meteor-css-modules) to make our life easier :)
 
