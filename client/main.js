@@ -1,5 +1,2 @@
-// import './main.html';
-// import '../imports/startup/both/config.js';
+// Entry point for client folder
 import '../imports/startup/client/index.js';
-// import '../imports/autorun/client/index.js';
-// import '../imports/startup/client/routes.jsx';
