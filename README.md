@@ -21,10 +21,11 @@ The aim of this project is to re-build fulbacho.net using a much modern stack (M
 1. cd to your meteor projects folder
 2. git clone https://github.com/fede-rodes/pickupgames.git && cd pickupgames
 3. install npm dependencies: meteor npm install
-4. run the app: meteor --settings settings-dev.json
+4. to run the project type: meteor --settings settings-dev.json
 
-## Run
-1. to run the project type: meteor --settings settings-dev.json (you won't be able to use the login system though, you need some facebook credentials in order to do that, but you can let me know me know and I'll give you mine!)
+OBS: you won't be able to use the login system unless you register the app using your facebook developer account. You'll find the instructions on how to do it right here: https://guide.meteor.com/accounts.html#accounts-ui
+
+After you register the app, add the credentials in the settings-dev.json file
 
 ## CSS
 1. We are using basscss (http://basscss.com) utility library for atomic CSS, ant design (https://ant.design) for built in components and CSS-Modules (https://github.com/nathantreid/meteor-css-modules) to make our life easier :)

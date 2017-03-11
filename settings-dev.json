@@ -1,4 +1,10 @@
 {
+	"public": {
+		"facebook": {
+  		"appId": "xxxxxxxxxxxxxx",
+			"commentsUrl": "http//facebook.com"
+		}
+	},
 	"facebook": {
   	"appId": "xxxxxxxxxxxxxx",
 	 	"secret": "xxxxxxxxxxxxxx"
