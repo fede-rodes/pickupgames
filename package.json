@@ -13,7 +13,6 @@
     "classnames": "^2.2.5",
     "immutability-helper": "^2.0.0",
     "indexof": "0.0.1",
-    "less": "^2.7.2",
     "meteor-node-stubs": "^0.2.3",
     "moment": "^2.17.0",
     "normalize.css": "^4.1.1",
@@ -94,14 +93,10 @@
   "cssModules": {
     "extensions": [
       "scss",
-      "less",
       "css"
     ],
     "enableSassCompilation": [
       "scss"
-    ],
-    "enableLessCompilation": [
-      "less"
     ],
     "passthroughPaths": [
       "node_modules/antd",
