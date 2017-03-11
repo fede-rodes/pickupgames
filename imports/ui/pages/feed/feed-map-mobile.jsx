@@ -23,13 +23,14 @@ function placeMarkers(searchType, markers) {
     const latLng = { lat: coordinates[1], lng: coordinates[0] };
     const heading = `${sport}, ${moment.utc(date).format('ddd MMM Do YYYY')}, ${moment.utc(time).format('HH:mm')}h`;
     const content = (
-      `<a className="cm-anchor-wrapper" href="/marker/${_id}">
-        <div className="cm-info-window">
-          <h4 className="cm-heading">${title}</h4>
-          <div className="cm-body">
-            <p>${moment.utc(date).format('ddd, MMM Do YYYY')}</p>
-            <p>${moment.utc(time).format('HH:mm')}h</p>
-          </div>
+      `<a className="block" href="/marker/${_id}">
+        <h4>${title}</h4>
+        <div className="mt2">
+          <p>
+            ${moment.utc(date).format('ddd, MMM Do YYYY')}
+            &nbsp;-&nbsp;
+            ${moment.utc(time).format('HH:mm')}h
+          </p>
         </div>
       </a>`
     );
@@ -77,7 +78,7 @@ class FeedMapMobile extends Component {
     } = this.props;
 
     return (
-      <DefaultLayout>
+      <DefaultLayout withFooter={false}>
         {reduxState.showRecalculateMarkersButton && (
           <Button
             type="primary"

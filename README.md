@@ -12,18 +12,20 @@ The aim of this project is to re-build fulbacho.net using a much modern stack (M
 - If one of the activities in the list is clicked, the user will be re-directed to the activity page where all the data about that particular activity is displayed (location, time, etc), as well as the list of participants and a simple post system to allow communication among the users.
 - The activity page should provide a link to the admin dashboard to allow changing any data in the game (location, date, time, ...)
 
+## Maybe for the future
+- I'd like to try Inferno (https://github.com/infernojs/inferno) or Preact (https://github.com/developit/preact) to make the app much more light weight
+- Integration with facebook notification system + bot for facebook messenger (90% of fulbacho user signed up using facebook account)
+- Service workers to make the app a Progressive Web App
 
-## Clone repo
+## Get started
 1. cd to your meteor projects folder
 2. git clone https://github.com/fede-rodes/pickupgames.git && cd pickupgames
-
-## Install dependencies
-1. meteor npm install
-2. setup ESlint with your IDE, see https://guide.meteor.com/code-style.html
+3. install npm dependencies: meteor npm install
+4. run the app: meteor --settings settings-dev.json
 
 ## CSS
 1. We are using basscss (http://basscss.com) utility library for atomic CSS, ant design (https://ant.design) for built in components and CSS-Modules (https://github.com/nathantreid/meteor-css-modules) to make our life easier :)
 
 ## Contribute :)
 I'm looking for some help. If you like the project, don't hesitate to create and
-issue to say 'hello', or contact me via twitter (@fede_rodes).
+issue to say 'hello', or contact me via twitter (@fede_rodes) or to my email: federodes@gmail.com.
