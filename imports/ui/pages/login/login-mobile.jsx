@@ -11,7 +11,7 @@ const LoginMobile = (props) => {
   const { canSubmit, errors } = reduxState;
 
   return (
-    <DefaultLayout width="350px" padding="20px 15px 0" withHeader={false}>
+    <DefaultLayout width="350px" padding="20px 15px 0" withoutHeader>
       <img
         src="/images/logo.png"
         alt="logo"

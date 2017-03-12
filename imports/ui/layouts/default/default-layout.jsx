@@ -9,8 +9,8 @@ import styles from './styles.scss';
 const DefaultLayout = (props) => {
   const {
     children,
-    withHeader,
-    withFooter,
+    withoutHeader,
+    withoutFooter,
     width,
     padding,
     center,
@@ -18,7 +18,7 @@ const DefaultLayout = (props) => {
 
   return (
     <div className={styles.DefaultLayout}>
-      {withHeader && <HeaderContainer />}
+      {!withoutHeader && <HeaderContainer />}
       <main
         className={`${center && 'flex items-center justify-center' || ''}`}
         style={{ maxWidth: width, padding }}
@@ -27,7 +27,7 @@ const DefaultLayout = (props) => {
           {children}
         </div>
       </main>
-      {withFooter && <Footer />}
+      {!withoutFooter && <Footer />}
     </div>
   );
 };
@@ -37,16 +37,16 @@ DefaultLayout.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]).isRequired,
-  withHeader: PropTypes.bool.isRequired,
-  withFooter: PropTypes.bool.isRequired,
+  withoutHeader: PropTypes.bool.isRequired,
+  withoutFooter: PropTypes.bool.isRequired,
   width: PropTypes.string.isRequired, // '600px', '90%', defaults to '100%'
   padding: PropTypes.string.isRequired, // '0', '30px 15px', defaults to '0'
   center: PropTypes.bool.isRequired,
 };
 
 DefaultLayout.defaultProps = {
-  withHeader: true,
-  withFooter: true,
+  withoutHeader: false,
+  withoutFooter: false,
   width: '100%',
   padding: '0',
   center: false,

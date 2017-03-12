@@ -6,7 +6,6 @@ import Store from '../../api/redux/client/store.js';
 const { dispatch } = Store;
 import Actions from '../../api/redux/client/actions.js';
 import Root from '../../ui/layouts/root.jsx';
-import HomePageContainer from '../../ui/pages/home/home-page.jsx';
 import FeedPageContainer from '../../ui/pages/feed/feed-page.jsx';
 import NewMarkerPageContainer from '../../ui/pages/new-marker/new-marker-page.jsx';
 import MarkerPageContainer from '../../ui/pages/marker/marker-page.jsx';
@@ -41,22 +40,8 @@ FlowRouter.triggers.enter([ensurePath]);
 FlowRouter.route('/', {
   name: 'index',
   action() {
-    FlowRouter.go('home');
+    FlowRouter.go('feed');
   },
-});
-
-FlowRouter.route('/home', {
-  name: 'home',
-  action() {
-    mount(Root, {
-      content: () => <HomePageContainer />,
-    });
-  },
-  // calls when we decide to move to another route
-  // but calls before the next route started
-  triggersExit: [() => {
-    dispatch(Actions.setInitialState('home'));
-  }],
 });
 
 FlowRouter.route('/feed', {

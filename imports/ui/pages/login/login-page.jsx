@@ -19,16 +19,6 @@ class LoginPage extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  /* componentWillMount() {
-    // Redirect user to feed page if logged in
-    const { meteorData } = this.props;
-    const { loggingIn, loggedIn } = meteorData;
-
-    if (loggingIn || loggedIn) {
-      FlowRouter.go('feed');
-    }
-  } */
-
   handleSubmit() {
     const { reduxActions } = this.props;
 
@@ -73,10 +63,6 @@ LoginPage.propTypes = {
     errors: PropTypes.object.isRequired,
   }).isRequired,
   reduxActions: PropTypes.object.isRequired,
-  meteorData: PropTypes.shape({
-    loggingIn: PropTypes.bool.isRequired,
-    loggedIn: PropTypes.bool.isRequired,
-  }).isRequired,
 };
 //------------------------------------------------------------------------------
 // REDUX INTEGRATION:
@@ -107,22 +93,5 @@ function mapDispatchToProps(dispatch) {
 
   return { reduxActions };
 }
-//------------------------------------------------------------------------------
-// PAGE CONTAINER DEFINITION:
-//------------------------------------------------------------------------------
-/**
-* @summary Wrapper around the 'Page' component to handle Domain State Meteor
-* reactivity (component-level subscriptions etc etc), and pass data down to
-* 'Page' component.
-*/
-const LoginPageContainer = createContainer(() => {
-  // Meteor subscriptions go here
-  return {
-    meteorData: {
-      loggingIn: !!Meteor.loggingIn(),
-      loggedIn: !!Meteor.user(),
-    },
-  };
-}, connect(mapStateToProps, mapDispatchToProps)(LoginPage));
 
-export default LoginPageContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);

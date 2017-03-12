@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import _ from 'underscore';
 import LoadingPage from '../pages/loading-page.jsx';
-import LoginPageContainer from '../pages/login/login-page.jsx';
+import LoginPage from '../pages/login/login-page.jsx';
 
 //------------------------------------------------------------------------------
 // COMPONENT:
@@ -21,7 +21,7 @@ const App = ({ content, meteorData }) => {
   if (!subsReady || loggingIn) return <LoadingPage />;
 
   // Render login page if user is not authenticated
-  if (!loggedIn) return <LoginPageContainer />;
+  if (!loggedIn) return <LoginPage />;
 
   // Otherwise, render requested page
   return content();
