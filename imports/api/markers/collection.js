@@ -131,23 +131,10 @@ Markers.collection.attachSchema(new SimpleSchema({
     },
   },
 
-  maxParticipants: {
-    type: Number,
-    label: 'Maximum number of participants for the activity',
-    min: 2,
-  },
-
-  cost: {
-    type: String,
-    label: 'Cost per person',
-    max: 40,
-  },
-
   participants: {
     type: [Object],
     label: 'List of participants for the activity',
     defaultValue: [],
-    // optional: true,
   },
 
   'participants.$.userId': {
@@ -195,7 +182,21 @@ Markers.collection.attachSchema(new SimpleSchema({
     optional: true,
   },
 
-  fieldType: {
+  maxParticipants: {
+    type: Number,
+    label: 'Maximum number of participants for the activity',
+    min: 2,
+    optional: true,
+  },
+
+  cost: {
+    type: String,
+    label: 'Cost per person',
+    max: Constants.MARKER_COST_MAX_LENGTH,
+    optional: true,
+  },
+
+  /* fieldType: {
     type: String,
     label: 'Brief description of the field where the activity is going to take place: surface type, dimension, whatever relevant',
     max: Constants.MARKER_FIELD_TYPE_MAX_LENGTH,
@@ -213,6 +214,6 @@ Markers.collection.attachSchema(new SimpleSchema({
     type: String,
     label: 'Id of the venue where the activity is going to take place',
     optional: true,
-  },
+  }, */
 
 }));

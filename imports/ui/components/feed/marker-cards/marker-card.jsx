@@ -67,14 +67,13 @@ class MarkerCard extends Component {
         <p title="Address">
           <Icon type="environment-o" />&nbsp;{location.description}
         </p>
-        <p title="Cost per person">
-          <Icon type="credit-card" />&nbsp;{cost}
-        </p>
+        {!!cost && (
+          <p title="Cost per person">
+            <Icon type="credit-card" />&nbsp;{cost}
+          </p>
+        )}
         {/* <p title="Comments">
           <Icon type="message" />&nbsp;{numPosts}
-        </p> */}
-        {/* <p title="Participants / limit">
-          <Icon type="user" />&nbsp;{`${participants.length} / ${maxParticipants}`}
         </p> */}
         <div className="flex flex-wrap mt1">
           {avatars}

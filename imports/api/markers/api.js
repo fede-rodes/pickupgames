@@ -90,12 +90,12 @@ Markers.api.checkNewMarkerFields = (newMarker) => {
     errors.address.push('Please choose one of the options from the dropdown');
   }
 
-  if (!maxParticipants) {
+  /* if (!maxParticipants) {
     errors.maxParticipants.push('This field is required');
-  }
+  } */
 
-  if (!cost) {
-    errors.cost.push('This field is required');
+  if (cost && cost.trim().length > Constants.MARKER_COST_MAX_LENGTH) {
+    errors.cost.push(`Cost is too long, max ${Constants.MARKER_COST_MAX_LENGTH} characters`);
   }
 
   return errors;

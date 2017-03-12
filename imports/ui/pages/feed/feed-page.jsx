@@ -144,7 +144,7 @@ class FeedPage extends Component {
     // is not empty) save search value into user's doc...
     else {
       // TODO: avoid calling updateSearchValue method if current url search
-      // value equals the user's current value:
+      // value equals the user's current search value:
       // && curUser.searchValue !== urlState.'searchValue' instead of
       // _.isEmpty(curUser.searchValue)
       if (curUser && _.isEmpty(curUser.searchValue)) {
@@ -159,7 +159,7 @@ class FeedPage extends Component {
     const { curUser: nextCurUser } = nextMeteorData;
 
     // Update redux store everytime the url changes. Additionally, update user's
-    // profile in order to store the last used search value.
+    // profile in order to store the latest used search value.
     if (!_.isEqual(urlState, nextUrlState)) {
       syncUiState(nextUrlState, reduxActions);
       if (nextCurUser) {

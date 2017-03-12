@@ -39,11 +39,10 @@ class InputControlled extends Component {
   }
 
   render() {
-    const { /*inputType, */ id, value, onChange, ...other } = this.props;
+    const { id, value, onChange, ...other } = this.props;
 
     return (
       <Input
-        // type={inputType}
         id={id}
         value={this.state.value}
         onChange={this.handleChange}
@@ -54,11 +53,9 @@ class InputControlled extends Component {
 }
 
 InputControlled.propTypes = {
-  // type: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   value: PropTypes.any.isRequired,
   onChange: PropTypes.func.isRequired,
-  // see material-ui documentation
 };
 
 export default InputControlled;

@@ -7,10 +7,11 @@ import Constants from '../../../api/constants.js';
 import DefaultLayout from '../../layouts/default/default-layout.jsx';
 import GoogleMaps from '../../../api/google-maps/namespace.js';
 import '../../../api/google-maps/api.js'; // GoogleMaps.api
-import SelectControlled from '../../components/forms/select-controlled';
-import InputControlled from '../../components/forms/input-controlled';
-import DatePickerControlled from '../../components/forms/date-picker-controlled';
-import TimePickerControlled from '../../components/forms/time-picker-controlled';
+import Counter from '../../components/forms/counter.jsx';
+import SelectControlled from '../../components/forms/select-controlled.jsx';
+import InputControlled from '../../components/forms/input-controlled.jsx';
+import DatePickerControlled from '../../components/forms/date-picker-controlled.jsx';
+import TimePickerControlled from '../../components/forms/time-picker-controlled.jsx';
 import GoogleAutoCompleteControlled from '../../components/forms/google-auto-complete-controlled.jsx';
 
 //------------------------------------------------------------------------------
@@ -28,7 +29,7 @@ class NewMarkerMobile extends Component {
       lat: Constants.USER_DEFAULT_LAT,
       lng: Constants.USER_DEFAULT_LNG,
     };
-    GoogleMaps.api.init('js-new-marker-map', center, 12); // 12 = zoom
+    GoogleMaps.api.init('js-new-marker-map', center, Constants.NEW_MARKER_DEFAULT_ZOOM);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -114,9 +115,14 @@ class NewMarkerMobile extends Component {
               onChange={handleFormInputChange}
               autosize={{ minRows: 2, maxRows: 4 }}
             />
+            <Counter
+              limit={Constants.MARKER_TITLE_MAX_LENGTH}
+              cur={title.length}
+              className="block right-align"
+            />
           </FormItem>
           <FormItem
-            label="Description"
+            label="Description (Optional)"
             validateStatus={AuxFunctions.getFieldNameErrors(errors, 'description') && 'error' || ''}
             help={AuxFunctions.getFieldNameErrors(errors, 'description')}
           >
@@ -127,6 +133,11 @@ class NewMarkerMobile extends Component {
               value={description}
               onChange={handleFormInputChange}
               autosize={{ minRows: 4, maxRows: 6 }}
+            />
+            <Counter
+              limit={Constants.MARKER_DESCRIPTION_MAX_LENGTH}
+              cur={description.length}
+              className="block right-align"
             />
           </FormItem>
           <FormItem
@@ -168,7 +179,7 @@ class NewMarkerMobile extends Component {
           </FormItem>
           <div id="js-new-marker-map" className="mt1 mb2 full-width h200"></div>
           <FormItem
-            label="Maximum number of participants*"
+            label="Maximum number of participants (Optional)"
             validateStatus={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants') && 'error' || ''}
             help={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants')}
           >
@@ -181,7 +192,7 @@ class NewMarkerMobile extends Component {
             />
           </FormItem>
           <FormItem
-            label="Cost per person*"
+            label="Cost per person (Optional)"
             validateStatus={AuxFunctions.getFieldNameErrors(errors, 'cost') && 'error' || ''}
             help={AuxFunctions.getFieldNameErrors(errors, 'cost')}
           >
@@ -191,6 +202,11 @@ class NewMarkerMobile extends Component {
               placeholder="ex. FREE, unionCard required, 5 euros, ..."
               value={cost}
               onChange={handleFormInputChange}
+            />
+            <Counter
+              limit={Constants.MARKER_COST_MAX_LENGTH}
+              cur={cost.length}
+              className="block right-align"
             />
           </FormItem>
           <Button

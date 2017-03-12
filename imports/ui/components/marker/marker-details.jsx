@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import moment from 'moment';
 import { Icon } from 'antd';
+import Constants from '../../../api/constants.js';
 import GoogleMaps from '../../../api/google-maps/namespace.js';
 import '../../../api/google-maps/api.js'; // GoogleMaps.api
 
@@ -20,7 +21,7 @@ class MarkerDetails extends Component {
       lat: coordinates[1],
       lng: coordinates[0],
     };
-    GoogleMaps.api.init('js-map', center, 12); // 12 = zoom
+    GoogleMaps.api.init('js-map', center, Constants.MARKER_DEFAULT_ZOOM);
     GoogleMaps.api.addMarker(center);
   }
 
@@ -68,10 +69,12 @@ class MarkerDetails extends Component {
                 <td className="pr1"><Icon type="clock-circle-o" /></td>
                 <td>{moment.utc(time).format('HH:mm')}h</td>
               </tr>
-              <tr title="Cost per person">
-                <td className="pr1"><Icon type="credit-card" /></td>
-                <td>{cost}</td>
-              </tr>
+              {!!cost && (
+                <tr title="Cost per person">
+                  <td className="pr1"><Icon type="credit-card" /></td>
+                  <td>{cost}</td>
+                </tr>
+              )}
               <tr title="Address">
                 <td className="pr1"><Icon type="environment-o" /></td>
                 <td>{location.description}</td>

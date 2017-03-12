@@ -95,13 +95,15 @@ class NewMarkerPage extends Component {
 
     // In case of errors, warn user and prevent the meteor method to be called
     if (AuxFunctions.hasErrors(errors)) {
-      reduxActions.dispatchSetErrors(errors);
       // TODO: Scroll to first error field
       // const errorKey = AuxFunctions.getFirstError(errors).key;
       // const elemYOffset = $(`#${elem}`).offset().top;
       // const elemYOffset = document.getElementById(elem).scrollTop;
       // console.log('elemYOffset', elemYOffset);
       // window.scrollTo(0, elemYOffset - 100);
+      // Display errors on UI
+      reduxActions.dispatchSetErrors(errors);
+      // Display flash notification
       Bert.alert('The form has errors', 'danger', 'growl-top-right');
       // Re-enable submit button
       reduxActions.dispatchSetBooleanField('canSubmit', true);
