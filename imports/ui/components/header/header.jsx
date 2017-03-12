@@ -1,13 +1,33 @@
 import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Icon, Popover } from 'antd';
 import Constants from '../../../api/constants.js';
-import Actions from '../../../api/redux/client/actions.js';
 import styles from './styles.scss';
 
+//------------------------------------------------------------------------------
+// AUX FUNCTIONS:
+//------------------------------------------------------------------------------
+function linkToAnchor(handleClick) {
+  return function (link) {
+    const { text, key } = link;
+    return (
+      <a
+        key={key}
+        className="block my2"
+        href="#"
+        id={key}
+        onClick={(e) => {
+          e.preventDefault();
+          handleClick(e);
+        }}
+      >
+      {text}
+      </a>
+    );
+  };
+}
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
@@ -18,29 +38,28 @@ class Header extends Component {
     this.handleToggle = this.handleToggle.bind(this);
     this.handleLinkClick = this.handleLinkClick.bind(this);
     this.state = {
-      menuOpen: false,
+      mainMenuOpen: false,
+      avatarMenuOpen: false,
     };
   }
 
   handleToggle(e) {
     e.preventDefault();
-    const prevState = this.state.menuOpen;
-    this.setState({ menuOpen: !prevState });
+    const whatMenu = e.target.id;
+    this.setState({ [`${whatMenu}MenuOpen}`]: !this.state[whatMenu] });
   }
 
   handleLinkClick(e) {
     e.preventDefault();
-    const { reduxActions } = this.props;
-
     const key = e.target.id;
-    this.setState({ menuOpen: false });
+    this.setState({
+      mainMenuOpen: false,
+      avatarMenuOpen: false,
+    });
 
     switch (key) {
       case 'logout':
         Meteor.logout();
-        break;
-      case 'login':
-        reduxActions.dispatchSetBooleanField('isOpen', true);
         break;
       default:
         FlowRouter.go(key);
@@ -48,14 +67,51 @@ class Header extends Component {
     }
   }
 
-  renderAvatar(user) {
+  renderMainMenu() {
+    // Popover content
+    const links = [
+      { icon: 'environment-o', text: 'Activities', key: 'feed' },
+      { icon: 'plus', text: 'New Activity', key: 'new-marker' },
+      { icon: 'plus', text: 'Discussion', key: 'comments' },
+    ];
+
     return (
-      <img
-        src={user.avatar}
-        alt={user.profile.name}
-        height="30"
-        className="circle"
-      />
+      <Popover
+        placement="bottomRight"
+        content={links.map(linkToAnchor(this.handleLinkClick))}
+        trigger="click"
+      >
+        <Icon
+          id="main"
+          className="trigger h3 pointer"
+          type={this.state.mainMenuOpen ? 'menu-unfold' : 'menu-fold'}
+          onClick={this.handleToggle}
+        />
+      </Popover>
+    );
+  }
+
+  renderAvatar(user) {
+    // Popover content
+    const links = [
+      { icon: 'export', text: 'Log Out', key: 'logout' },
+    ];
+
+    return (
+      <Popover
+        placement="bottomRight"
+        content={links.map(linkToAnchor(this.handleLinkClick))}
+        trigger="click"
+      >
+        <img
+          id="avatar"
+          src={user.avatar}
+          alt={user.profile.name}
+          height="30"
+          className="circle pointer"
+          onClick={this.handleToggle}
+        />
+      </Popover>
     );
   }
 
@@ -67,43 +123,9 @@ class Header extends Component {
     const { meteorData } = this.props;
     const { loggedIn, curUser } = meteorData;
 
-    // Popover content
-    const links = [
-      // Public links
-      { icon: 'environment-o', text: 'Activities', key: 'feed' },
-      { icon: 'plus', text: 'New Activity', key: 'new-marker' },
-      { icon: 'plus', text: 'Discussion', key: 'comments' },
-      // Auth links
-      { icon: 'export', text: 'Logout', key: 'logout', state: 'loggedIn' },
-      { icon: 'select', text: 'Login', key: 'login', state: 'loggedOut' },
-    ];
-
-    const popoverContent = links.map(({ text, key, state }) => {
-      if (!state || (loggedIn && state === 'loggedIn') || (!loggedIn && state === 'loggedOut')) {
-        return (
-          <a
-            key={key}
-            href="#"
-            id={key}
-            onClick={this.handleLinkClick}
-            className="block"
-          >
-          {text}
-          </a>
-        );
-      }
-      return null;
-    });
-
     return (
       <header className={styles.Header}>
-        <Popover placement="bottomRight" content={popoverContent} trigger="click">
-          <Icon
-            className="trigger h3 pointer"
-            type={this.state.menuOpen ? 'menu-unfold' : 'menu-fold'}
-            onClick={this.handleToggle}
-          />
-        </Popover>
+        {this.renderMainMenu()}
         <a href="/feed">{Constants.DOMAIN_NAME}</a>
         {loggedIn ? this.renderAvatar(curUser) : this.renderPlaceholder()}
       </header>
@@ -112,7 +134,6 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  reduxActions: PropTypes.object.isRequired,
   meteorData: PropTypes.shape({
     curUserId: PropTypes.string,
     curUser: PropTypes.object,
@@ -120,36 +141,6 @@ Header.propTypes = {
     // curRoute: PropTypes.string.isRequired,
   }).isRequired,
 };
-//------------------------------------------------------------------------------
-// REDUX INTEGRATION:
-//------------------------------------------------------------------------------
-/**
-* @summary Wrapper around the 'Page' component to handle UI State (Redux)
-* integration.
-*/
-const namespace = 'login';
-
-function mapStateToProps(state) {
-  return { reduxState: state[namespace] };
-}
-
-function mapDispatchToProps(dispatch) {
-  // Bind actions to current Page. TODO: use functional programming
-  // (redux helper?) for binding namespace to actions.
-  const reduxActions = {
-    dispatchSetBooleanField(fieldName, value) {
-      return dispatch(Actions.setBooleanField(namespace, fieldName, value));
-    },
-    dispatchSetErrors(errorsObj) {
-      return dispatch(Actions.setErrors(namespace, errorsObj));
-    },
-    dispatchClearErrors(fieldName) {
-      return dispatch(Actions.clearErrors(namespace, fieldName));
-    },
-  };
-
-  return { reduxActions };
-}
 //------------------------------------------------------------------------------
 // PAGE CONTAINER DEFINITION:
 //------------------------------------------------------------------------------
@@ -170,6 +161,6 @@ const HeaderContainer = createContainer(() => {
       // curRoute,
     },
   };
-}, connect(mapStateToProps, mapDispatchToProps)(Header));
+}, Header);
 
 export default HeaderContainer;

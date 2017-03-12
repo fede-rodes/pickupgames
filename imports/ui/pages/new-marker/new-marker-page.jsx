@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import _ from 'underscore';
-import { $ } from 'meteor/jquery';
+// import { $ } from 'meteor/jquery';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Bert } from 'meteor/themeteorchef:bert';
-// import Snackbar from 'material-ui/Snackbar';
 import Actions from '../../../api/redux/client/actions.js';
 import Markers from '../../../api/markers/namespace.js';
 import '../../../api/markers/api.js'; // Markers.api
@@ -188,8 +187,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  // Bind actions to current Page. TODO: use functional programming
-  // (redux helper?) for binding namespace to actions.
+  // Bind actions to current Page (namespace).
   const reduxActions = {
     dispatchUpdateTextField(fieldName, value) {
       return dispatch(Actions.updateTextField(namespace, fieldName, value));

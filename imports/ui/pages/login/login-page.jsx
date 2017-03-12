@@ -78,7 +78,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  // Bind actions to current Page.
+  // Bind actions to current Page (namespace).
   const reduxActions = {
     dispatchSetBooleanField(fieldName, value) {
       return dispatch(Actions.setBooleanField(namespace, fieldName, value));

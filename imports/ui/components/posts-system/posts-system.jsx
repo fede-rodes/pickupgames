@@ -249,8 +249,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  // Bind actions to current Page. TODO: use functional programming
-  // (redux helper?) for binding namespace to actions.
+  // Bind actions to current component (namespace).
   const reduxActions = {
     dispatchUpdateTextField(fieldName, value) {
       return dispatch(Actions.updateTextField(namespace, fieldName, value));

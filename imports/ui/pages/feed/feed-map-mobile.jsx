@@ -73,7 +73,7 @@ class FeedMapMobile extends Component {
     const {
       reduxState,
       handleViewChange,
-      handleRecalculateMarkersMapButtonClick,
+      handleRedoSearchHereButtonClick,
       handleNewMarkerButtonClick,
     } = this.props;
 
@@ -83,7 +83,7 @@ class FeedMapMobile extends Component {
           <Button
             type="primary"
             className={styles.redoSearchButton}
-            onClick={handleRecalculateMarkersMapButtonClick}
+            onClick={handleRedoSearchHereButtonClick}
           >
             Redo search here&nbsp;<Icon type="reload" />
           </Button>
@@ -172,7 +172,7 @@ FeedMapMobile.propTypes = {
   }).isRequired,
   handleViewChange: PropTypes.func.isRequired,
   handleMapPan: PropTypes.func.isRequired,
-  handleRecalculateMarkersMapButtonClick: PropTypes.func.isRequired,
+  handleRedoSearchHereButtonClick: PropTypes.func.isRequired,
   handleNewMarkerButtonClick: PropTypes.func.isRequired,
 };
 

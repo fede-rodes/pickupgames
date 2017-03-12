@@ -98,7 +98,7 @@ class FeedPage extends Component {
     this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
     this.handlePlaceChange = this.handlePlaceChange.bind(this);
     this.handleMapPan = this.handleMapPan.bind(this);
-    this.handleRecalculateMarkersMapButtonClick = this.handleRecalculateMarkersMapButtonClick.bind(this);
+    this.handleRedoSearchHereButtonClick = this.handleRedoSearchHereButtonClick.bind(this);
     this.handleNewMarkerButtonClick = this.handleNewMarkerButtonClick.bind(this);
     this.handleMarkerCardClick = this.handleMarkerCardClick.bind(this);
     this.handlePageLimitReached = this.handlePageLimitReached.bind(this);
@@ -124,9 +124,8 @@ class FeedPage extends Component {
       }
 
       // ... if redux state is empty, using the search value stored in the
-      // user's doc (only applies for logged in users).
+      // user's doc. Obs: curUser.searchValue is {} by default
       else if (curUser && !_.isEmpty(curUser.searchValue)) {
-        // curUser.searchValue is {} by default
         const formattedUser = Users.api.formatUser(curUser);
         const { place, map } = formattedUser.searchValue;
         if (!_.isEmpty(place)) {
@@ -142,9 +141,11 @@ class FeedPage extends Component {
     }
 
     // In case the url is NOT empty (either urlState.place or urlState.mapBounds
-    // is/are not empty)...
+    // is not empty) save search value into user's doc...
     else {
-      // TODO: and curUser.searchValue !== urlState.'searchValue' instead of
+      // TODO: avoid calling updateSearchValue method if current url search
+      // value equals the user's current value:
+      // && curUser.searchValue !== urlState.'searchValue' instead of
       // _.isEmpty(curUser.searchValue)
       if (curUser && _.isEmpty(curUser.searchValue)) {
         Meteor.call('Users.methods.updateSearchValue', urlState);
@@ -157,9 +158,8 @@ class FeedPage extends Component {
     const { urlState: nextUrlState, meteorData: nextMeteorData } = nextProps;
     const { curUser: nextCurUser } = nextMeteorData;
 
-    // Update redux store everytime the url changes. In addition, if the user is
-    // logged in, update his/her profile in order to store the last used search
-    // value.
+    // Update redux store everytime the url changes. Additionally, update user's
+    // profile in order to store the last used search value.
     if (!_.isEqual(urlState, nextUrlState)) {
       syncUiState(nextUrlState, reduxActions);
       if (nextCurUser) {
@@ -171,15 +171,14 @@ class FeedPage extends Component {
   }
 
   handleViewChange(view) {
-    // The user is click the button at the bottom of the page to change the view
-    // type. With every call at the handleViewChange function, update the url
-    // with the new view type ('list' or 'map').
+    // The user clicks the button at the bottom of the page in order to change
+    // the view type (from 'list' to 'map' or viceversa). Every time this
+    // happens update the url to trigger the view change.
     FlowRouter.setParams({ view });
   }
 
   handleSearchTextChange({ fieldName, value }) {
-    // User is typing on the search box at the top of the page. Keep redux store
-    // in synced with the value inserted by the user.
+    // The user types on the search box at the top of the page.
     const { reduxState, reduxActions } = this.props;
     const { errors } = reduxState;
 
@@ -192,10 +191,10 @@ class FeedPage extends Component {
   }
 
   handlePlaceChange({ placeId, description, center, radius }) { // selectedPlace
-    // The user have chosen a google place (from the search form at the top of
-    // the page) or changed the radio value using the slider. Update the url
-    // using the new data. This will trigger a subscription re-run in order to
-    // find results within the new place.
+    // The user chose a google place from the search form at the top of
+    // the page or, alternatively, changed the radio value using the slider.
+    // Every time this happens, update the url in order to trigger a
+    // re-subscription in the list of results.
     if (!_.isUndefined(description)) {
       const { params, queryParams } = UrlHelpers.genRouteParams('list', 'place', { placeId, description, center });
       FlowRouter.go('feed', params, queryParams);
@@ -205,13 +204,13 @@ class FeedPage extends Component {
   }
 
   handleMapPan({ southWest, northEast, center, zoom }) {
-    // The user is interacting with the map (panning, zooming in or out). In
+    // The user is interacting with the map (panning, zooming in/out). In
     // case the current map bounds (or zoom) differs from the values stored in
     // the url, DISPLAY a 'Redo search here' button that will be used in the
     // future to calculate results within the new region. Additionally, for
     // every call of the handleMapPan function, save the new map bounds and zoom
     // value in the redux store but do not update url. Url will only be updated
-    // with the new map bounds and zoom when the user clicks on the ''Redo
+    // with the new map bounds and zoom when the user clicks on the 'Redo
     // search here' button.
     const { reduxActions } = this.props;
     reduxActions.dispatchCheckRecalculateMarkersButtonDisplayState(center, zoom);
@@ -219,9 +218,11 @@ class FeedPage extends Component {
     reduxActions.dispatchSetNumericField('zoom', zoom);
   }
 
-  handleRecalculateMarkersMapButtonClick() {
-    // Grab the last map bounds and zoom values from the redux store and update
-    // the url to trigger subscriptions to get results within the new region.
+  handleRedoSearchHereButtonClick() {
+    // The user clicks on the 'Redo search here' button at the top of the 'map'
+    // view. Every time this happens, grab the last map bounds and zoom values
+    // from the redux store and update the url to trigger a re- subscriptions
+    // in the list of results.
     const { mapBounds, zoom } = this.props.reduxState;
     const { params, queryParams } = UrlHelpers.genRouteParams('map', 'mapBounds', { ...mapBounds, zoom });
     FlowRouter.go('feed', params, queryParams);
@@ -246,7 +247,7 @@ class FeedPage extends Component {
 
   render() {
     // Do not render view until the url (urlState) and the redux store (reduxState)
-    // are synced for the first time. Then keep rendering even though states
+    // are synced for the first time. Then, keep rendering even though states
     // differ. urlState = { view, searchType, place, mapBounds, zoom }
     const { urlState, reduxState, meteorData } = this.props;
 
@@ -268,7 +269,7 @@ class FeedPage extends Component {
         handleSearchTextChange={this.handleSearchTextChange}
         handlePlaceChange={this.handlePlaceChange}
         handleMapPan={this.handleMapPan}
-        handleRecalculateMarkersMapButtonClick={this.handleRecalculateMarkersMapButtonClick}
+        handleRedoSearchHereButtonClick={this.handleRedoSearchHereButtonClick}
         handleNewMarkerButtonClick={this.handleNewMarkerButtonClick}
         handleMarkerCardClick={this.handleMarkerCardClick}
         handlePageLimitReached={this.handlePageLimitReached}
@@ -380,8 +381,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  // Bind actions to current Page. TODO: use functional programming
-  // (redux helper?) for binding namespace to actions.
+  // Bind actions to current Page (namespace).
   const reduxActions = {
     dispatchUpdateTextField(fieldName, value) {
       return dispatch(Actions.updateTextField(namespace, fieldName, value));
