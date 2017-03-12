@@ -85,7 +85,7 @@ class NewMarkerMobile extends Component {
     }
 
     return (
-      <DefaultLayout width="600px" padding="20px 15px 0" forceLogin>
+      <DefaultLayout width="600px" padding="20px 15px 0">
         <h1>Create Activity</h1>
         <Form onSubmit={handleFormSubmit}>
           <FormItem

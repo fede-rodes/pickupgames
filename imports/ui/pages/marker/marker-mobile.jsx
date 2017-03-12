@@ -19,7 +19,7 @@ const MarkerMobile = (props) => {
   const { marker, curUserId } = meteorData;
 
   return (
-    <DefaultLayout width="600px" padding="20px 15px 0" forceLogin>
+    <DefaultLayout width="600px" padding="20px 15px 0">
       <Card className="mt1">
         <MarkerDetails
           marker={marker}
