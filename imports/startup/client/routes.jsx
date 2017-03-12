@@ -20,37 +20,21 @@ console.log('[router] loading routes');
 // AUX FUNCTIONS:
 //------------------------------------------------------------------------------
 /**
+* @summary Facebook auth replaces all '&' ocurrences with '&amp;'. This breaks
+* FlowRouter path. In order ensure that the path is FlowRouter compliant,
+* we need to replace '&amp;' back to '&' after user logs in.
 * @see {@link https://kadira.io/academy/meteor-routing-guide/content/triggers}
 */
-function clearPath(context, redirect) {
-  // If facebook login is used at feed page after search, facebook will replace
-  // any ocurrences of '&'' with '&amp;' which breaks Flowrouter path. In order
-  // to solve this we'll need to replace back '&amp;' with '&'.
+function ensurePath(context, redirect) {
   const path = context.path.replace(/&amp;/g, '&');
   if (context.path !== path) {
     redirect(path);
   }
 }
 //------------------------------------------------------------------------------
-function redirectToFeedList(context, redirect) {
-  const params = {
-    view: 'list',
-    searchType: 'place',
-  };
-  redirect('feed', params, context.queryParams);
-}
+// GLOBALS:
 //------------------------------------------------------------------------------
-function clearHomePageReduxState() {
-  dispatch(Actions.setInitialState('home'));
-}
-//------------------------------------------------------------------------------
-function clearNewMarkerPageReduxState() {
-  dispatch(Actions.setInitialState('newMarker'));
-}
-//------------------------------------------------------------------------------
-function clearPostsSystemReduxState() {
-  dispatch(Actions.setInitialState('postsSystem'));
-}
+FlowRouter.triggers.enter([ensurePath]);
 //------------------------------------------------------------------------------
 // ROUTES:
 //------------------------------------------------------------------------------
@@ -70,13 +54,21 @@ FlowRouter.route('/home', {
   },
   // calls when we decide to move to another route
   // but calls before the next route started
-  triggersExit: [clearHomePageReduxState],
+  triggersExit: [() => {
+    dispatch(Actions.setInitialState('home'));
+  }],
 });
 
 FlowRouter.route('/feed', {
   name: 'feed',
-  // Set view and searchType if not provided
-  triggersEnter: [redirectToFeedList],
+  // Set default values for 'view' and 'searchType' if not provided
+  triggersEnter: [(context, redirect) => {
+    const params = {
+      view: 'list',
+      searchType: 'place',
+    };
+    redirect('feed', params, context.queryParams);
+  }],
   action() {
     throw new Error('banned route');
   },
@@ -86,7 +78,6 @@ FlowRouter.route('/feed', {
 // nELng, centerLat, centerLng, zoom, pageNumber }
 FlowRouter.route('/feed/:view/:searchType', {
   name: 'feed',
-  triggersEnter: [clearPath],
   action(params, queryParams) {
     mount(Root, {
       content: () => <FeedPageContainer
@@ -106,7 +97,9 @@ FlowRouter.route('/new-marker', {
   },
   // calls when we decide to move to another route
   // but calls before the next route started
-  triggersExit: [clearNewMarkerPageReduxState],
+  triggersExit: [() => {
+    dispatch(Actions.setInitialState('newMarker'));
+  }],
 });
 
 FlowRouter.route('/marker/:markerId', {
@@ -120,7 +113,9 @@ FlowRouter.route('/marker/:markerId', {
   },
   // calls when we decide to move to another route
   // but calls before the next route started
-  triggersEnter: [clearPostsSystemReduxState],
+  triggersEnter: [() => {
+    dispatch(Actions.setInitialState('postsSystem'));
+  }],
 });
 
 FlowRouter.route('/profile', {

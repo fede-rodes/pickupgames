@@ -54,20 +54,21 @@ AuxFunctions.getCurMonth = () => {
 //------------------------------------------------------------------------------
 /**
 * @summary Is there any errors?
-* @param {array} errors - Errors array.
+* @param {object} errors - Object containing an error array for each object key.
+* @return {boolean} res - Response
 */
 AuxFunctions.hasErrors = (errors) => {
   check(errors, Object);
-  let response = false;
+  let res = false;
 
   // Go over all errors to see if at least one of them is not empty
   _.each(errors, (err) => {
     if (err.length > 0) {
-      response = true;
+      res = true;
     }
   });
 
-  return response;
+  return res;
 };
 //------------------------------------------------------------------------------
 /**

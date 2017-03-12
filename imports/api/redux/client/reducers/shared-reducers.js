@@ -57,7 +57,7 @@ const errorReducer = (state = [], action) => {
     case 'SET_ERROR': {
       return state.concat(action.array);
     }
-    case 'CLEAR_FIELD': {
+    case 'CLEAR_FIELD': { // TODO: check this. is it used??
       return [];
     }
     default:
@@ -65,6 +65,7 @@ const errorReducer = (state = [], action) => {
   }
 };
 
+// TODO: check this reducer, add tests
 export const errorsReducer = (state = {}, action) => {
   switch (action.type) {
     case 'SET_ERRORS': {

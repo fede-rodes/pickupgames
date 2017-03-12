@@ -1,5 +1,8 @@
 import Constants from '../../../constants.js';
-import { booleanFieldReducer } from './shared-reducers.js';
+import {
+  booleanFieldReducer,
+  errorsReducer,
+} from './shared-reducers.js';
 
 /**
 * Given the same arguments, it should calculate the next state and return it.
@@ -9,18 +12,23 @@ import { booleanFieldReducer } from './shared-reducers.js';
 // reducers as needed.
 const initLoginModalState = {
   canSubmit: true,
-  isOpen: false,
-  errors: {},
+  errors: {
+    auth: [],
+  },
 };
-const loginModalReducer = (state = initLoginModalState, action) => {
+const loginPageReducer = (state = initLoginModalState, action) => {
   if (action.namespace === 'login') {
     const { fieldName } = action;
     switch (fieldName) {
       case 'canSubmit':
-      case 'isOpen':
         return {
           ...state,
           [fieldName]: booleanFieldReducer(state[fieldName], action),
+        };
+      case 'errors':
+        return {
+          ...state,
+          [fieldName]: errorsReducer(state[fieldName], action),
         };
       default:
         return state;
@@ -29,4 +37,4 @@ const loginModalReducer = (state = initLoginModalState, action) => {
   return state;
 }
 
-export default loginModalReducer;
+export default loginPageReducer;

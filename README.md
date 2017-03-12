@@ -3,7 +3,7 @@ Web app for easily organize sport activities and connect players. Current versio
 
 My previous pick-up games project (Meteor 1.2 + Blaze) can be found here: https://www.fulbacho.net
 
-The aim of this project is to re-build fulbacho.net using a much modern stack (Meteor, React, Redux, Flow router, CSS-Modules) and, of course, to add improvements / simplifications to the project in comparison with fulbacho.net. I consider that one of the biggest mistakes when building fulbacho.net was to build views for all kind of devices (mobile, tablet and desktop). This was too much time consuming and, for this reason, I would like to focus now only on mobile view (max-width: 600, centered).
+The aim of this project is to re-build fulbacho.net using a much modern stack (Meteor, React, Redux, Flow router, CSS-Modules) as well as to add improvements and simplifications. I consider that one of the biggest mistakes when building fulbacho.net was to build views for all kind of devices (mobile, tablet and desktop). This was too much time consuming and, for this reason, I would like to focus now only on mobile view (max-width: 600, centered).
 
 ## 1st Milestone
 - login / signup using facebook account (I think this is the simplest approach).
