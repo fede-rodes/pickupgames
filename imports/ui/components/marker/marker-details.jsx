@@ -108,8 +108,8 @@ MarkerDetails.propTypes = {
     date: PropTypes.instanceOf(Date).isRequired,
     time: PropTypes.instanceOf(Date).isRequired,
     location: PropTypes.object.isRequired,
-    maxParticipants: PropTypes.number.isRequired,
-    cost: PropTypes.string.isRequired,
+    maxParticipants: PropTypes.number,
+    cost: PropTypes.string,
   }).isRequired,
 };
 

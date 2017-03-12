@@ -31,12 +31,17 @@ const MarkerParticipants = (props) => {
 
   // Determine button's text
   const curUserIsInParticipantsList = curUserId && _.indexOf(_.pluck(participants, 'userId'), curUserId) !== -1;
+  const isFull = !!maxParticipants && maxParticipants <= participants.length;
+  const disabled = !curUserIsInParticipantsList && isFull;
   const text = curUserIsInParticipantsList ? 'UNJOIN' : 'JOIN';
 
   return (
     <div>
-      <h2>Participants</h2>
-      <Button onClick={onJoinUnjoinButtonClick}>
+      <h2>Participants {isFull && '(FULL)'}</h2>
+      <Button
+        onClick={onJoinUnjoinButtonClick}
+        disabled={disabled}
+      >
         {text}
       </Button>
       <div className="flex flex-wrap">
@@ -56,7 +61,7 @@ MarkerParticipants.propTypes = {
       joinedAt: PropTypes.instanceOf(Date),
     }).isRequired
   ),
-  maxParticipants: PropTypes.number.isRequired,
+  maxParticipants: PropTypes.number,
   onJoinUnjoinButtonClick: PropTypes.func.isRequired,
 };
 

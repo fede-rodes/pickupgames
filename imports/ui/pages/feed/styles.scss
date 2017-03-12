@@ -13,7 +13,7 @@ $width: 146px;
   position: fixed;
   top: 80px;
   left: calc(50% - (#{$width} / 2));
-  width: $width;
+  width: $width + 4;
   z-index: 2;
 }
 
@@ -23,6 +23,6 @@ $width: 166px;
   position: fixed;
   bottom: 65px;
   left: calc(50% - (#{$width} / 2));
-  width: $width;
+  width: $width + 4;
   z-index: 2;
 }
