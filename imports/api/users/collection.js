@@ -85,7 +85,7 @@ Meteor.users.attachSchema(new SimpleSchema({
 
   avatar: {
     type: String,
-    label: 'User\'s avatar from facebook or any orther social network',
+    label: 'User\'s avatar from facebook or any other social network',
   },
 
   emails: {
@@ -187,7 +187,7 @@ Meteor.users.attachSchema(new SimpleSchema({
 
   'searchValue.map.center': {
     type: lngLatSchema,
-    label: 'northEast: [lng, lat]',
+    label: 'center: [lng, lat]',
     optional: true,
   },
 
