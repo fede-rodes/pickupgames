@@ -17,7 +17,7 @@ const DefaultLayout = (props) => {
   } = props;
 
   return (
-    <div className={styles.DefaultLayout}>
+    <div className={`${styles.DefaultLayout} ${!withoutHeader && 'pthh' || ''}`}>
       {!withoutHeader && <HeaderContainer />}
       <main
         className={`${center && 'flex items-center justify-center' || ''}`}

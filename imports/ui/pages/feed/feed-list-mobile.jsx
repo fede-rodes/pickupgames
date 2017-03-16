@@ -32,26 +32,6 @@ const FeedListMobile = (props) => {
 
   return (
     <DefaultLayout width="600px" padding="20px 15px 0">
-      <Button.Group
-        size="larger"
-        className={styles.floatButtons}
-      >
-        {/* Only display change view button if either search type is set */}
-        {(!_.isEmpty(place) || !_.isEmpty(mapBounds)) && (
-          <Button
-            type="primary"
-            onClick={() => { handleViewChange('map'); }}
-          >
-            <span><Icon type="environment-o" /> MAP</span>
-          </Button>
-        )}
-        <Button
-          type="primary"
-          onClick={handleNewMarkerButtonClick}
-        >
-          <span>NEW <Icon type="plus" /></span>
-        </Button>
-      </Button.Group>
       <div className="mt1">
         <Row type="flex" justify="space-around" align="middle">
           <Col span={24}>
@@ -88,7 +68,26 @@ const FeedListMobile = (props) => {
           </div>
         )}
       </div>
-      <div className="mt2">
+      <div className="mt2 flex justify-center">
+        <Button.Group size="larger">
+          {/* Only display change view button if either search type is set */}
+          {(!_.isEmpty(place) || !_.isEmpty(mapBounds)) && (
+            <Button
+              type="primary"
+              onClick={() => { handleViewChange('map'); }}
+            >
+              <span><Icon type="environment-o" /> MAP</span>
+            </Button>
+          )}
+          <Button
+            type="primary"
+            onClick={handleNewMarkerButtonClick}
+          >
+            <span>NEW <Icon type="plus" /></span>
+          </Button>
+        </Button.Group>
+      </div>
+      <div className="mt3">
         <CardsContainer
           items={markers}
           itemsReady={markersReady}
