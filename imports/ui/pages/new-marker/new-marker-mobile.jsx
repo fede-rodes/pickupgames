@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import _ from 'underscore';
-import { Form, Button } from 'antd';
+import { Card, Form, Button } from 'antd';
 const FormItem = Form.Item;
 import AuxFunctions from '../../../api/aux-functions.js';
 import Constants from '../../../api/constants.js';
@@ -87,138 +87,140 @@ class NewMarkerMobile extends Component {
 
     return (
       <DefaultLayout width="600px" padding="20px 15px 0">
-        <h1>Create Activity</h1>
-        <Form onSubmit={handleFormSubmit}>
-          <FormItem
-            label="Sport*"
-            validateStatus={AuxFunctions.getFieldNameErrors(errors, 'sport') && 'error' || ''}
-            help={AuxFunctions.getFieldNameErrors(errors, 'sport')}
-          >
-            <SelectControlled
-              id="sport"
-              placeholder="Sport"
-              value={sport}
-              options={Constants.MARKER_SPORTS_ARRAY}
-              onChange={handleFormInputChange}
-            />
-          </FormItem>
-          <FormItem
-            label="Title*"
-            validateStatus={AuxFunctions.getFieldNameErrors(errors, 'title') && 'error' || ''}
-            help={AuxFunctions.getFieldNameErrors(errors, 'title')}
-          >
-            <InputControlled
-              type="textarea"
-              id="title"
-              placeholder="Title"
-              value={title}
-              onChange={handleFormInputChange}
-              autosize={{ minRows: 2, maxRows: 4 }}
-            />
-            <Counter
-              limit={Constants.MARKER_TITLE_MAX_LENGTH}
-              cur={title.length}
-              className="block right-align"
-            />
-          </FormItem>
-          <FormItem
-            label="Description (Optional)"
-            validateStatus={AuxFunctions.getFieldNameErrors(errors, 'description') && 'error' || ''}
-            help={AuxFunctions.getFieldNameErrors(errors, 'description')}
-          >
-            <InputControlled
-              type="textarea"
-              id="description"
-              placeholder="Description"
-              value={description}
-              onChange={handleFormInputChange}
-              autosize={{ minRows: 4, maxRows: 6 }}
-            />
-            <Counter
-              limit={Constants.MARKER_DESCRIPTION_MAX_LENGTH}
-              cur={description.length}
-              className="block right-align"
-            />
-          </FormItem>
-          <FormItem
-            label="Date*"
-            validateStatus={AuxFunctions.getFieldNameErrors(errors, 'date') && 'error' || ''}
-            help={AuxFunctions.getFieldNameErrors(errors, 'date')}
-          >
-            <DatePickerControlled
-              id="date"
-              placeholder="Date"
-              value={date}
-              onChange={handleFormInputChange}
-            />
-          </FormItem>
-          <FormItem
-            label="Time*"
-            validateStatus={AuxFunctions.getFieldNameErrors(errors, 'time') && 'error' || ''}
-            help={AuxFunctions.getFieldNameErrors(errors, 'time')}
-          >
-            <TimePickerControlled
-              id="time"
-              placeholder="Time"
-              value={time}
-              onChange={handleFormInputChange}
-            />
-          </FormItem>
-          <FormItem
-            label="Address*"
-            validateStatus={AuxFunctions.getFieldNameErrors(errors, 'address') && 'error' || ''}
-            help={AuxFunctions.getFieldNameErrors(errors, 'address')}
-          >
-            <GoogleAutoCompleteControlled
-              id="address"
-              placeholder="Exact address"
-              value={address}
-              onChange={handleFormInputChange}
-              onSelect={handleLocationOptionSelect}
-            />
-          </FormItem>
-          <div id="js-new-marker-map" className="mt1 mb2 full-width h200"></div>
-          <FormItem
-            label="Maximum number of participants (Optional)"
-            validateStatus={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants') && 'error' || ''}
-            help={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants')}
-          >
-            <SelectControlled
-              id="maxParticipants"
-              placeholder="Maximum number of participants"
-              value={maxParticipants && maxParticipants.toString() || null}
-              options={maxParticipantsOptions}
-              onChange={handleFormInputChange}
-            />
-          </FormItem>
-          <FormItem
-            label="Cost per person (Optional)"
-            validateStatus={AuxFunctions.getFieldNameErrors(errors, 'cost') && 'error' || ''}
-            help={AuxFunctions.getFieldNameErrors(errors, 'cost')}
-          >
-            <InputControlled
-              type="text"
-              id="cost"
-              placeholder="ex. FREE, unionCard required, 5 euros, ..."
-              value={cost}
-              onChange={handleFormInputChange}
-            />
-            <Counter
-              limit={Constants.MARKER_COST_MAX_LENGTH}
-              cur={cost.length}
-              className="block right-align"
-            />
-          </FormItem>
-          <Button
-            type="primary"
-            htmlType="submit"
-            disabled={!canSubmit}
-            size="large"
-            loading={!canSubmit}
-          >
-            Create activity
-          </Button>
-        </Form>
+        <Card className="mt1">
+          <h1>Create Activity</h1>
+          <Form onSubmit={handleFormSubmit}>
+            <FormItem
+              label="Sport*"
+              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'sport') && 'error' || ''}
+              help={AuxFunctions.getFieldNameErrors(errors, 'sport')}
+            >
+              <SelectControlled
+                id="sport"
+                placeholder="Sport"
+                value={sport}
+                options={Constants.MARKER_SPORTS_ARRAY}
+                onChange={handleFormInputChange}
+              />
+            </FormItem>
+            <FormItem
+              label="Title*"
+              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'title') && 'error' || ''}
+              help={AuxFunctions.getFieldNameErrors(errors, 'title')}
+            >
+              <InputControlled
+                type="textarea"
+                id="title"
+                placeholder="Title"
+                value={title}
+                onChange={handleFormInputChange}
+                autosize={{ minRows: 2, maxRows: 4 }}
+              />
+              <Counter
+                limit={Constants.MARKER_TITLE_MAX_LENGTH}
+                cur={title.length}
+                className="block right-align"
+              />
+            </FormItem>
+            <FormItem
+              label="Description (Optional)"
+              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'description') && 'error' || ''}
+              help={AuxFunctions.getFieldNameErrors(errors, 'description')}
+            >
+              <InputControlled
+                type="textarea"
+                id="description"
+                placeholder="Description"
+                value={description}
+                onChange={handleFormInputChange}
+                autosize={{ minRows: 4, maxRows: 6 }}
+              />
+              <Counter
+                limit={Constants.MARKER_DESCRIPTION_MAX_LENGTH}
+                cur={description.length}
+                className="block right-align"
+              />
+            </FormItem>
+            <FormItem
+              label="Date*"
+              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'date') && 'error' || ''}
+              help={AuxFunctions.getFieldNameErrors(errors, 'date')}
+            >
+              <DatePickerControlled
+                id="date"
+                placeholder="Date"
+                value={date}
+                onChange={handleFormInputChange}
+              />
+            </FormItem>
+            <FormItem
+              label="Time*"
+              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'time') && 'error' || ''}
+              help={AuxFunctions.getFieldNameErrors(errors, 'time')}
+            >
+              <TimePickerControlled
+                id="time"
+                placeholder="Time"
+                value={time}
+                onChange={handleFormInputChange}
+              />
+            </FormItem>
+            <FormItem
+              label="Address*"
+              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'address') && 'error' || ''}
+              help={AuxFunctions.getFieldNameErrors(errors, 'address')}
+            >
+              <GoogleAutoCompleteControlled
+                id="address"
+                placeholder="Exact address"
+                value={address}
+                onChange={handleFormInputChange}
+                onSelect={handleLocationOptionSelect}
+              />
+            </FormItem>
+            <div id="js-new-marker-map" className="mt1 mb2 full-width h200"></div>
+            <FormItem
+              label="Maximum number of participants (Optional)"
+              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants') && 'error' || ''}
+              help={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants')}
+            >
+              <SelectControlled
+                id="maxParticipants"
+                placeholder="Maximum number of participants"
+                value={maxParticipants && maxParticipants.toString() || null}
+                options={maxParticipantsOptions}
+                onChange={handleFormInputChange}
+              />
+            </FormItem>
+            <FormItem
+              label="Cost per person (Optional)"
+              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'cost') && 'error' || ''}
+              help={AuxFunctions.getFieldNameErrors(errors, 'cost')}
+            >
+              <InputControlled
+                type="text"
+                id="cost"
+                placeholder="ex. FREE, unionCard required, 5 euros, ..."
+                value={cost}
+                onChange={handleFormInputChange}
+              />
+              <Counter
+                limit={Constants.MARKER_COST_MAX_LENGTH}
+                cur={cost.length}
+                className="block right-align"
+              />
+            </FormItem>
+            <Button
+              type="primary"
+              htmlType="submit"
+              disabled={!canSubmit}
+              size="large"
+              loading={!canSubmit}
+            >
+              Create activity
+            </Button>
+          </Form>
+        </Card>
       </DefaultLayout>
     );
   }

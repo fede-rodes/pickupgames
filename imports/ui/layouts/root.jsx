@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import Store from '../../api/redux/client/store.js';
+import { LocaleProvider } from 'antd';
+import enUS from 'antd/lib/locale-provider/en_US';
 import AppContainer from './app-container';
 
 //------------------------------------------------------------------------------
@@ -12,7 +14,9 @@ import AppContainer from './app-container';
 */
 const Root = ({ content }) => (
   <Provider store={Store}>
-    <AppContainer content={content} />
+    <LocaleProvider locale={enUS}>
+      <AppContainer content={content} />
+    </LocaleProvider>
   </Provider>
 );
 
