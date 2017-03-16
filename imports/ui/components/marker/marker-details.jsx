@@ -12,6 +12,10 @@ class MarkerDetails extends Component {
   // See ES6 Classes section at: https://facebook.github.io/react/docs/reusable-components.html
   constructor(props) {
     super(props);
+    this.handleSeeMore = this.handleSeeMore.bind(this);
+    this.state = {
+      seeMore: false,
+    };
   }
 
   componentDidMount() {
@@ -25,8 +29,26 @@ class MarkerDetails extends Component {
     GoogleMaps.api.addMarker(center);
   }
 
+  handleSeeMore() {
+    this.setState({ seeMore: !this.state.seeMore });
+  }
+
+  renderSeeMoreLess() {
+    return (
+      <a
+        href="#"
+        className="blue"
+        onClick={(e) => {
+          e.preventDefault();
+          this.handleSeeMore();
+        }}
+      >
+        {this.state.seeMore ? 'See less' : 'See more'}
+      </a>
+    );
+  }
+
   render() {
-    // Deconstruct
     const {
       createdAt,
       createdBy,
@@ -39,6 +61,9 @@ class MarkerDetails extends Component {
       location,
       cost,
     } = this.props.marker;
+
+    const descriptionTruncated = description.split(' ').splice(0, 50).join(' ');
+    const displaySeeMoreLess = description.length > descriptionTruncated.length;
 
     return (
       <div>
@@ -83,12 +108,10 @@ class MarkerDetails extends Component {
           </table>
           <div id="js-map" className="full-width h200 mt1"></div>
           {description && description.length > 0 && (
-            <div>
-              <hr />
-              <pre className="mt1">
-                <small>{description}</small>
-              </pre>
-            </div>
+            <pre className="mt2">
+              {this.state.seeMore ? description : descriptionTruncated}
+              {displaySeeMoreLess && this.renderSeeMoreLess()}
+            </pre>
           )}
         </div>
       </div>

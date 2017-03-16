@@ -68,8 +68,8 @@ class Post extends Component {
       return (
         <Card
           className="mt2"
-          title={<span><Icon type="user" />&nbsp;{createdByName}</span>}
-          extra={<span><Icon type="clock-circle-o" />&nbsp;{moment.utc(createdAt).format('ddd, MMM Do YYYY, HH:mm')}</span>}
+          title={<span>{createdByName}</span>}
+          extra={<span><Icon type="clock-circle-o" />&nbsp;{moment.utc(createdAt).format('MMM Do YYYY, HH:mm')}</span>}
         >
           <pre>{content}</pre>
           {editIcons}
