@@ -10,6 +10,8 @@ import Actions from '../../../api/redux/client/actions.js';
 import Markers from '../../../api/markers/namespace.js';
 import '../../../api/markers/api.js'; // Markers.api
 import AuxFunctions from '../../../api/aux-functions.js';
+import NotFoundPage from '../not-found-page.jsx';
+import LoadingPage from '../loading-page.jsx';
 import Constants from '../../../api/constants.js';
 import AdminMarkerMobile from './admin-marker-mobile.jsx';
 
@@ -27,6 +29,34 @@ class AdminMarkerPage extends Component {
     this.handleFormInputChange = this.handleFormInputChange.bind(this);
     this.handleLocationOptionSelect = this.handleLocationOptionSelect.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // Initialize redux state data based marker data
+    const { reduxActions, meteorData } = nextProps;
+
+    if (!meteorData || !meteorData.markerReady) return;
+
+    const {
+      title,
+      date,
+      time,
+      location,
+      description,
+      maxParticipants,
+      cost,
+      participants,
+    } = meteorData;
+
+    reduxActions.dispatchUpdateTextField('title', title || '');
+    reduxActions.dispatchSetDateField('date', date || '');
+    reduxActions.dispatchSetDateField('time', time || '');
+    reduxActions.dispatchUpdateTextField('address', location && location.description || '');
+    reduxActions.dispatchUpdateSelectedLocation('location', location || '');
+    reduxActions.dispatchUpdateTextField('description', description || '');
+    reduxActions.dispatchSetNumericField(maxParticipants, parseInt(maxParticipants, 10) || 0);
+    reduxActions.dispatchUpdateTextField('cost', cost || '');
+    // reduxActions.dispatchUpdateArrayField('participants', participants);
   }
 
   handleFormInputChange({ fieldName, value }) {
@@ -70,7 +100,7 @@ class AdminMarkerPage extends Component {
     e.nativeEvent.preventDefault();
     const { reduxState, reduxActions } = this.props;
     const formFields = [
-      'sport',
+      // 'sport',
       'title',
       'description',
       'date',
@@ -110,7 +140,7 @@ class AdminMarkerPage extends Component {
       return;
     }
 
-    Meteor.call('Markers.methods.createMarker', newMarker, (err1, markerId) => {
+    Meteor.call('Markers.methods.updateMarker', newMarker, (err1, markerId) => {
       if (err1) {
         Bert.alert(err1.reason, 'danger', 'growl-top-right');
         // Re-enable submit button
@@ -131,7 +161,15 @@ class AdminMarkerPage extends Component {
   }
 
   render() {
-    const { reduxState } = this.props;
+    const { reduxState, meteorData } = this.props;
+    const { markerReady, marker } = meteorData;
+
+    if (!markerReady) {
+      return <LoadingPage />;
+    }
+    if (!marker) {
+      return <NotFoundPage />;
+    }
 
     return (
       <AdminMarkerMobile
@@ -149,31 +187,53 @@ class AdminMarkerPage extends Component {
 AdminMarkerPage.propTypes = {
   reduxState: PropTypes.shape({
     canSubmit: PropTypes.bool.isRequired,
-    sport: PropTypes.oneOf([...Constants.MARKER_SPORTS_ARRAY, '']),
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string,
+    title: PropTypes.string,
     date: PropTypes.instanceOf(Date),
     time: PropTypes.instanceOf(Date),
-    address: PropTypes.string.isRequired,
-    selectedLocation: PropTypes.shape({
-      placeId: PropTypes.string,
-      description: PropTypes.string,
-      coordinates: PropTypes.object,
-    }).isRequired,
+    address: PropTypes.string,
+    location: PropTypes.object,
+    description: PropTypes.string,
     maxParticipants: PropTypes.number,
     cost: PropTypes.string,
+    // participants: PropTypes.array.isRequired,
     errors: PropTypes.shape({
-      sport: PropTypes.array.isRequired,
-      title: PropTypes.array.isRequired,
+      title: PropTypes.array,
+      date: PropTypes.array,
+      time: PropTypes.array,
+      address: PropTypes.array,
       description: PropTypes.array,
-      date: PropTypes.array.isRequired,
-      time: PropTypes.array.isRequired,
-      address: PropTypes.array.isRequired,
-      cost: PropTypes.array.isRequired,
-      maxParticipants: PropTypes.array.isRequired,
+      maxParticipants: PropTypes.array,
+      cost: PropTypes.array,
+      // participants: PropTypes.array.isRequired,
     }).isRequired,
   }).isRequired,
   reduxActions: PropTypes.object.isRequired,
+  meteorData: PropTypes.shape({
+    markerReady: PropTypes.bool.isRequired,
+    marker: PropTypes.shape({
+      _id: PropTypes.string,
+      createdAt: PropTypes.instanceOf(Date),
+      createdBy: PropTypes.string,
+      createdByName: PropTypes.string,
+      createdByAvatar: PropTypes.string,
+      sport: PropTypes.string,
+      title: PropTypes.string,
+      date: PropTypes.instanceOf(Date),
+      time: PropTypes.instanceOf(Date),
+      location: PropTypes.object,
+      description: PropTypes.string,
+      maxParticipants: PropTypes.number,
+      cost: PropTypes.string,
+      participants: PropTypes.arrayOf(
+        PropTypes.shape({
+          userId: PropTypes.string,
+          userName: PropTypes.string,
+          userAvatar: PropTypes.string,
+          joinedAt: PropTypes.instanceOf(Date),
+        })
+      ),
+    }), // not required!
+  }),
 };
 //------------------------------------------------------------------------------
 // REDUX INTEGRATION:
@@ -182,7 +242,7 @@ AdminMarkerPage.propTypes = {
 * @summary Wrapper around the 'Page' component to handle UI State (Redux)
 * integration.
 */
-const namespace = 'newMarker';
+const namespace = 'adminMarker';
 
 function mapStateToProps(state) {
   return { reduxState: state[namespace] };
@@ -224,9 +284,55 @@ function mapDispatchToProps(dispatch) {
 * reactivity (component-level subscriptions etc etc), and pass data down to
 * 'Page' component.
 */
-const AdminMarkerPageContainer = createContainer(() => {
-  // Subscriptions go here!
-  return {};
+const AdminMarkerPageContainer = createContainer(({ markerId }) => {
+  // Verify marker id is set
+  if (!markerId) {
+    return {};
+  }
+
+  // Check current user is logged in
+  const curUserId = Meteor.userId();
+  const loggedIn = !!curUserId;
+
+  if (!loggedIn) {
+    return {};
+  }
+
+  // Subscribe to marker data
+  const subs = Meteor.subscribe('Markers.publications.getMarkerForMarkerPage', markerId);
+  const marker = Markers.collection.findOne({ _id: markerId });
+  const markerReady = subs.ready();
+
+  // Check current user is owner
+  if (marker && curUserId !== marker.createdBy) {
+    return {};
+  }
+
+  // Extend marker object
+  if (markerReady && marker) {
+    const { createdBy, participants } = marker;
+    const author = Meteor.users.findOne({ _id: createdBy });
+    _.extend(marker, {
+      createdByName: author.profile.name,
+      createdByAvatar: author.avatar,
+      participants: participants.map((participant) => {
+        const p = Meteor.users.findOne({ _id: participant.userId });
+        return _.extend(participant, {
+          userName: p.profile.name,
+          userAvatar: p.avatar,
+        });
+      }),
+    });
+  }
+
+  console.log(marker);
+
+  return {
+    meteorData: {
+      markerReady,
+      marker,
+    },
+  };
 }, connect(mapStateToProps, mapDispatchToProps)(AdminMarkerPage));
 
 export default AdminMarkerPageContainer;

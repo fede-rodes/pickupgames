@@ -70,13 +70,14 @@ class AdminMarkerMobile extends Component {
     const {
       canSubmit,
       title,
-      sport,
       date,
       time,
       address,
+      location,
       description,
-      cost,
       maxParticipants,
+      cost,
+      // participants: PropTypes.array.isRequired,
       errors,
     } = reduxState;
 
@@ -86,11 +87,11 @@ class AdminMarkerMobile extends Component {
     }
 
     return (
-      <DefaultLayout width="600px" padding="20px 0 0 0">
-        <Card className="mt1">
-          <h1>Create Activity</h1>
+      <DefaultLayout width="600px">
+        <Card>
+          <h1>Admin Activity</h1>
           <Form onSubmit={handleFormSubmit}>
-            <FormItem
+            {/* <FormItem
               label="Sport*"
               validateStatus={AuxFunctions.getFieldNameErrors(errors, 'sport') && 'error' || ''}
               help={AuxFunctions.getFieldNameErrors(errors, 'sport')}
@@ -102,7 +103,7 @@ class AdminMarkerMobile extends Component {
                 options={Constants.MARKER_SPORTS_ARRAY}
                 onChange={handleFormInputChange}
               />
-            </FormItem>
+            </FormItem> */}
             <FormItem
               label="Title*"
               validateStatus={AuxFunctions.getFieldNameErrors(errors, 'title') && 'error' || ''}
@@ -119,25 +120,6 @@ class AdminMarkerMobile extends Component {
               <Counter
                 limit={Constants.MARKER_TITLE_MAX_LENGTH}
                 cur={title.length}
-                className="block right-align"
-              />
-            </FormItem>
-            <FormItem
-              label="Description (Optional)"
-              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'description') && 'error' || ''}
-              help={AuxFunctions.getFieldNameErrors(errors, 'description')}
-            >
-              <InputControlled
-                type="textarea"
-                id="description"
-                placeholder="Description"
-                value={description}
-                onChange={handleFormInputChange}
-                autosize={{ minRows: 4, maxRows: 6 }}
-              />
-              <Counter
-                limit={Constants.MARKER_DESCRIPTION_MAX_LENGTH}
-                cur={description.length}
                 className="block right-align"
               />
             </FormItem>
@@ -180,7 +162,26 @@ class AdminMarkerMobile extends Component {
             </FormItem>
             <div id="js-new-marker-map" className="mt1 mb2 full-width h200"></div>
             <FormItem
-              label="Maximum number of participants (Optional)"
+              label={<span>Description <strong>(Optional)</strong></span>}
+              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'description') && 'error' || ''}
+              help={AuxFunctions.getFieldNameErrors(errors, 'description')}
+            >
+              <InputControlled
+                type="textarea"
+                id="description"
+                placeholder="Description"
+                value={description}
+                onChange={handleFormInputChange}
+                autosize={{ minRows: 4, maxRows: 6 }}
+              />
+              <Counter
+                limit={Constants.MARKER_DESCRIPTION_MAX_LENGTH}
+                cur={description.length}
+                className="block right-align"
+              />
+            </FormItem>
+            <FormItem
+              label={<span>Maximum number of participants <strong>(Optional)</strong></span>}
               validateStatus={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants') && 'error' || ''}
               help={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants')}
             >
@@ -193,7 +194,7 @@ class AdminMarkerMobile extends Component {
               />
             </FormItem>
             <FormItem
-              label="Cost per person (Optional)"
+              label={<span>Cost per person <strong>(Optional)</strong></span>}
               validateStatus={AuxFunctions.getFieldNameErrors(errors, 'cost') && 'error' || ''}
               help={AuxFunctions.getFieldNameErrors(errors, 'cost')}
             >
@@ -217,7 +218,7 @@ class AdminMarkerMobile extends Component {
               size="large"
               loading={!canSubmit}
             >
-              Create activity
+              Save
             </Button>
           </Form>
         </Card>
@@ -229,28 +230,24 @@ class AdminMarkerMobile extends Component {
 AdminMarkerMobile.propTypes = {
   reduxState: PropTypes.shape({
     canSubmit: PropTypes.bool.isRequired,
-    sport: PropTypes.oneOf([...Constants.MARKER_SPORTS_ARRAY, '']),
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string,
+    title: PropTypes.string,
     date: PropTypes.instanceOf(Date),
     time: PropTypes.instanceOf(Date),
-    address: PropTypes.string.isRequired,
-    selectedLocation: PropTypes.shape({
-      placeId: PropTypes.string,
-      description: PropTypes.string,
-      coordinates: PropTypes.object,
-    }).isRequired,
+    address: PropTypes.string,
+    location: PropTypes.object,
+    description: PropTypes.string,
     maxParticipants: PropTypes.number,
     cost: PropTypes.string,
+    // participants: PropTypes.array.isRequired,
     errors: PropTypes.shape({
-      sport: PropTypes.array.isRequired,
-      title: PropTypes.array.isRequired,
+      title: PropTypes.array,
+      date: PropTypes.array,
+      time: PropTypes.array,
+      address: PropTypes.array,
       description: PropTypes.array,
-      date: PropTypes.array.isRequired,
-      time: PropTypes.array.isRequired,
-      address: PropTypes.array.isRequired,
-      cost: PropTypes.array.isRequired,
-      maxParticipants: PropTypes.array.isRequired,
+      maxParticipants: PropTypes.array,
+      cost: PropTypes.array,
+      // participants: PropTypes.array.isRequired,
     }).isRequired,
   }).isRequired,
   handleFormInputChange: PropTypes.func.isRequired,

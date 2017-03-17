@@ -3,6 +3,7 @@ import loginPageReducer from './reducers/login-page-reducer.js';
 import feedPageReducer from './reducers/feed-page-reducer.js';
 import newMarkerPageReducer from './reducers/new-marker-page-reducer.js';
 import markerPageReducer from './reducers/marker-page-reducer.js';
+import adminMarkerPageReducer from './reducers/admin-marker-page-reducer.js';
 import postsSystemReducer from './reducers/posts-system-reducer.js';
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   feed: feedPageReducer,
   newMarker: newMarkerPageReducer,
   marker: markerPageReducer,
+  adminMarker: adminMarkerPageReducer,
   postsSystem: postsSystemReducer,
 });
 

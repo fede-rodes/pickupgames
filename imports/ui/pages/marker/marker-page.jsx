@@ -165,11 +165,12 @@ function mapDispatchToProps(dispatch) {
 */
 const MarkerPageContainer = createContainer(({ markerId }) => {
   // Subscribe to both marker data + participant names
-  const subs1 = Meteor.subscribe('Markers.publications.getMarkerForMarkerPage', markerId);
+  const subs = Meteor.subscribe('Markers.publications.getMarkerForMarkerPage', markerId);
   const marker = Markers.collection.findOne({ _id: markerId });
+  const markerReady = subs.ready();
 
   // Extend marker object
-  if (subs1.ready() && marker) {
+  if (markerReady && marker) {
     const { createdBy, participants } = marker;
     const author = Meteor.users.findOne({ _id: createdBy });
     _.extend(marker, {
@@ -191,7 +192,7 @@ const MarkerPageContainer = createContainer(({ markerId }) => {
     },
     meteorData: {
       curUserId: Meteor.userId(), // could be undefined
-      markerReady: subs1.ready(),
+      markerReady,
       marker,
     },
   };
