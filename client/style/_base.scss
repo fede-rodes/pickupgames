@@ -20,6 +20,7 @@
 .mtn2{ margin-top: -1rem; }
 .pthh { padding-top: $header-height; }
 .h200 { height: 200px; }
+.bg-white { background-color: #fff; }
 .black { color: black; }
 .green { color: green; }
 .red { color: tomato; }
@@ -27,3 +28,20 @@
 .light-grey { color: $grey-bg; }
 .grey { color: $grey-border; }
 .dark-grey { color: #C0BFBF; }
+
+.ant-card {
+  border-radius: 0 !important;
+}
+.ant-card-head {
+  padding: 10px !important;
+  line-height: 22px !important;
+  height: 40px !important;
+}
+.ant-card-extra {
+  right: 10px !important;
+}
+.ant-card-body {
+  padding: 10px !important;
+  // padding-bottom: 24px !important;
+  line-height: 1.5 !important;
+}

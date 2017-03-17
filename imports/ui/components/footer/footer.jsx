@@ -1,10 +1,9 @@
 import React from 'react';
 import { Icon } from 'antd';
 import Constants from '../../../api/constants.js';
-import styles from './styles.scss';
 
 const Footer = () => (
-  <footer className={`flex items-end justify-center px1 py2 ${styles.Footer}`}>
+  <footer className="flex items-end justify-center px1 py2">
     <p>
       {Constants.SITE_BRAND} ©2017
       <a

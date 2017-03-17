@@ -49,7 +49,9 @@ class MarkerDetails extends Component {
   }
 
   render() {
+    const { curUserId, marker } = this.props;
     const {
+      _id,
       createdAt,
       createdBy,
       createdByName,
@@ -60,18 +62,22 @@ class MarkerDetails extends Component {
       time,
       location,
       cost,
-    } = this.props.marker;
+    } = marker;
 
-    const descriptionTruncated = description.split(' ').splice(0, 50).join(' ');
-    const displaySeeMoreLess = description.length > descriptionTruncated.length;
+    const descriptionTruncated = description && description.length > 0 && description.split(' ').splice(0, 50).join(' ') || '';
+    const displaySeeMoreLess = description && description.length > descriptionTruncated.length || false;
 
     return (
       <div>
         <div className="flex">
           <div className="flex-auto">
-            <h2>{title}</h2>
+            <h2 className="pr1">{title}</h2>
             <span title="Created by">
               <small>{createdByName}</small>
+              &nbsp;
+              {curUserId && curUserId === createdBy && (
+                <a href={`/admin-marker/${_id}`}>(Admin)</a>
+              )}
             </span>
           </div>
           <div className="flex-none">
@@ -83,7 +89,7 @@ class MarkerDetails extends Component {
             />
           </div>
         </div>
-        <div className="mt1">
+        <div className="mt2">
           <table>
             <tbody>
               <tr title="Date">
@@ -108,10 +114,12 @@ class MarkerDetails extends Component {
           </table>
           <div id="js-map" className="full-width h200 mt1"></div>
           {description && description.length > 0 && (
-            <pre className="mt2">
-              {this.state.seeMore ? description : descriptionTruncated}
-              {displaySeeMoreLess && this.renderSeeMoreLess()}
-            </pre>
+            <div className="mt2">
+              <pre>
+                {this.state.seeMore ? description : descriptionTruncated.trim().concat('...')}
+              </pre>
+              <div className="mt1">{displaySeeMoreLess && this.renderSeeMoreLess()}</div>
+            </div>
           )}
         </div>
       </div>
@@ -120,6 +128,7 @@ class MarkerDetails extends Component {
 }
 
 MarkerDetails.propTypes = {
+  curUserId: PropTypes.string,
   marker: PropTypes.shape({
     _id: PropTypes.string.isRequired,
     createdAt: PropTypes.instanceOf(Date).isRequired,

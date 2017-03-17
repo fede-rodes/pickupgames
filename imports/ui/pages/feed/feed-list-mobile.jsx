@@ -31,7 +31,7 @@ const FeedListMobile = (props) => {
   const { markers, markersReady, numLoadedMarkers, numTotalMarkers } = meteorData;
 
   return (
-    <DefaultLayout width="600px" padding="20px 15px 0">
+    <DefaultLayout width="600px">
       <div className="mt1">
         <Row type="flex" justify="space-around" align="middle">
           <Col span={24}>
@@ -50,7 +50,7 @@ const FeedListMobile = (props) => {
         </Row>
         {searchType === 'place' && radius && _.isNumber(radius) && radius > 0 && (
           <div className="flex items-center justify-between">
-            <div className="flex-none">
+            <div className="flex-none bg-white">
               Radius:
             </div>
             <div className="flex-auto mx2">
@@ -62,13 +62,13 @@ const FeedListMobile = (props) => {
                 onChange={handlePlaceChange}
               />
             </div>
-            <div className="flex-none">
+            <div className="flex-none bg-white">
               {radius} mile(s)
             </div>
           </div>
         )}
       </div>
-      <div className="mt2 flex justify-center">
+      <div className="mt1 flex justify-center">
         <Button.Group size="larger">
           {/* Only display change view button if either search type is set */}
           {(!_.isEmpty(place) || !_.isEmpty(mapBounds)) && (

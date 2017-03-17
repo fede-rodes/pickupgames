@@ -78,7 +78,7 @@ class FeedMapMobile extends Component {
     } = this.props;
 
     return (
-      <DefaultLayout withoutFooter>
+      <DefaultLayout withoutFooter padding="0">
         {reduxState.showRecalculateMarkersButton && (
           <Button
             type="primary"

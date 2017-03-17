@@ -9,6 +9,7 @@ import Root from '../../ui/layouts/root.jsx';
 import FeedPageContainer from '../../ui/pages/feed/feed-page.jsx';
 import NewMarkerPageContainer from '../../ui/pages/new-marker/new-marker-page.jsx';
 import MarkerPageContainer from '../../ui/pages/marker/marker-page.jsx';
+import AdminMarkerPageContainer from '../../ui/pages/admin-marker/admin-marker-page.jsx';
 import ProfilePageContainer from '../../ui/pages/profile/profile-page.jsx';
 import CommentsPage from '../../ui/pages/comments-page.jsx';
 import NotFoundPage from '../../ui/pages/not-found-page.jsx';
@@ -100,6 +101,22 @@ FlowRouter.route('/marker/:markerId', {
   // but calls before the next route started
   triggersEnter: [() => {
     dispatch(Actions.setInitialState('postsSystem'));
+  }],
+});
+
+FlowRouter.route('/admin-marker/:markerId', {
+  name: 'adminMarker',
+  action(params) {
+    mount(Root, {
+      content: () => <AdminMarkerPageContainer
+        markerId={params.markerId}
+      />,
+    });
+  },
+  // calls when we decide to move to another route
+  // but calls before the next route started
+  triggersEnter: [() => {
+    dispatch(Actions.setInitialState('adminMarker'));
   }],
 });
 

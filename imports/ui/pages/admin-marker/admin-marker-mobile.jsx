@@ -17,7 +17,7 @@ import GoogleAutoCompleteControlled from '../../components/forms/google-auto-com
 //------------------------------------------------------------------------------
 // COMPONENT:
 //------------------------------------------------------------------------------
-class NewMarkerMobile extends Component {
+class AdminMarkerMobile extends Component {
   // See ES6 Classes section at: https://facebook.github.io/react/docs/reusable-components.html
   constructor(props) {
     super(props);
@@ -86,8 +86,8 @@ class NewMarkerMobile extends Component {
     }
 
     return (
-      <DefaultLayout width="600px">
-        <Card>
+      <DefaultLayout width="600px" padding="20px 0 0 0">
+        <Card className="mt1">
           <h1>Create Activity</h1>
           <Form onSubmit={handleFormSubmit}>
             <FormItem
@@ -119,6 +119,25 @@ class NewMarkerMobile extends Component {
               <Counter
                 limit={Constants.MARKER_TITLE_MAX_LENGTH}
                 cur={title.length}
+                className="block right-align"
+              />
+            </FormItem>
+            <FormItem
+              label="Description (Optional)"
+              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'description') && 'error' || ''}
+              help={AuxFunctions.getFieldNameErrors(errors, 'description')}
+            >
+              <InputControlled
+                type="textarea"
+                id="description"
+                placeholder="Description"
+                value={description}
+                onChange={handleFormInputChange}
+                autosize={{ minRows: 4, maxRows: 6 }}
+              />
+              <Counter
+                limit={Constants.MARKER_DESCRIPTION_MAX_LENGTH}
+                cur={description.length}
                 className="block right-align"
               />
             </FormItem>
@@ -161,26 +180,7 @@ class NewMarkerMobile extends Component {
             </FormItem>
             <div id="js-new-marker-map" className="mt1 mb2 full-width h200"></div>
             <FormItem
-              label={<span>Description <strong>(Optional)</strong></span>}
-              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'description') && 'error' || ''}
-              help={AuxFunctions.getFieldNameErrors(errors, 'description')}
-            >
-              <InputControlled
-                type="textarea"
-                id="description"
-                placeholder="Description"
-                value={description}
-                onChange={handleFormInputChange}
-                autosize={{ minRows: 4, maxRows: 6 }}
-              />
-              <Counter
-                limit={Constants.MARKER_DESCRIPTION_MAX_LENGTH}
-                cur={description.length}
-                className="block right-align"
-              />
-            </FormItem>
-            <FormItem
-              label={<span>Maximum number of participants <strong>(Optional)</strong></span>}
+              label="Maximum number of participants (Optional)"
               validateStatus={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants') && 'error' || ''}
               help={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants')}
             >
@@ -193,7 +193,7 @@ class NewMarkerMobile extends Component {
               />
             </FormItem>
             <FormItem
-              label={<span>Cost per person <strong>(Optional)</strong></span>}
+              label="Cost per person (Optional)"
               validateStatus={AuxFunctions.getFieldNameErrors(errors, 'cost') && 'error' || ''}
               help={AuxFunctions.getFieldNameErrors(errors, 'cost')}
             >
@@ -226,7 +226,7 @@ class NewMarkerMobile extends Component {
   }
 }
 
-NewMarkerMobile.propTypes = {
+AdminMarkerMobile.propTypes = {
   reduxState: PropTypes.shape({
     canSubmit: PropTypes.bool.isRequired,
     sport: PropTypes.oneOf([...Constants.MARKER_SPORTS_ARRAY, '']),
@@ -258,4 +258,4 @@ NewMarkerMobile.propTypes = {
   handleFormSubmit: PropTypes.func.isRequired,
 };
 
-export default NewMarkerMobile;
+export default AdminMarkerMobile;

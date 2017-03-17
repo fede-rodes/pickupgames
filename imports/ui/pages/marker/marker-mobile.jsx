@@ -19,21 +19,18 @@ const MarkerMobile = (props) => {
   const { marker, curUserId } = meteorData;
 
   return (
-    <DefaultLayout width="600px" padding="20px 0 0 0">
-      <Card className="mt1">
+    <DefaultLayout width="600px">
+      <Card>
         <MarkerDetails
+          curUserId={curUserId}
           marker={marker}
         />
-      </Card>
-      <Card className="mt1">
         <MarkerParticipants
           curUserId={curUserId}
           participants={marker.participants}
           maxParticipants={marker.maxParticipants}
           onJoinUnjoinButtonClick={handleJoinUnjoinButtonClick}
         />
-      </Card>
-      <Card className="mt1">
         <PostsSystemContainer postedOn={marker._id} />
       </Card>
     </DefaultLayout>

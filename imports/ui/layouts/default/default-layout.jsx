@@ -48,7 +48,7 @@ DefaultLayout.defaultProps = {
   withoutHeader: false,
   withoutFooter: false,
   width: '100%',
-  padding: '0',
+  padding: '10px',
   center: false,
 };
 

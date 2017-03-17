@@ -22,10 +22,11 @@ const MarkerParticipants = (props) => {
       <img
         src={userAvatar}
         alt={userName}
-        className="circle block"
+        className="circle block mx-auto"
         height="40"
       />
-      <span>{userName.length <= 8 ? userName : `${userName.slice(0, 6)}...`}</span>
+      <span className="block center">{userName.split(' ')[0]}</span>
+      {/* <span>{userName.length <= 8 ? userName : `${userName.slice(0, 6)}...`}</span> */}
     </div>
   ));
 
@@ -36,15 +37,16 @@ const MarkerParticipants = (props) => {
   const text = curUserIsInParticipantsList ? 'UNJOIN' : 'JOIN';
 
   return (
-    <div>
+    <div className="mt3">
       <h2>Participants {isFull && '(FULL)'}</h2>
       <Button
+        className="mt1"
         onClick={onJoinUnjoinButtonClick}
         disabled={disabled}
       >
         {text}
       </Button>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap mt1">
         {items}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+/* import React, { PropTypes } from 'react';
 import { Row, Col, Form, Button } from 'antd';
 const FormItem = Form.Item;
 import AuxFunctions from '../../../api/aux-functions.js';
@@ -53,4 +53,4 @@ NewPostForm.propTypes = {
   }).isRequired,
 };
 
-export default NewPostForm;
+export default NewPostForm; */

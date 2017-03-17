@@ -55,10 +55,10 @@ class MarkerCard extends Component {
 
     return (
       <Card
-        onClick={this.handleClick}
+        className="mt1 pointer"
         title={<span><Icon type="calendar" />&nbsp;{`${moment.utc(date).format('dddd, MMM Do YYYY')}`}</span>}
         extra={<span><Icon type="clock-circle-o" />&nbsp;{`${moment.utc(time).format('HH:mm')}h`}</span>}
-        style={{ marginTop: '14px', cursor: 'pointer' }}
+        onClick={this.handleClick}
       >
         <h3>{title}</h3>
         <p title="Sport">
@@ -75,7 +75,7 @@ class MarkerCard extends Component {
         {/* <p title="Comments">
           <Icon type="message" />&nbsp;{numPosts}
         </p> */}
-        <div className="flex flex-wrap mt1">
+        <div title="Participants" className="flex flex-wrap mt1">
           {avatars}
         </div>
       </Card>

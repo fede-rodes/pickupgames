@@ -67,7 +67,7 @@ class Post extends Component {
     if (editPostId !== _id) {
       return (
         <Card
-          className="mt2"
+          className="mt2 pb2"
           title={<span>{createdByName}</span>}
           extra={<span><Icon type="clock-circle-o" />&nbsp;{moment.utc(createdAt).format('MMM Do YYYY, HH:mm')}</span>}
         >

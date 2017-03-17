@@ -46,7 +46,7 @@ class Header extends Component {
   handleToggle(e) {
     e.preventDefault();
     const whatMenu = e.target.id;
-    this.setState({ [`${whatMenu}MenuOpen}`]: !this.state[whatMenu] });
+    this.setState({ [`${whatMenu}MenuOpen}`]: !this.state[`${whatMenu}MenuOpen}`] });
   }
 
   handleLinkClick(e) {
