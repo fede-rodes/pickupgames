@@ -134,3 +134,79 @@ Meteor.methods({ 'Markers.methods.joinUnjoin'(markerId) {
   } */
 } });
 //------------------------------------------------------------------------------
+Meteor.methods({ 'Markers.methods.updateMarker'(markerId, marker) {
+  // Check arguments
+  try {
+    check(markerId, String);
+    check(marker, {
+      // sport: String,
+      title: String,
+      date: Match.OneOf(Date, null),
+      time: Match.OneOf(Date, null),
+      address: String,
+      location: {
+        placeId: String,
+        description: String,
+        center: Object,
+      },
+      description: String,
+      maxParticipants: Match.OneOf(Number, null),
+      cost: String,
+    });
+  } catch (exc) {
+    throw new Meteor.Error(exc.sanitizedError.error, exc.message);
+  }
+
+  // Meteor._sleepForMs(3000);
+  const curUserId = this.userId;
+
+  // Is the current user logged in?
+  if (!curUserId) {
+    throw new Error('user is not logged in at Markers.methods.updateMarker');
+  }
+
+  const errors = Markers.api.checkUpdateMarkerFields(marker);
+  if (AuxFunctions.hasErrors(errors)) {
+    throw new Meteor.Error(400, AuxFunctions.getFirstError(errors).value);
+  }
+
+  // Marker object needs some clean up / re-format:
+  const {
+    title,
+    date,
+    time,
+    location,
+    description,
+    maxParticipants,
+    cost,
+  } = marker;
+
+  // const { placeId, description, center } = location;
+  // const markerCleaned = _.omit(marker, 'location');
+
+  // Extend doc by adding back markerLocation field + createdBy and createdAt
+  // fields. Plus, the user who creates an marker should have to join by default
+  // _.extend(markerCleaned, {
+  const modifier = {
+    $set: {
+      title,
+      date,
+      time,
+      description,
+      maxParticipants,
+      cost,
+      location: {
+        placeId: location.placeId,
+        description: location.description,
+        geometry: {
+          type: 'Point',
+          coordinates: [location.center.lng, location.center.lat], // reverse order!
+        },
+      },
+    },
+  };
+
+  // Update document
+  Markers.collection.update({ _id: markerId }, modifier);
+} });
+//------------------------------------------------------------------------------

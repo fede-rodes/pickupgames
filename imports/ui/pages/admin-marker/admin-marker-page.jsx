@@ -16,6 +16,42 @@ import Constants from '../../../api/constants.js';
 import AdminMarkerMobile from './admin-marker-mobile.jsx';
 
 //------------------------------------------------------------------------------
+// GLOBALS:
+//------------------------------------------------------------------------------
+let loaded = false;
+//------------------------------------------------------------------------------
+// AUX FUNCTIONS:
+//------------------------------------------------------------------------------
+function loadReduxState(meteorData, reduxActions) {
+  const {
+    title,
+    date,
+    time,
+    location,
+    description,
+    maxParticipants,
+    cost,
+    participants,
+  } = meteorData.marker;
+
+  reduxActions.dispatchUpdateTextField('title', title);
+  reduxActions.dispatchSetDateField('date', date);
+  reduxActions.dispatchSetDateField('time', time);
+  reduxActions.dispatchUpdateTextField('address', location && location.description);
+  reduxActions.dispatchUpdateLocation({
+    placeId: location.placeId,
+    description: location.description,
+    center: {
+      lat: location.geometry.coordinates[1],
+      lng: location.geometry.coordinates[0],
+    },
+  });
+  reduxActions.dispatchUpdateTextField('description', description || '');
+  reduxActions.dispatchSetNumericField(maxParticipants, parseInt(maxParticipants, 10) || null);
+  reduxActions.dispatchUpdateTextField('cost', cost || '');
+  // reduxActions.dispatchUpdateArrayField('participants', participants);
+}
+//------------------------------------------------------------------------------
 // PAGE COMPONENT DEFINITION:
 //------------------------------------------------------------------------------
 /**
@@ -31,13 +67,29 @@ class AdminMarkerPage extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
+  componentDidMount() {
+    console.log('did mount');
+    loaded = false;
+    // Initialize redux state data based marker data
+    const { reduxActions, meteorData } = this.props;
+    console.log('loaded', loaded);
+    if (loaded === false && meteorData && meteorData.markerReady) {
+      loadReduxState(meteorData, reduxActions);
+      loaded = true;
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     // Initialize redux state data based marker data
     const { reduxActions, meteorData } = nextProps;
+    console.log('loaded', loaded);
+    if (loaded === false && meteorData && meteorData.markerReady) {
+      loadReduxState(meteorData, reduxActions);
+      loaded = true;
+    }
 
-    if (!meteorData || !meteorData.markerReady) return;
-
-    const {
+    return true;
+    /* const {
       title,
       date,
       time,
@@ -49,14 +101,14 @@ class AdminMarkerPage extends Component {
     } = meteorData;
 
     reduxActions.dispatchUpdateTextField('title', title || '');
-    reduxActions.dispatchSetDateField('date', date || '');
-    reduxActions.dispatchSetDateField('time', time || '');
+    reduxActions.dispatchSetDateField('date', date || new Date());
+    reduxActions.dispatchSetDateField('time', time || new Date());
     reduxActions.dispatchUpdateTextField('address', location && location.description || '');
     reduxActions.dispatchUpdateSelectedLocation('location', location || '');
     reduxActions.dispatchUpdateTextField('description', description || '');
     reduxActions.dispatchSetNumericField(maxParticipants, parseInt(maxParticipants, 10) || 0);
     reduxActions.dispatchUpdateTextField('cost', cost || '');
-    // reduxActions.dispatchUpdateArrayField('participants', participants);
+    // reduxActions.dispatchUpdateArrayField('participants', participants); */
   }
 
   handleFormInputChange({ fieldName, value }) {
@@ -83,12 +135,12 @@ class AdminMarkerPage extends Component {
     }
   }
 
-  handleLocationOptionSelect(selectedLocation) {
+  handleLocationOptionSelect(location) {
     const { reduxState, reduxActions } = this.props;
     const { errors } = reduxState;
 
-    reduxActions.dispatchUpdateSelectedLocation(selectedLocation);
-    reduxActions.dispatchUpdateTextField('address', selectedLocation.description);
+    reduxActions.dispatchUpdateLocation(location);
+    reduxActions.dispatchUpdateTextField('address', location.description);
 
     // Clear errors for the field being modified
     if (errors.address.length > 0) {
@@ -98,15 +150,16 @@ class AdminMarkerPage extends Component {
 
   handleFormSubmit(e) {
     e.nativeEvent.preventDefault();
-    const { reduxState, reduxActions } = this.props;
+    const { urlState, reduxState, reduxActions } = this.props;
+    const { markerId } = urlState;
     const formFields = [
       // 'sport',
       'title',
-      'description',
       'date',
       'time',
       'address',
-      'selectedLocation',
+      'location',
+      'description',
       'maxParticipants',
       'cost',
     ];
@@ -118,19 +171,14 @@ class AdminMarkerPage extends Component {
     reduxActions.dispatchSetBooleanField('canSubmit', false);
 
     // Get new marker fields from redux state
-    const newMarker = _.pick(reduxState, formFields);
+    const marker = _.pick(reduxState, formFields);
 
     // Check for errors
-    const errors = Markers.api.checkNewMarkerFields(newMarker);
+    const errors = Markers.api.checkUpdateMarkerFields(marker);
 
     // In case of errors, warn user and prevent the meteor method to be called
     if (AuxFunctions.hasErrors(errors)) {
       // TODO: Scroll to first error field
-      // const errorKey = AuxFunctions.getFirstError(errors).key;
-      // const elemYOffset = $(`#${elem}`).offset().top;
-      // const elemYOffset = document.getElementById(elem).scrollTop;
-      // console.log('elemYOffset', elemYOffset);
-      // window.scrollTo(0, elemYOffset - 100);
       // Display errors on UI
       reduxActions.dispatchSetErrors(errors);
       // Display flash notification
@@ -140,23 +188,24 @@ class AdminMarkerPage extends Component {
       return;
     }
 
-    Meteor.call('Markers.methods.updateMarker', newMarker, (err1, markerId) => {
+    Meteor.call('Markers.methods.updateMarker', markerId, marker, (err1) => {
       if (err1) {
         Bert.alert(err1.reason, 'danger', 'growl-top-right');
-        // Re-enable submit button
-        reduxActions.dispatchSetBooleanField('canSubmit', true);
       } else {
-        Meteor.call('Users.methods.attachMarkerToUser', markerId, 'new', (err2) => {
+        Bert.alert('Changes saved successfully!', 'success', 'growl-top-right');
+        /* Meteor.call('Users.methods.attachMarkerToUser', markerId, 'new', (err2) => {
           if (err2) {
             Bert.alert(err2.reason, 'danger', 'growl-top-right');
             // Re-enable submit button
             reduxActions.dispatchSetBooleanField('canSubmit', true);
           } else {
-            Bert.alert('Activity create successfully!', 'success', 'growl-top-right');
+            Bert.alert('Changes saved successfully!', 'success', 'growl-top-right');
             FlowRouter.go('marker', { markerId });
           }
-        });
+        }); */
       }
+      // Re-enable submit button
+      reduxActions.dispatchSetBooleanField('canSubmit', true);
     });
   }
 
@@ -185,6 +234,9 @@ class AdminMarkerPage extends Component {
 }
 
 AdminMarkerPage.propTypes = {
+  urlState: PropTypes.shape({
+    markerId: PropTypes.string.isRequired,
+  }).isRequired,
   reduxState: PropTypes.shape({
     canSubmit: PropTypes.bool.isRequired,
     title: PropTypes.string,
@@ -263,8 +315,8 @@ function mapDispatchToProps(dispatch) {
     dispatchSetBooleanField(fieldName, value) {
       return dispatch(Actions.setBooleanField(namespace, fieldName, value));
     },
-    dispatchUpdateSelectedLocation(data) {
-      return dispatch(Actions.updateSelectedLocation(namespace, data));
+    dispatchUpdateLocation(data) {
+      return dispatch(Actions.updateLocation(namespace, data));
     },
     dispatchSetErrors(errorsObj) {
       return dispatch(Actions.setErrors(namespace, errorsObj));
@@ -328,6 +380,9 @@ const AdminMarkerPageContainer = createContainer(({ markerId }) => {
   console.log(marker);
 
   return {
+    urlState: {
+      markerId,
+    },
     meteorData: {
       markerReady,
       marker,

@@ -33,8 +33,8 @@ class AdminMarkerMobile extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const nextPlace = nextProps.reduxState.selectedLocation;
-    const curPlace = this.props.reduxState.selectedLocation;
+    const nextPlace = nextProps.reduxState.location;
+    const curPlace = this.props.reduxState.location;
 
     /* console.log('------------------');
     console.log('willReceiveProps');

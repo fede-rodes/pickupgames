@@ -12,17 +12,17 @@ import {
 * Given the same arguments, it should calculate the next state and return it.
 * No surprises. No side effects. No API calls. No mutations. Just a calculation.
 */
-const initSelectedLocationState = {
+const initLocationState = {
   placeId: '',
   description: '',
   center: {},
 };
-const selectedLocationReducer = (state = initSelectedLocationState, action) => {
+const locationReducer = (state = initLocationState, action) => {
   switch (action.type) {
-    case 'UPDATE_SELECTED_LOCATION':
-      return action.selectedLocation;
-    case 'CLEAR_SELECTED_LOCATION':
-      return initSelectedLocationState;
+    case 'UPDATE_LOCATION':
+      return action.location;
+    case 'CLEAR_LOCATION':
+      return initLocationState;
     default:
       return state;
   }
@@ -87,7 +87,7 @@ const adminMarkerPageReducer = (state = initAdminMarkerPageState, action) => {
       case 'location':
         return {
           ...state,
-          [fieldName]: selectedLocationReducer(state[fieldName], action),
+          [fieldName]: locationReducer(state[fieldName], action),
         };
       case 'maxParticipants':
         return {

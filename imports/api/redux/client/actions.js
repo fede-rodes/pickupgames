@@ -58,6 +58,15 @@ const updateSelectedLocation = (namespace, selectedLocation) => (
   }
 );
 
+const updateLocation = (namespace, location) => (
+  {
+    type: 'UPDATE_LOCATION',
+    namespace,
+    fieldName: 'location',
+    location,
+  }
+);
+
 const clearSelectedLocation = (namespace) => (
   {
     type: 'CLEAR_SELECTED_LOCATION',
@@ -188,6 +197,7 @@ const Actions = {
   updatePlace,
   clearPlace,
   updateSelectedLocation,
+  updateLocation,
   clearSelectedLocation,
   updateMapBounds,
   clearMapBounds,

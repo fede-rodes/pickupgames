@@ -245,6 +245,7 @@ GoogleMaps.api.getRegion = (description) => {
 * @summary Check if place is empty.
 */
 GoogleMaps.api.placeIsEmpty = (place) => {
+  console.log(place);
   check(place, {
     placeId: String,
     description: String,
