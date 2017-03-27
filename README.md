@@ -3,19 +3,12 @@ Web app for easily organize sport activities and connect players. Current versio
 
 My previous pick-up games project (Meteor 1.2 + Blaze) can be found here: https://www.fulbacho.net
 
-The aim of this project is to re-build fulbacho.net using a much modern stack (Meteor, React, Redux, Flow router, CSS-Modules) as well as to add improvements and simplifications. I consider that one of the biggest mistakes when building fulbacho.net was to build views for all kind of devices (mobile, tablet and desktop). This was too much time consuming and, for this reason, I would like to focus now only on mobile view (max-width: 600, centered).
+The aim of this project is to partially re-build fulbacho.net (adding improvements and lots of simplifications) while using a much modern stack, namely: Meteor 1.4 (almost 1.5), React, Redux, Flow router and CSS-Modules. Additionally, I would like to take the style to the extreme and for this reason I would propose to focus on mobile views only: max-width: 600px and centered (same view for all kind of devices).
 
-## 1st Milestone
-- login / signup using facebook account (I think this is the simplest approach).
-- after signup display setup page were the user indicates city where she lives and at least one sport. (In the future, based on user interaction we can infer more info about the user: more sports, more accurate location of the user within a city, user's gender, ...)
-- after setup page is done, the user should be redirect to the feed page (will contain 2 views: list -default- and map) where the list of activities associated to the user's preferences (city + selected sports) is be displayed. Alternatively, the user can see the location of all the activities on a map by clicking the map button at the bottom of the feed (list) view.
-- If one of the activities in the list is clicked, the user will be re-directed to the activity page where all the data about that particular activity is displayed (location, time, etc), as well as the list of participants and a simple post system to allow communication among the users.
-- The activity page should provide a link to the admin dashboard to allow changing any data in the game (location, date, time, ...)
+## NEWS!!
+I just started writing the spec for the pickupgames app (lots of work needs to be done yet), and decided to pause the code for a bit until the spec is fully defined. In that way, those who are interested in the project can start contributing with ideas and once we all agree with the features the app needs to have we can divide the project into milestones and start coding :)
 
-## Maybe for the future
-- I'd like to try Inferno (https://github.com/infernojs/inferno) or Preact (https://github.com/developit/preact) to make the app much more light weight
-- Integration with facebook notification system + bot for facebook messenger (90% of fulbacho user signed up using facebook account)
-- Service workers to make the app a Progressive Web App
+Here is the link to the spec: https://docs.google.com/document/d/1uTo2BchpBs2C2lP0J_te-kxNxvuYsmPUpRXGcWDzV6s/edit?usp=sharing, don't hesitate to leave comments!
 
 ## Get started
 1. cd to your meteor projects folder
