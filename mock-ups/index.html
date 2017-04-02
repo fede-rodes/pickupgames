@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content='text/html;charset=utf-8' http-equiv='Content-Type'>
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"87e900fa1e","applicationID":"30144493","transactionName":"c1cPRhZWXF5SSxgSX1FKCFwDFlFCRw==","queueTime":0,"applicationTime":80,"agent":""}</script>
+<script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(2),u=e(3),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}finally{f.emit("fn-end",[c.now()],t)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now()])}},{}],2:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],3:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],4:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=m(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){v[e]=m(e).concat(n)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(t)}function g(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var v={},y={},b={on:l,emit:t,get:w,listeners:m,context:n,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(2),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!x++){var e=h.info=NREUM.info,n=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+h.offset],null,"api");var t=d.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===d.readyState&&i()}function i(){f("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),f=e("handle"),c=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=n.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),f("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'>
+<meta content='yes' name='apple-mobile-web-app-capable'>
+<meta content='yes' name='mobile-web-app-capable'>
+<meta content='black-translucent' name='apple-mobile-web-app-status-bar-style'>
+<meta content='webkit' name='renderer'>
+<meta content='app-id=1050565468' name='apple-itunes-app'>
+<title>
+pickupgames
+</title>
+<link href='images/icon_android.png' rel='icon' sizes='192x192'>
+<link href='images/icon_retina.png' rel='apple-touch-icon' sizes='120x120'>
+<link href='images/icon_retina3x.png' rel='apple-touch-icon' sizes='180x180'>
+<link href='images/icon_ipad.png' rel='apple-touch-icon' sizes='144x144'>
+<link href='images/icon_ipad.png' rel='apple-touch-icon' sizes='152x152'>
+<link href='images/splashes/retina.png' media='(device-width: 320px) and (device-height: 568px)' rel='apple-touch-startup-image'>
+<link href='images/splashes/iphone4_portrait_retina.png' media='(device-width: 320px) and (device-height: 480px)' rel='apple-touch-startup-image'>
+<link href='images/splashes/iphone6_portrait_retina.png' media='(device-width: 375px) and (device-height: 667px)' rel='apple-touch-startup-image'>
+<link href='images/splashes/iphone6plus_portrait_retina.png' media='(device-width: 414px) and (device-height: 736px)' rel='apple-touch-startup-image'>
+<link href='images/splashes/ipad_portrait_retina.png' media='(device-width: 768px) and (device-height: 1024px) and (orientation:portrait)' rel='apple-touch-startup-image'>
+<link href='images/splashes/ipad_landscape_retina.png' media='(device-width: 768px) and (device-height: 1024px) and (orientation:landscape)' rel='apple-touch-startup-image'>
+<style>
+  html, body {
+    color: #333333;
+    font-family: -apple-system, "SF UI Text", "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Zen Hei", sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 18px;
+    overflow: hidden;
+    height: 100%; }
+  
+  body {
+    background: #efefef;
+    color: #333333; }
+    body.mobile {
+      background-color: white; }
+  
+  #download, .modal.fade, #header {
+    display: none; }
+  
+  #notification {
+    position: fixed;
+    top: -70px;
+    left: 0; }
+  
+  .notice {
+    padding: 10px;
+    font-size: 14px; }
+    .notice p {
+      margin-bottom: 10px; }
+  
+  .spinner {
+    width: 30px;
+    height: 30px;
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgba(51, 54, 58, 0.6) transparent;
+    border-radius: 100%;
+    transform-origin: 50% 50% 0px;
+    -webkit-animation: mb-spin 0.8s infinite linear;
+    animation: mb-spin 0.8s infinite linear;
+    display: inline-block; }
+  
+  @-webkit-keyframes mb-spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg); }
+  
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg); } }
+  
+  @keyframes mb-spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg); }
+  
+    100% {
+      -webkit-transform: rotate(359deg);
+      transform: rotate(359deg); } }
+  
+  .actions {
+    visibility: hidden; }
+  
+  #safemode, #logo, #install, .cover, #device {
+    display: none; }
+  
+  #fontawesome {
+    position: absolute;
+    top: -65535px;
+    left: -65535px; }
+    #fontawesome .aw {
+      position: absolute;
+      width: auto;
+      white-space: nowrap; }
+    #fontawesome .ah {
+      position: absolute;
+      height: auto;
+      word-break: break-word;
+      word-wrap: break-word; }
+      #fontawesome .ah p {
+        margin-bottom: 5px;
+        white-space: pre-wrap; }
+        #fontawesome .ah p:last-child {
+          margin-bottom: 0px; }
+  
+  #loading {
+    width: 86px;
+    height: 86px;
+    z-index: 2;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-left: -43px;
+    text-align: center;
+    font-size: 12px; }
+    #loading .logo, #loading .indicator {
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      width: 86px;
+      height: 86px;
+      overflow: hidden;
+      background: url("images/logo-lg.svg");
+      background-size: 86px 86px; }
+    #loading .logo {
+      opacity: 0.3; }
+    #loading .indicator {
+      opacity: 1;
+      -webkit-transition: all 0.5s ease-in-out;
+      -moz-transition: all 0.5s ease-in-out;
+      transition: all 0.5s ease-in-out;
+      height: 0%; }
+    #loading span {
+      position: absolute;
+      width: 300px;
+      left: 50%;
+      top: 110px;
+      margin-left: -150px;
+      font-size: 14px;
+      line-height: 28px;
+      color: #f77d77; }
+</style>
+
+<style>
+  #splash {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #f0f0f2; }
+    #splash img {
+      position: absolute;
+      top: 0px;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+    #splash img.landscape {
+      display: none; }
+    #splash .spinner {
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      margin-left: -15px; }
+  
+  @media all and (orientation: landscape) {
+    #splash img {
+      position: absolute;
+      left: 0;
+      -webkit-transform: rotate(90deg);
+      -webkit-transform-origin: bottom left; }
+  
+    #splash .spinner {
+      position: absolute;
+      top: 50%;
+      margin-top: -16px; } }
+</style>
+
+
+<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="CSA2w7O0aSc6A89NXUkWNNV44GfOHRQs6anrmGOmUCMUET9zyzuxC7yuXJa+2ZCjev8fP9wwpX9trMb5hn+Jhw==" />
+</head>
+<body>
+<div id='fontawesome'>
+<i class='fa fa-user'></i>
+<div class='aw'></div>
+<div class='ah'></div>
+</div>
+<div id='loading'>
+<div class='logo'></div>
+<div class='indicator'></div>
+<span>
+loading pickupgames...
+</span>
+</div>
+<div data-user='null' id='workspace'>
+<div id='install'>
+<div class='app-inner'>
+<img class='app-icon' src='images/icon_android.png'>
+<h1 class='app-name'>
+pickupgames
+</h1>
+<div class='app-update-time'>
+<span>
+Last updated
+:
+</span>
+<abbr class='timeago' title='2017-04-02T18:00:51Z'></abbr>
+</div>
+<a class='install-btn' href='/app/rsEmeFnulZnjCGspJflJvrjYmThx4xY?inapp=1'>
+View App
+</a>
+<a class='install install-btn'>
+Install
+</a>
+<a class='download' href='https://itunes.apple.com/cn/app/mockingbot/id1050565468?ls=1&amp;mt=8' id='ios-download'>
+Get MockingBot Player on App Store
+</a>
+</div>
+</div>
+<div class='cover wechat'>
+<div class='tip-wrapper'>
+<p class='tip'>
+Open in broswer.
+</p>
+<img class='arrow' src='images/short-arrow.png'>
+</div>
+</div>
+<div class='cover ipad'>
+<div class='tip-wrapper'>
+<p class='tip'>
+Tap
+<img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAA1BAMAAADfUYSoAAAAFVBMVEUAAAAGfv8Eff8Xh/8Ae/cAgfcDev8kxpS2AAAABnRSTlMAgGPrExbGXyRsAAAAYUlEQVQ4y+3MsQ2AMBADQMMEofk6VSZgEyZ4Cu8/Ai+QXgpOmTJuYp2cR+aAZGMRM7rOKENzmss1/i/aDaJ5P6thO0s/C0OLJ3PV1/YTfZhtuvFLlOxjk7/LphmWTTPJ0B64+0mEocrEDQAAAABJRU5ErkJggg==' width='19'>
+,
+then Choose &quot;Add to Home Screen&quot;
+</p>
+<img class='arrow' src='images/short-arrow.png'>
+</div>
+</div>
+<div class='cover iphone'>
+<div class='tip-wrapper iphone'>
+<p class='tip'>
+Tap
+<img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAA1BAMAAADfUYSoAAAAFVBMVEUAAAAGfv8Eff8Xh/8Ae/cAgfcDev8kxpS2AAAABnRSTlMAgGPrExbGXyRsAAAAYUlEQVQ4y+3MsQ2AMBADQMMEofk6VSZgEyZ4Cu8/Ai+QXgpOmTJuYp2cR+aAZGMRM7rOKENzmss1/i/aDaJ5P6thO0s/C0OLJ3PV1/YTfZhtuvFLlOxjk7/LphmWTTPJ0B64+0mEocrEDQAAAABJRU5ErkJggg==' width='19'>
+,
+then Choose &quot;Add to Home Screen&quot;
+</p>
+<img class='arrow' src='images/down-arrow.png'>
+</div>
+</div>
+<div class='cover building'>
+<div class='tip-wrapper'>
+<p class='tip'>
+Building your APK...
+</p>
+<div class='spinner'></div>
+</div>
+</div>
+</div>
+<div class='safe-mask' id='safemode'>
+<div class='indicator restore'>
+<div class='spinner'></div>
+<div class='text'>
+This may take several minutes, have a cup of tea...
+<span class='progress'>0%</span>
+</div>
+</div>
+<div class='indicator success'>
+<span class='icon'>
+<i class='fa fa-smile-o'></i>
+</span>
+<div class='text'>
+All data saved successfully, please refresh this page to continue. <a onclick="window.location.reload()"> Refresh Now</a>
+</div>
+</div>
+</div>
+<div class='modal fade modal-small' id='safe-modal'>
+<div class='modal-dialog'>
+<div class='modal-content'>
+<div class='modal-body'>
+<img alt='' src='data:image/svg+xml;base64,Cjxzdmcgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMTY4IDAgNjQgNjQiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8IS0tIEdlbmVyYXRvcjogU2tldGNoIDQwLjMgKDMzODM5KSAtIGh0dHA6Ly93d3cuYm9oZW1pYW5jb2RpbmcuY29tL3NrZXRjaCAtLT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9ImljX2Vycm9yX291dGxpbmUiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2OC4wMDAwMDAsIDAuMDAwMDAwKSI+CiAgICAgICAgPGcgaWQ9Ikljb24tMjRweCI+CiAgICAgICAgICAgIDxwb2x5Z29uIGlkPSJTaGFwZSIgcG9pbnRzPSIwIDAgNjQgMCA2NCA2NCAwIDY0Ij48L3BvbHlnb24+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0yOS4zMzMzMzMzLDQwIEwzNC42NjY2NjY3LDQwIEwzNC42NjY2NjY3LDQ1LjMzMzMzMzMgTDI5LjMzMzMzMzMsNDUuMzMzMzMzMyBMMjkuMzMzMzMzMyw0MCBaIE0yOS4zMzMzMzMzLDE4LjY2NjY2NjcgTDM0LjY2NjY2NjcsMTguNjY2NjY2NyBMMzQuNjY2NjY2NywzNC42NjY2NjY3IEwyOS4zMzMzMzMzLDM0LjY2NjY2NjcgTDI5LjMzMzMzMzMsMTguNjY2NjY2NyBaIE0zMS45NzMzMzMzLDUuMzMzMzMzMzMgQzE3LjI1MzMzMzMsNS4zMzMzMzMzMyA1LjMzMzMzMzMzLDE3LjI4IDUuMzMzMzMzMzMsMzIgQzUuMzMzMzMzMzMsNDYuNzIgMTcuMjUzMzMzMyw1OC42NjY2NjY3IDMxLjk3MzMzMzMsNTguNjY2NjY2NyBDNDYuNzIsNTguNjY2NjY2NyA1OC42NjY2NjY3LDQ2LjcyIDU4LjY2NjY2NjcsMzIgQzU4LjY2NjY2NjcsMTcuMjggNDYuNzIsNS4zMzMzMzMzMyAzMS45NzMzMzMzLDUuMzMzMzMzMzMgTDMxLjk3MzMzMzMsNS4zMzMzMzMzMyBaIE0zMiw1My4zMzMzMzMzIEMyMC4yMTMzMzMzLDUzLjMzMzMzMzMgMTAuNjY2NjY2Nyw0My43ODY2NjY3IDEwLjY2NjY2NjcsMzIgQzEwLjY2NjY2NjcsMjAuMjEzMzMzMyAyMC4yMTMzMzMzLDEwLjY2NjY2NjcgMzIsMTAuNjY2NjY2NyBDNDMuNzg2NjY2NywxMC42NjY2NjY3IDUzLjMzMzMzMzMsMjAuMjEzMzMzMyA1My4zMzMzMzMzLDMyIEM1My4zMzMzMzMzLDQzLjc4NjY2NjcgNDMuNzg2NjY2Nyw1My4zMzMzMzMzIDMyLDUzLjMzMzMzMzMgTDMyLDUzLjMzMzMzMzMgWiIgaWQ9IlNoYXBlIiBmaWxsPSIjRjc1QjUwIj48L3BhdGg+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4='>
+<h5>Oops!</h5>
+<p id='alert-msg'></p>
+<button class='btn btn-primary' onclick='window.location.reload()'>Reload</button>
+</div>
+</div>
+</div>
+</div>
+
+<div id='modals'>
+<div class='modal fade' id='warning-modal'></div>
+<div class='modal fade' id='sharing-modal'></div>
+<div class='modal fade' id='renew_modal'>
+<div class='modal-dialog'>
+<div class='modal-content'>
+<div class='modal-header'>
+<a class='close' data-dismiss='modal' href='#'>×</a>
+<h4>Renew required</h4>
+</div>
+<div class='modal-body'>
+<p class='limit collaboration'>
+This is a collaborated project, you need to ask project owner renew his/her account to continue editing. If you own this project, you can remove all collaborators to continue.
+</p>
+<p class='limit exporting comments'>
+This a paid feature, and you need renew your account before continuing. You may need contact the project owner if you aren't the owner of this project.
+</p>
+<p class='limit exceed_quota'>
+You have exceeded image storage limit (100M) of free plan, and your free trial has expired. You need upgrade your account to continue.
+</p>
+</div>
+<div class='modal-footer'>
+<a class='btn btn-primary' href='/account'>
+Renew Now
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class='modal fade' id='chrome-warning'>
+<div class='modal-dialog'>
+<div class='modal-content'>
+<div class='modal-header'>
+<button aria-label='Close' class='close' data-dismiss='modal' type='button'>
+<span aria-hidden='true'>
+&times
+</span>
+</button>
+<h4 class='modal-title'>
+<i class='fa fa-warning'></i>
+<span class="translation_missing" title="translation missing: en.warning">Warning</span>
+</h4>
+</div>
+<div class='modal-body'>
+<p>
+It seems that your browser has restricted the minimum font size for display. We recommend you turn off such setting to display styles for text copies correctly.
+</p>
+<p>
+<a href='https://modao.cc/posts/63' target='blank'>
+Click here to read instructions.
+</a>
+</p>
+</div>
+<div class='modal-footer'>
+<button class='btn btn-default' data-dismiss='modal' type='button'>
+Got it
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class='modal fade' id='cheating-warning'>
+<div class='modal-dialog'>
+<div class='modal-content'>
+<div class='modal-body'>
+<p>
+<b>任何要求微信转账，汇款，购买授权码的行为都是诈骗行为</b>。
+</p>
+<p>
+墨刀官方唯一购买渠道： <a href="https://modao.cc">modao.cc</a>，其它都是诈骗，损失墨刀概不负责。
+</p>
+<p class='tips'>
+付费用户可去除此提示。
+</p>
+</div>
+<div class='modal-footer'>
+<a aria-hidden='true' data-dismiss='modal' href='#'>
+知道了，我不会转账
+</a>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>
+  (function() {
+    var splash;
+  
+    window.MBLocale = 'en';
+  
+    window.I18N = {
+      "new_app": "Create App",
+      "preview_demo": "View Demo",
+      "create": "Create",
+      "setting": "Settings",
+      "update": "Update",
+      "are_you_sure": "Are you sure?",
+      "screen_remove_confirmation": " has \u003cb\u003e{children} sub-screen(s)\u003c/b\u003e, this screen and all its sub-screens will be removed permanently, are you sure?",
+      "cant_remove_screen": "You need at least 1 screen.",
+      "last_updated": "Last updated",
+      "support": "Support",
+      "carrier": "AT\u0026T",
+      "remove_parent_only": "No, Remove Parent Only",
+      "remove_all": "Yes, Remove Parent and All Subs",
+      "w": {
+        "label": "Label",
+        "text_view": "Text",
+        "pg": "Gesture",
+        "lr": "Link Region",
+        "icon_button": "Icon",
+        "image_view": "Image",
+        "button": "Button",
+        "webpage": "Webpage",
+        "mtooltip": "Tooltip",
+        "rounded_rect": "Rectangle",
+        "circle_rect": "Circle",
+        "hr": "Horizon Line",
+        "ve": "Vertical Line",
+        "triangleb": "Triangle 1",
+        "triangletl": "Triangle 2",
+        "navigation_bar": "Nav Bar",
+        "search_bar": "Search Bar",
+        "tab_bar": "Tab Bar",
+        "tab_item": "Tab Item",
+        "rectangle": "List Item",
+        "switch": "Switch",
+        "map_view": "Map",
+        "keyboard": "Keyboard",
+        "sticky": "Sticky",
+        "status_bar": "Status Bar",
+        "panel": "Panel",
+        "group": "Group",
+        "text_view_placeholder": "If you can't explain it simply you don't understand it well enough.\n -- Albert Einstein",
+        "navbar_title": "Title",
+        "search": "Search",
+        "mcheckbox2": "Checkbox",
+        "mradiobutton": "Radio Button",
+        "mtext_input": "Text Input",
+        "mtextarea": "Text Area",
+        "mselect": "Droplist",
+        "mfile_input": "File Input"
+      },
+      "drag_to_link_screen": "drag circle to link screens",
+      "password": "Password",
+      "screen": "Screen",
+      "home": "Home",
+      "pay_with_alipay": "translation missing: en.pay_with_alipay",
+      "share": "Share",
+      "rotate": "Rotate",
+      "back": "Back",
+      "return": "return",
+      "login_from_desktop": "To create new app you need log into MockingBot with a desktop browser.",
+      "install": "Install",
+      "tap": "Tap",
+      "public": "Public",
+      "private": "Encrypted",
+      "add_to_home_screen": "then Choose \"Add to Home Screen\"",
+      "open_in_broswer": "translation missing: en.open_in_broswer",
+      "dup_app_confirmation": "This app will be duplicated are you sure?",
+      "data_lost_warning": "Data is still being sent to the server; Your changes will be lost if you close this page, are you sure to quit?",
+      "inspector": {
+        "width": "Width",
+        "height": "Height",
+        "font_size": "Font Size",
+        "line_height": "Line Height",
+        "bs": "Border Width",
+        "ls": "Border Style",
+        "radius": "Border Radius",
+        "p": "Zoom Proportional",
+        "icon": "Icon",
+        "is": "Icon Size",
+        "search": "search icon, e.g. user",
+        "drop_image": "Drop image here or",
+        "click_to_upload": "click to upload.",
+        "asset_search": "Search Image",
+        "circularize": "Circle",
+        "squareize": "Square",
+        "ro": "Rotate Degree",
+        "input_type": "Keyboard",
+        "z": "Layer",
+        "o": "Opacity",
+        "ds": "Drop Shadow",
+        "sc": "Shadow Color",
+        "ts": "Text Shadow",
+        "tsc": "Shadow Color",
+        "bg": "Background",
+        "tc": "Foreground",
+        "bc": "Border Color",
+        "f": "Font",
+        "padding": "Padding",
+        "checked": "Checked",
+        "numeric": "Numeric Keyboard",
+        "fixed": "Fixed Position",
+        "fixed_widget": "Fixed",
+        "not_fixed": "Not Fixed",
+        "fixed_auto": "Auto Detect Relative",
+        "fixed_top": "Relative to Top",
+        "fixed_bottom": "Relative to Bottom",
+        "visible": "(V)isible in this state.",
+        "placement": "Placement",
+        "offset": "Triangle Offset",
+        "arrow_size": "Triangle Size",
+        "blur": "blur",
+        "grayscale": "grayscale",
+        "sepia": "sepia",
+        "brightness": "brightness",
+        "contrast": "contrast",
+        "hue_rotate": "hue rotate",
+        "invert": "invert",
+        "saturate": "saturate",
+        "reset": "reset"
+      },
+      "drag_to_create_screen": "Drag image files here to create new screen(s).",
+      "regenerate": "Re-generate",
+      "got_it": "Got it",
+      "network_error": "Failed to contact server please check network setting.",
+      "unsupported": "Unsupported file type.",
+      "link_back": "Prev Screen",
+      "drag_to_start": "Drag component or image file here to start",
+      "home_screen": "Home Screen",
+      "signup_required": "You need sign up at first before using this feature.",
+      "credential_required": "This app is protected please input your credential:",
+      "state": "State",
+      "new": "New",
+      "widgets": "Widgets(1)",
+      "new_combo": "New Combo",
+      "invalid_credential": "Invalid credential refresh to try again.",
+      "icons": {
+        "all": "All",
+        "basics": "Basic",
+        "brand": "Brand",
+        "text": "Text",
+        "directional": "Directional",
+        "form": "Form",
+        "video": "Video"
+      },
+      "app_device": "Device Type",
+      "app_type": "App Type",
+      "icon": "Icon",
+      "splash": "Splash",
+      "size": "Size",
+      "icon_and_splash": "Icon And Splash",
+      "tr": {
+        "none": "None",
+        "slideleft": "R Slide",
+        "slideright": "L Slide",
+        "slidebottom": "B Slide",
+        "slidetop": "T Slide",
+        "leftmenu": "L Menu",
+        "rightmenu": "R Menu",
+        "leftdrawer": "L Drawer",
+        "rightdrawer": "R Drawer",
+        "slideleft2": "L Push",
+        "slideright2": "R Push",
+        "popin": "B Push",
+        "topin": "T Push",
+        "leftout": "L Pop",
+        "rightout": "R Pop",
+        "popout": "B Pop",
+        "topout": "T Pop"
+      },
+      "target": "Target",
+      "png_only": "Please upload PNG file for Icon/Splash.",
+      "all_apps": "My Active Apps",
+      "inbox": "Move into Active",
+      "sharing": "Sharing",
+      "owner_only": "Only owner or admin can invite new member.",
+      "sharing_url": "Sharing URL",
+      "toolbox": {
+        "ruler": "Size(R)",
+        "text": "Text(T)",
+        "icons": "Icons(I)",
+        "palette": "Color(O)",
+        "uploader": "Image Uploader(U)",
+        "states": "Choose a state to create link"
+      },
+      "last_saved": "Last saved",
+      "archive": "Move to Archive",
+      "download": "Download",
+      "archived": "My Archives",
+      "del_app_confirmation": "This app will be deleted are you sure?",
+      "wait_for_saving": "This screen hasn't been saved yet, please wait a moment and try again.",
+      "fix_data": "We've detected you have unsaved changes do you want to save them now?",
+      "upload_image": "Upload Image",
+      "site_title": "MockingBot",
+      "send_front": "Send Front",
+      "send_back": "Send Back",
+      "forward": "Forward",
+      "backward": "Backward",
+      "wechat": "Wechat",
+      "choose_screen": "Choose screen to Nav",
+      "hdistribute": "Distribute horizontally",
+      "vdistribute": "Distribute vertically",
+      "hright": "Right Alignment",
+      "make_a_copy": "Make a Copy",
+      "more_options": "More Options",
+      "unsaved": "unsaved",
+      "all_saved": "done",
+      "timer": "Timer",
+      "no_timer": "Not set",
+      "cant_delete_template": "Can't delete this template you need delete all instances of this template at first.",
+      "archive_confirmation": "This app will be archived are you sure?",
+      "unarchive_confirmation": "This app will be moved to home are you sure?",
+      "dc_confirm": "This screen has sub-screens, do you like to duplicate all sub-screens?",
+      "delete": "Delete",
+      "expand_screen": "Expand Screen",
+      "shrink_screen": "Shrink Screen",
+      "watch_tutorial": "Watch Tutorial",
+      "edit": "Edit",
+      "builtin_theme": "Built-in Style",
+      "custom_theme": "Custom Style",
+      "screen_bgcolor": "Set Background Color",
+      "screen_bgimage": "Set Background Image",
+      "pg_tooltip": "Global Gesture",
+      "lr_tooltip": "Drag the mouse can hold down Ctrl/Cmd to quickly create links area",
+      "icon_tooltip": "Icon",
+      "sticky_tooltip": "Sticky is visible outside of screen.",
+      "menu_offset": "Menu(%)",
+      "edit_demo": "Edit Demo App",
+      "create_new": "Create A New App",
+      "blank_app": "Blank App",
+      "template_app": "Template Apps",
+      "basic": "Basic",
+      "shapes": "Shapes",
+      "bars": "Bars",
+      "others": "Others",
+      "webpage": "Webpage",
+      "drag_to_resize": "Drag to Resize",
+      "https_only": "Double click to edit URL (https only).",
+      "template_search": "Search Template",
+      "no_archived_app": "You don't have any archived app.",
+      "archive_app": "Visit the site on a computer to archive apps",
+      "no_app": "You don't have any app",
+      "visit_via_computer": "Visit the site on a computer",
+      "view_demo": "Check this demo",
+      "sharing_password": "Password (Optional)",
+      "edit_screens": "Edit Screens",
+      "state_link_tutorial": "Template Link Tutorial",
+      "highlight_clickable": "Hightlight link areas on screen clicking.",
+      "type2search": "Search ",
+      "all_assets": "All Images",
+      "current_assets": "Current Project",
+      "text_color": "Text Color",
+      "search_doc": "Search Doc",
+      "combo_search": "Search Combos",
+      "all_combos": "All Combos",
+      "my_combos": "My Combos",
+      "builtin": "Built-in",
+      "width": "Width",
+      "height": "Height",
+      "sticky": "Sticky",
+      "new_template": "New Template",
+      "auto_scale": "Auto Scale",
+      "auto_scale_tip": "Auto scale to fill different screens e.g combo for iPhone 5s will scale 1.17x to fit iPhone 6 and 1.29x for iPhone 6 plus.",
+      "drag_widgets_2create": "Drag widgets to create a combo",
+      "upgrade_prompt": "New version has fixed file downloading bug visit mockingbot.com with browser to download.",
+      "embed": "Embed",
+      "submit_app_proposal": "Need more templates? \u003ca href=\"#page/forum/feature_request\"\u003eLell us know.\u003c/a\u003e",
+      "shell_type": "Shell Type",
+      "device_shell": "Real Device",
+      "default_shell": "Default Gray Shell",
+      "none_shell": "None Shell",
+      "upload_own": "Upload your own",
+      "upload_icon": "Upload Icon",
+      "upload_splash": "Upload Splash",
+      "app_name": "Name",
+      "free_trial": "Free trial check pricing.",
+      "restricted": "White list",
+      "public_intro": "Visible to everyone free forever.",
+      "private_intro": "Anyone who know URL and password.",
+      "restricted_intro": "Only collaborators in team or project.",
+      "expired": "Expired",
+      "manage_collaborators": "Manage Team Members",
+      "roles": {
+        "admin": "Administrator",
+        "admin_desc": "Admin",
+        "editor": "Designer",
+        "editor_desc": "Edit",
+        "viewer": "Reviewer",
+        "viewer_desc": "View",
+        "owner": "Owner"
+      },
+      "invite": "Invite",
+      "pending": "Pending",
+      "others_apps": "'s Apps",
+      "remove_me": "Leave",
+      "invalid_post": "Either content or an app is required",
+      "cant_invite_self": "Can't invite yourself",
+      "left": "left",
+      "right": "right",
+      "top": "top",
+      "down": "down",
+      "dip_help": "What's device independent width and height?",
+      "dblclick_to_edit": "Double Click to Edit",
+      "name_copy": " Copy",
+      "load_project": "Loading project please wait a moment...",
+      "connect_to_push_server": "Connecting to push server...",
+      "reconnect_push_server": "Failed to contact push server reconnecting...",
+      "invalid_email": "Invalid Email",
+      "cant_invite_yourself": "Can't invite yourself",
+      "already_invited": "Already invited",
+      "exceed_collaborator_limit": "Exceed collaborator limitation of your plan upgrading needed.",
+      "in_progress": "This may take several minutes, have a cup of tea...",
+      "screen_list": "Screen List",
+      "text_mode": "Text Mode",
+      "link_mode": "Link Mode",
+      "order_period": "Choose Period",
+      "current_plan": "Current plan",
+      "next_billing_on": "Next billing on",
+      "balance_left": "translation missing: en.balance_left",
+      "enterprise": "Enterprise",
+      "actually_pay": "translation missing: en.actually_pay",
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "pro": "Pro",
+      "free": "Free",
+      "standard": "Standard",
+      "startup": "Startup",
+      "invalid_comment": "Comment can't be blank",
+      "electron_download_alert": "Have trouble downloading it? Please try downloading it from browser.",
+      "no_permission": "Sorry you don't have permission to edit this template.",
+      "widget_list": "Widget List",
+      "team_name": "Team Name",
+      "edit_team": "Edit Team",
+      "team_icon": "Team Icon",
+      "team_color": "Team Color",
+      "icon_and_color": "Icon And Color",
+      "team": "team",
+      "role": "Role",
+      "projects_count": "Projects",
+      "screens_count": "Screens",
+      "members_count": "Members",
+      "choose_team": "Choose Team",
+      "no_joined_team": "You didn't join any team.",
+      "my_assets": "My Images",
+      "import_app": "Import App",
+      "choose_app": "Choose an app",
+      "dup_and_import": "Duplicate this app and import copy",
+      "no_privilege": "You don't have enough privilege for this operation.",
+      "delete_projects_first": "Please delete all project in this team at first.",
+      "refresh_token_confirmation": "This will re-generate sharing url of your app are you sure?",
+      "main_state": "Main State",
+      "ani_name": "Animation",
+      "ani_delay": "Delay",
+      "ani_duration": "Duration",
+      "ani_count": "Iteration",
+      "animate": "Animate",
+      "none": "None",
+      "default": "Default",
+      "infinite": "Infinite",
+      "ani": {
+        "attention_seekers": "Attention Seekers",
+        "bouncing_entrances": "Bouncing Entrances",
+        "flippers": "Flippers",
+        "rotating_entrances": "Rotating Entrances",
+        "sliding_entrances": "Sliding Entrances",
+        "zoom_entrances": "Zoom Entrances",
+        "specials": "Specials",
+        "bounce": "bounce",
+        "fadeIn": "fadeIn",
+        "flash": "flash",
+        "pulse": "pulse",
+        "rubberBand": "rubberBand",
+        "shake": "shake",
+        "swing": "swing",
+        "tada": "tada",
+        "wobble": "wobble",
+        "jello": "jello",
+        "bounceIn": "bounceIn",
+        "bounceInDown": "bounceInDown",
+        "bounceInLeft": "bounceInLeft",
+        "bounceInRight": "bounceInRight",
+        "bounceInUp": "bounceInUp",
+        "flipInX": "flipInX",
+        "flipInY": "flipInY",
+        "spinning": "spinning(clockwise)",
+        "spinning-reverse": "spinning(counter clockwise)",
+        "rotateIn": "rotateIn",
+        "rotateInDownLeft": "rotateInDownLeft",
+        "rotateInDownRight": "rotateInDownRight",
+        "rotateInUpLeft": "rotateInUpLeft",
+        "rotateInUpRight": "rotateInUpRight",
+        "slideInDown": "slideInDown",
+        "slideInLeft": "slideInLeft",
+        "slideInRight": "slideInRight",
+        "slideInUp": "slideInUp",
+        "zoomIn": "zoomIn",
+        "zoomInDown": "zoomInDown",
+        "zoomInLeft": "zoomInLeft",
+        "zoomInRight": "zoomInRight",
+        "zoomInUp": "zoomInUp",
+        "rollIn": "rollIn",
+        "lightSpeedIn": "lightSpeedIn"
+      },
+      "storage": "Image Storage",
+      "whats_this": "What's this?",
+      "exceed_screen_limit": "This project has more than 50K components and states, and you can't add more screen/state to this project for loading and running performance consideration. You can create a new project to continue.",
+      "new_state": "New State",
+      "tutorial": "Tutorial",
+      "reset_target_screen": "Reset target screen to initial state",
+      "android.customize": "Customize",
+      "unsaved_changes": "You have unsaved changes, please make sure all your changes are saved and then try again.",
+      "transfer_screen": "Transfer screen to other project",
+      "transfer": "Transfer",
+      "minputs": "Inputs",
+      "move": "Move",
+      "global_state": "Global State",
+      "global_state_link_error": "You can't create state link in global state.",
+      "input_types": {
+        "text": "Text",
+        "number": "Number",
+        "search": "Search",
+        "password": "Password",
+        "date": "Date",
+        "time": "Time",
+        "datetime": "Datetime"
+      },
+      "move_tips": "Create a copy and move the copy to dst team.",
+      "g": {
+        "tap": "Tap",
+        "left": "Swipe Left",
+        "right": "Swipe Right",
+        "up": "Swipe Up",
+        "down": "Swipe Down",
+        "hold": "Tap and Hold",
+        "dtap": "Double Tap",
+        "shake": "Shake",
+        "timer": "Timer",
+        "vscroll": "Vertical Scroll"
+      },
+      "choose_move_dst": "Move to",
+      "assets_manager": "Open Assets Manager(A)",
+      "tags": "Tags",
+      "tags_placeholder": "Select an image to add tag.",
+      "name": "Name",
+      "choose_tag": "Choose a Tag",
+      "create_tag": "New Tag",
+      "insert_to_current": "Insert to Screen",
+      "create_new_screen": "Create a new Screen",
+      "my_apps": "My Apps",
+      "team_apps": "My Teams",
+      "remove_clip": "Remove Clip Path",
+      "update_colorset": "Update Style",
+      "colorset_tips": "Tips: use Shift-NUM to apply style, click to add/update.",
+      "new_colorset": "Add Style",
+      "replace_image": "Replace Image",
+      "cancel": "Cancel",
+      "duplicate_all": "Yes, Duplicate All Subs",
+      "duplicate_parent_only": "No, Duplicate Parent Only",
+      "coupon": "Coupon",
+      "new_flow": "New Flow",
+      "flow": "Flow",
+      "untitled_flow": "Untitled Flow",
+      "ipa_building_starts": "Start building your iOS app. We will sent you an e-mail when finished.",
+      "ipa_device.not_configured": "No installable device available, please ask your team administrator to add your device first.",
+      "no_ios_certificate": "No Apple iOS distribution certicifate available.",
+      "go_to_account_settings": "Go to Settings",
+      "ios_offline": "iOS IPA",
+      "import": "Import",
+      "import_template": "Import Template",
+      "choose_template_to_import": "Choose template to import",
+      "full_view": "Full View",
+      "edit_workflows": "Edit Workflows",
+      "view_app": "View App",
+      "view_workflows": "View Workflow",
+      "expand_all": "Expand All",
+      "fold_all": "translation missing: en.fold_all",
+      "apply_coupon": "Apply",
+      "notifications": {
+        "all": "Notifications",
+        "view_all": "View All",
+        "load_more": "Load more",
+        "request_permission": "We strongly recommend enabling desktop notifications if you’ll be using MockingBot on this computer.",
+        "enable_notification": "Enable notifications",
+        "ask_later": "Ask later",
+        "never_ask_again": "Never ask again",
+        "mark_all_as_read": "Mark All as Read",
+        "empty": "No Notifications"
+      },
+      "loading": "loading",
+      "untitled_editable": "Untitled - Double-Click to Edit",
+      "got_message": "Got a message",
+      "buy": "Buy",
+      "no_post": "There is no post here",
+      "click2create": "create one",
+      "login_to_vote": "Login to vote.",
+      "preview": {
+        "comment": {
+          "switch": "Comment Mode",
+          "tip": "Double-click to add new Comment",
+          "tip_signin": "Sign-in to add new Comment",
+          "tip_not_collaborator": "Please contact project owner for a collaborator invitation to add your comment",
+          "panel": " Comment",
+          "thread_create": "Add",
+          "thread_delete_confirm": "Remove this comment forever?",
+          "thread_none": "No Comment",
+          "thread_none_tip": "Double click on the left, or use the button below to add comment",
+          "thread_none_tip_signin": "Sign-in to add comment",
+          "comment_placeholder": "Use Shift + Enter for new line",
+          "comment_create": "Reply",
+          "comment_create_initial": "Create",
+          "comment_create_initial_title": "Create Comment",
+          "comment_delete_confirm": "Remove this reply forever?",
+          "modify_edit": "Edit",
+          "modify_delete": "Delete",
+          "reply": " Reply",
+          "reply_none": "no reply",
+          "reply_none_tip": "Please add your message below to create comment",
+          "reply_new": " new",
+          "reply_new_thread": "New",
+          "divider_new": "New Reply",
+          "show_all_0": "Show ",
+          "show_all_1": " more",
+          "tag_edited": "Edited",
+          "unfold": "Unfold"
+        },
+        "screen": {
+          "panel": "Screen Panel",
+          "total_page": "Total screen count"
+        }
+      },
+      "web_signin": "Sign in",
+      "switch_to_free": "Your account will be auto downgraded to FREE plan once it's expired.",
+      "other_settings": "Other Settings",
+      "new_post": "New Post",
+      "choose_category": "Change Category",
+      "project": "project",
+      "acl_moved_to_sharing": "Access setting was moved to sharing panel.",
+      "who_can_access": "Who can access the sharing",
+      "unknown_error": "We're sorry but something went wrong, we've been notified and will fix it ASAP. Please reload this page to continue.",
+      "new_version_detected": "New version detected, please refresh to continue.",
+      "no_team": "You don't have any team.",
+      "no_team_app": "This team don't have any app",
+      "create_app_tips": "You can click here to create one.",
+      "create_team_tips": "Click here to create one",
+      "new_team": "Create Team",
+      "client_download": "MacOS and Windows client to download",
+      "tutorial_video": "MockingBot tutorials \u0026 videos",
+      "created_time": "Created At Asc",
+      "updated_time": "Updated At Desc",
+      "forum": "Forum",
+      "all_teams": "All teams",
+      "created_teams": "My teams",
+      "joined_teams": "Joined teams",
+      "team_intro": "Learn more about teams.",
+      "liked": "Liked",
+      "karma": "Karma",
+      "edit_profile": "Edit Profile",
+      "public_projects": "Public Apps",
+      "my_posts": "My Posts",
+      "his_posts": "His/Her Posts",
+      "my_comments": "My Comments",
+      "his_comments": "His/Her Comments",
+      "sharing_app": "Share App",
+      "embed_app": "Embed Code",
+      "permission": "Permission",
+      "access_permission": "Access",
+      "preview_settings": "Preview Settings",
+      "embed_tips": "Embed in a website or blog by copying the code below.",
+      "view_in_browser": "Check this if you'd like play app directly without the installation instructions.",
+      "functional_widgets": "Functional",
+      "locale_text": "中文",
+      "trial_expired": "Trial expired",
+      "upgrade": "Upgrade",
+      "renew": "Renew",
+      "active": "Active",
+      "guide": "Guide",
+      "feature_update": "Updates",
+      "my_account": "Account",
+      "signout": "Sign out",
+      "trial": "Trial",
+      "project_duplicated": "A copy of this project is being created, please wait a moment and reload to check the progress.",
+      "project_duplicating": "Duplicating...",
+      "project_duplicate_failed": "Duplicating failed",
+      "save": "Save",
+      "save_tip": "Save (ctrl+S)",
+      "undo": "Undo",
+      "undo_tip": "Undo (ctrl+Z)",
+      "redo": "Redo",
+      "redo_tip": "Redo (ctrl+Y)",
+      "cut": "Cut",
+      "cut_tip": "Cut (ctrl+X)",
+      "copy": "Copy",
+      "copy_tip": "Copy (ctrl+C)",
+      "paste": "Paste",
+      "paste_tip": "Paste (ctrl+V)",
+      "paste_directly": "paste Directly",
+      "paste_to_point": "paste to Cursor",
+      "link_line": "Links",
+      "grid": "Grid",
+      "ruler": "Ruler",
+      "lock": "Lock",
+      "export": "Export",
+      "layout": "Layout",
+      "align": "Align",
+      "hleft": "Left Alignment",
+      "hleft_tip": "Left Alignment (ctrl+alt+L)",
+      "hcenter": "Horizontal Center",
+      "hcenter_tip": "Horizontal Center (ctrl+alt+C)",
+      "hright_tip": "Right Alignment (ctrl+alt+R)",
+      "vtop": "Top Alignment",
+      "vtop_tip": "Top Alignment (ctrl+alt+T)",
+      "vcenter": "Vertical Center",
+      "vcenter_tip": "Vertical Center (ctrl+alt+V)",
+      "vbottom": "Bottom Alignment",
+      "vbottom_tip": "Bottom Alignment (ctrl+alt+B)",
+      "distribute": "Distribute",
+      "hdistribute_tip": "Distribute horizontally (ctrl+shift+H)",
+      "vdistribute_tip": "Distribute vertically (ctrl+shift+U)",
+      "group": "Group",
+      "group_tip": "Group (ctrl+G)",
+      "ungroup": "Ungroup",
+      "ungroup_tip": "Ungroup (ctrl+U)",
+      "zoomin": "Zoom In",
+      "zoomout": "Zoom Out",
+      "launch": "Launch",
+      "new_screen": "New Screen",
+      "add_to": "Add to",
+      "templates": "Templates",
+      "templates_2": "Templates (2)",
+      "combos": "Combos",
+      "combos_3": "Combos (3)",
+      "lock_widget": "Lock Widget",
+      "unlock": "Unlock",
+      "widgets_here": "Stacked Widgets",
+      "error_project": "This project cannot be open because of abnormal data, please click to delete it.",
+      "recover": "Recover",
+      "no_deleted_screens": "The trash can is empty.",
+      "transh_can": "Trash Can",
+      "screen_transh_can": "Screen Trash Can",
+      "project_transh_can": "Project Trash Can",
+      "electron_upgrading_title": "Please download latest MockingBot Desktop",
+      "electron_upgrading_msg": "You need upgrade to latest version of MockingBot Desktop，\u003ca href='/downloads#sec-desktop' target='_blank'\u003eclick here to start downloading\u003c/a\u003e.",
+      "account": {
+        "pay_success": "Pay for success",
+        "reload_after_countdown": "Will refresh automatically after \u003cspan style=\"color: #F55D54\"\u003e\u003c/span\u003e s",
+        "switch_plan": "Switch",
+        "renew": "Renew",
+        "pay_with_paypal": "Paypal",
+        "pay_with_alipay": "Alipay",
+        "pay_with_wechat": "Wechat",
+        "scan_with_wechat": "Pay with WeChat QR",
+        "provided_by_pingxx": "This service is provided by the Ping ++",
+        "reload": "Reload Now",
+        "balance_left": "Balance Left",
+        "actually_pay": "Pay Due",
+        "save_17": "Save 17%",
+        "new_plan": "New Plan",
+        "new_billing_date": "New Billing Date",
+        "payment_methods": "Payment Methods",
+        "wechat_pay": "WeChat Pay",
+        "confirm_pay": "Comfirm",
+        "pay": "Pay",
+        "discount": "Current Discount"
+      }
+    };
+  
+    splash = document.getElementById('splashimg');
+  
+    if (splash && window.innerWidth > window.innerHeight) {
+      splash.style.width = window.innerHeight + 'px';
+      splash.style.height = window.innerWidth + 'px';
+      splash.style.top = (0 - window.innerWidth) + 'px';
+    }
+  
+  }).call(this);
+</script>
+<link href='css/font-awesome.min.css' media='screen' rel='stylesheet'>
+<link href='css/roboto.css' media='screen' rel='stylesheet'>
+<link href='css/mb-font.css' media='screen' rel='stylesheet'>
+
+<link rel="stylesheet" media="screen" href="assets/sharing-d5a734ace4ab61cbadf5d75c5d2453e1.css" />
+<link rel="stylesheet" media="screen" href="webpack/preview-30aed20c447f7a2493ab2ff06516fb0c.css" />
+<script>
+  document.getElementsByClassName("indicator")[0].style.height = '30%';
+  var MBServer = "mockingbot.com";
+</script>
+<script>
+   var webpackManifest = {"0":"0-741ef8ae9078eee53f91.js","1":"1-17ba6aac06f8e59eda17.js","2":"2-b5e465f1554c8c1a3ad8.js","3":"3-b340d38548719fcfa558.js","4":"4-8f7e75b6c77d42f7df0e.js","5":"5-e37f0c14b7c177700023.js","6":"6-45335cd42be5017d7834.js","7":"7-de3e52a167f8fa710466.js","8":"8-ee4dd11b05ef828147e7.js","9":"9-777e3a0ebddceb09c9de.js"}
+</script>
+<script src="webpack/manifest-cc78bad3f80ccda9b4ca.js"></script>
+<script src="webpack/vendor-741ef8ae9078eee53f91.js"></script>
+<script src="assets/sharing-edb7195fd46bf673266cd5d07b3573f7.js"></script>
+<script src="webpack/preview-b5e465f1554c8c1a3ad8.js"></script>
+<script>
+  (function() {
+    MB.play = function() {
+      return MB.load('rsEmeFnulZnjCGspJflJvrjYmThx4xY', false, '');
+    };
+  
+    $(function() {
+      if (!window.navigator.standalone && !false && MB.isMobile() && !MB.isLocal()) {
+        MB.initWechat(null);
+        return MB.initInstall();
+      } else if (MB.isPhantom()) {
+        return $("body").addClass('phantom');
+      } else {
+        return MB.play();
+      }
+    });
+  
+  }).call(this);
+</script>
+
+</body>
+</html>
+<script>window.MBData=
+{"templates":[],"project":{"owner_id":45180,"owner_plan":"startup","owner_name":"federodes","owner_email":"federodes2@gmail.com","owner_avatar":"/images/avatar.png","limitation":5,"screens_count":13,"cid":"p8B961208051490460951441","team_cid":null,"name":"pickupgames","updated_at":"2017-04-02T18:00:51Z","created_at":"2017-03-25T16:56:04Z","access":"private","access_token":"rsEmeFnulZnjCGspJflJvrjYmThx4xY","version":"v2","icon":"/images/icon_retina.png","splash":null,"width":360,"height":640,"device":"android","model":"google_nexus","scale":100,"archived":false,"template":false,"timestamp":"1491156051","combo":false,"behavior":"inherit","master":false,"builtin":false,"auto_scale":false,"parent_cid":null,"host_cid":null,"clones":0,"shell_type":"device","password":"","wechat":false,"highlight":true,"expired":false,"validated":true,"duplicating":false,"slack_web_hook_url":null},"screens":[{"cid":"s95E59D57DC1490460964317","project_cid":"p8B961208051490460951441","parent_cid":null,"expanded":false,"name":"Settings","orientation":"portrait","position":2,"width":360,"height":640,"hh":null,"fh":null,"bgcolor":"#F0F0F2","bgimage":null,"deleter_name":null,"deleted_at":null,"artboard_id":null,"artboard_asset_id":null},{"cid":"s90B1546E5F1490460964325","project_cid":"p8B961208051490460951441","parent_cid":null,"expanded":false,"name":"Home","orientation":"portrait","position":1,"width":360,"height":640,"hh":null,"fh":null,"bgcolor":"#F0F0F2","bgimage":null,"deleter_name":null,"deleted_at":null,"artboard_id":null,"artboard_asset_id":null},{"cid":"s7AE154F7651490462506780","project_cid":"p8B961208051490460951441","parent_cid":null,"expanded":false,"name":"Main Activities List","orientation":"portrait","position":3,"width":360,"height":640,"hh":null,"fh":null,"bgcolor":"#F0F0F2","bgimage":null,"deleter_name":null,"deleted_at":null,"artboard_id":null,"artboard_asset_id":null},{"cid":"s1F82C276351490463598401","project_cid":"p8B961208051490460951441","parent_cid":null,"expanded":false,"name":"Marker","orientation":"portrait","position":10,"width":360,"height":640,"hh":null,"fh":null,"bgcolor":"#F0F0F2","bgimage":null,"deleter_name":null,"deleted_at":null,"artboard_id":null,"artboard_asset_id":null},{"cid":"sD24B8F7F701490464568474","project_cid":"p8B961208051490460951441","parent_cid":null,"expanded":false,"name":"Main Activities More","orientation":"portrait","position":9,"width":360,"height":640,"hh":null,"fh":null,"bgcolor":"#F0F0F2","bgimage":null,"deleter_name":null,"deleted_at":null,"artboard_id":null,"artboard_asset_id":null},{"cid":"sA4A32A1B991491130718264","project_cid":"p8B961208051490460951441","parent_cid":null,"expanded":false,"name":"Marker More","orientation":"portrait","position":11,"width":360,"height":640,"hh":null,"fh":null,"bgcolor":"#F0F0F2","bgimage":null,"deleter_name":null,"deleted_at":null,"artboard_id":null,"artboard_asset_id":null},{"cid":"sC420FC95F81491135008854","project_cid":"p8B961208051490460951441","parent_cid":null,"expanded":false,"name":"New Marker","orientation":"portrait","position":7,"width":360,"height":640,"hh":null,"fh":null,"bgcolor":"#F0F0F2","bgimage":null,"deleter_name":null,"deleted_at":null,"artboard_id":null,"artboard_asset_id":null},{"cid":"s05D0E8E01D1491135962719","project_cid":"p8B961208051490460951441","parent_cid":null,"expanded":false,"name":"New Marker Venue","orientation":"portrait","position":8,"width":360,"height":640,"hh":null,"fh":null,"bgcolor":"#F0F0F2","bgimage":"/uploads/images/23/238453/raw_1491155278.png","deleter_name":null,"deleted_at":null,"artboard_id":null,"artboard_asset_id":null},{"cid":"sA3BC96CCEE1491137040482","project_cid":"p8B961208051490460951441","parent_cid":null,"expanded":false,"name":"Main Activities Map","orientation":"portrait","position":4,"width":360,"height":640,"hh":null,"fh":null,"bgcolor":"#F0F0F2","bgimage":null,"deleter_name":null,"deleted_at":null,"artboard_id":null,"artboard_asset_id":null},{"cid":"s028ADB4AEB1491137311539","project_cid":"p8B961208051490460951441","parent_cid":null,"expanded":false,"name":"Main Venues List","orientation":"portrait","position":5,"width":360,"height":640,"hh":null,"fh":null,"bgcolor":"#F0F0F2","bgimage":null,"deleter_name":null,"deleted_at":null,"artboard_id":null,"artboard_asset_id":null},{"cid":"s5E8F6DE9991491139481992","project_cid":"p8B961208051490460951441","parent_cid":null,"expanded":false,"name":"Venue","orientation":"portrait","position":12,"width":360,"height":640,"hh":null,"fh":null,"bgcolor":"#F0F0F2","bgimage":null,"deleter_name":null,"deleted_at":null,"artboard_id":null,"artboard_asset_id":null},{"cid":"s8B0A868A161491140166150","project_cid":"p8B961208051490460951441","parent_cid":null,"expanded":false,"name":"Add Venue","orientation":"portrait","position":13,"width":360,"height":640,"hh":null,"fh":null,"bgcolor":"#F0F0F2","bgimage":null,"deleter_name":null,"deleted_at":null,"artboard_id":null,"artboard_asset_id":null},{"cid":"sBDE7503A211491147942733","project_cid":"p8B961208051490460951441","parent_cid":null,"expanded":false,"name":"Main Venues Map","orientation":"portrait","position":6,"width":360,"height":640,"hh":null,"fh":null,"bgcolor":"#F0F0F2","bgimage":null,"deleter_name":null,"deleted_at":null,"artboard_id":null,"artboard_asset_id":null}],"widgets":[{"cid":"wE79DB322FD1490460964319","screen_cid":"s95E59D57DC1490460964317","timestamp":20965253,"v":true,"name":"status_bar","left":null,"top":null,"width":360.0,"height":23.0,"gid":null,"locked":false,"text":"AT&amp;T","th":"light","bg":"","tc":"","bc":"","o":100,"z":3},{"cid":"w1945BC76871490461610004","screen_cid":"s95E59D57DC1490460964317","timestamp":20965330,"v":true,"name":"rounded_rect","left":0.0,"top":23.0,"width":360.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":5,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w04A28DEF001490461695558","screen_cid":"s95E59D57DC1490460964317","timestamp":20965342,"v":true,"name":"text_view","left":50.0,"top":112.0,"width":270.0,"height":78.0,"gid":null,"locked":false,"text":"<p>Hi, &lt;name&gt;! <br>Tell us a little about you...<br></p>","fs":18,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":38,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wAF5C2E589C1490461779302","screen_cid":"s95E59D57DC1490460964317","timestamp":20965348,"v":true,"name":"text_view","left":50.0,"top":240.0,"width":170.0,"height":26.0,"gid":null,"locked":false,"text":"Where do you live?<br>","fs":18,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":26,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wFC2B8617811490461827096","screen_cid":"s95E59D57DC1490460964317","timestamp":20965353,"v":true,"name":"mtext_input","left":50.0,"top":270.0,"width":265.0,"height":30.0,"gid":null,"locked":false,"text":"Enter City or Postcode...","fs":14,"br":8,"bs":1,"ha":"left","z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","td":"normal","bo":0,"i":0,"ls":0,"fixed":false,"fixed_type":1,"input_type":"text"},{"cid":"wA03A827FF51490461880002","screen_cid":"s95E59D57DC1490460964317","timestamp":20965360,"v":true,"name":"text_view","left":50.0,"top":355.0,"width":180.0,"height":26.0,"gid":null,"locked":false,"text":"<p>What sports you like?<br></p>","fs":18,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":26,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wD44197D9391490461933924","screen_cid":"s95E59D57DC1490460964317","timestamp":20965369,"v":true,"name":"text_view","left":70.0,"top":395.0,"width":60.0,"height":20.0,"gid":null,"locked":false,"text":"Football","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w81F36992631490461987652","screen_cid":"s95E59D57DC1490460964317","timestamp":20965375,"v":true,"name":"mcheckbox2","left":160.0,"top":390.0,"width":30.0,"height":30.0,"gid":null,"locked":false,"z":5,"o":100,"checked":false,"fixed":false,"fixed_type":1},{"cid":"w15AE5261F21490462000635","screen_cid":"s95E59D57DC1490460964317","timestamp":20965380,"v":true,"name":"text_view","left":180.0,"top":395.0,"width":60.0,"height":20.0,"gid":null,"locked":false,"text":"Volleyball","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w2C78240E461490462050313","screen_cid":"s95E59D57DC1490460964317","timestamp":20965386,"v":true,"name":"mcheckbox2","left":50.0,"top":390.0,"width":30.0,"height":30.0,"gid":null,"locked":false,"z":5,"o":100,"checked":false,"fixed":false,"fixed_type":1},{"cid":"w93B73CB1971490462071184","screen_cid":"s95E59D57DC1490460964317","timestamp":20965392,"v":true,"name":"mcheckbox2","left":250.0,"top":390.0,"width":30.0,"height":30.0,"gid":null,"locked":false,"z":5,"o":100,"checked":false,"fixed":false,"fixed_type":1},{"cid":"w22B04F7CD81490462077335","screen_cid":"s95E59D57DC1490460964317","timestamp":20965397,"v":true,"name":"text_view","left":270.0,"top":395.0,"width":70.0,"height":18.0,"gid":null,"locked":false,"text":"Basketball","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w4252F8F1771490462138561","screen_cid":"s95E59D57DC1490460964317","timestamp":20965404,"v":true,"name":"text_view","left":50.0,"top":430.0,"width":40.0,"height":18.0,"gid":null,"locked":false,"text":"etc...","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w9AC0A28A9A1490462154780","screen_cid":"s95E59D57DC1490460964317","timestamp":20965408,"v":true,"name":"button","left":140.0,"top":510.0,"width":80.0,"height":30.0,"gid":"lB35C2F372B1490462520709","locked":false,"text":"Done!","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":5,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wCAC2D76A6A1490462626537","screen_cid":"s95E59D57DC1490460964317","timestamp":20965482,"v":true,"name":"text_view","left":220.0,"top":360.0,"width":120.0,"height":19.0,"gid":null,"locked":false,"text":"(Select at least one)","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wAC16AEC34D1491133114962","screen_cid":"s95E59D57DC1490460964317","timestamp":20966714,"v":true,"name":"icon_button","left":136.0,"top":24.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":324,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w214E88FDE71491133114966","screen_cid":"s95E59D57DC1490460964317","timestamp":20966718,"v":true,"name":"icon_button","left":145.0,"top":20.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w9AD52EE5C01491133114969","screen_cid":"s95E59D57DC1490460964317","timestamp":20966722,"v":true,"name":"icon_button","left":156.0,"top":24.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":40,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w71F88117901490460964326","screen_cid":"s90B1546E5F1490460964325","timestamp":20965256,"v":true,"name":"status_bar","left":null,"top":null,"width":360.0,"height":23.0,"gid":null,"locked":false,"text":"AT&amp;T","th":"light","bg":"","tc":"","bc":"","o":100,"z":3},{"cid":"wF1E6DD38711490461181591","screen_cid":"s90B1546E5F1490460964325","timestamp":20965274,"v":true,"name":"text_view","left":80.0,"top":366.0,"width":200.0,"height":44.0,"gid":null,"locked":false,"text":"Find Pick-up Games<br>in your City...<br>","fs":15,"br":0,"bs":0,"ha":"center","va":"top","z":5,"th":"","lh":22,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w73506AD4971490461257339","screen_cid":"s90B1546E5F1490460964325","timestamp":20965286,"v":true,"name":"text_view","left":100.0,"top":590.0,"width":70.0,"height":18.0,"gid":null,"locked":false,"text":"356 users<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w151B3FAB711490461301928","screen_cid":"s90B1546E5F1490460964325","timestamp":20965291,"v":true,"name":"text_view","left":190.0,"top":590.0,"width":120.0,"height":18.0,"gid":null,"locked":false,"text":"503 hosted games<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wB73D2EF3B81490461508910","screen_cid":"s90B1546E5F1490460964325","timestamp":20965321,"v":true,"name":"button","left":75.0,"top":490.0,"width":211.0,"height":40.0,"gid":"l427D1DCEAB1490461557643","locked":false,"text":"Continue with Facebook","fs":17,"br":8,"bs":1,"ha":"center","va":"middle","z":5,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wB2E1AD69021490461068973","screen_cid":"s90B1546E5F1490460964325","timestamp":20965265,"v":true,"name":"text_view","left":110.0,"top":190.0,"width":140.0,"height":160.0,"gid":null,"locked":false,"text":"LOGO","fs":55,"br":0,"bs":0,"ha":"center","va":"top","z":5,"th":"","lh":80,"td":"normal","bo":1,"i":1,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wF42BA56EE61490462506784","screen_cid":"s7AE154F7651490462506780","timestamp":20965476,"v":true,"name":"status_bar","left":null,"top":null,"width":360.0,"height":23.0,"gid":null,"locked":false,"text":"AT&amp;T","th":"light","bg":"","tc":"","bc":"","o":100,"z":3},{"cid":"w96D793D4201490462751284","screen_cid":"s7AE154F7651490462506780","timestamp":20965491,"v":true,"name":"rounded_rect","left":0.0,"top":23.0,"width":360.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":3,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w9D14F6EB9C1490462979032","screen_cid":"s7AE154F7651490462506780","timestamp":20965500,"v":true,"name":"text_view","left":20.0,"top":130.0,"width":320.0,"height":56.0,"gid":null,"locked":false,"text":"<p>List of Football and Basketball games in Enschede.<br></p>","fs":19,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"dark","lh":28,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#555","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w9C91E4EC9E1490463031513","screen_cid":"s7AE154F7651490462506780","timestamp":20965505,"v":true,"name":"rounded_rect","left":0.0,"top":278.0,"width":360.0,"height":175.0,"gid":"lA6D75EA0261491132739527","locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":5,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wE71DEA98B21490463076004","screen_cid":"s7AE154F7651490462506780","timestamp":20965513,"v":true,"name":"text_view","left":200.0,"top":162.0,"width":130.0,"height":18.0,"gid":"l9C819A63EC1490463109988","locked":false,"text":"<p>change sports or city<br></p>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"lblue","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#03a9f4","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w8BFCC5E8C51490463175909","screen_cid":"s7AE154F7651490462506780","timestamp":20965519,"v":true,"name":"text_view","left":10.0,"top":288.0,"width":330.0,"height":25.0,"gid":"lA6D75EA0261491132739527","locked":false,"text":"<p>Football 7 vs 7. Everybody is welcome :)<br></p>","fs":17,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":25,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w8EEEE7E4341490463218116","screen_cid":"s7AE154F7651490462506780","timestamp":20965524,"v":true,"name":"text_view","left":-597.0,"top":50.0,"width":200.0,"height":59.0,"gid":null,"locked":false,"text":"If you can't explain it simply you don't understand it well enough.\n -- Albert Einstein","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wD2A0000A1C1490463223603","screen_cid":"s7AE154F7651490462506780","timestamp":20965527,"v":true,"name":"text_view","left":10.0,"top":260.0,"width":140.0,"height":18.0,"gid":"lA6D75EA0261491132739527","locked":false,"text":"<p>Monday 15 Apr, 15.00h<br></p>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"grey","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#607d8b","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wFD9C433B7E1490463277550","screen_cid":"s7AE154F7651490462506780","timestamp":20965536,"v":true,"name":"text_view","left":45.0,"top":335.0,"width":200.0,"height":18.0,"gid":"lA6D75EA0261491132739527","locked":false,"text":"Rigtersbleek","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wFB0A5D86BE1490463332600","screen_cid":"s7AE154F7651490462506780","timestamp":20965542,"v":true,"name":"text_view","left":45.0,"top":368.0,"width":200.0,"height":18.0,"gid":"lA6D75EA0261491132739527","locked":false,"text":"FREE","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w8127467E101490463367984","screen_cid":"s7AE154F7651490462506780","timestamp":20965548,"v":true,"name":"icon_button","left":10.0,"top":333.0,"width":20.0,"height":20.0,"gid":"lA6D75EA0261491132739527","locked":false,"is":24,"icon":"map-marker","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w1F7B89310F1490463420796","screen_cid":"s7AE154F7651490462506780","timestamp":20965556,"v":true,"name":"icon_button","left":10.0,"top":363.0,"width":25.0,"height":24.0,"gid":"lA6D75EA0261491132739527","locked":false,"is":24,"icon":"money","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w593516ED5C1490463476440","screen_cid":"s7AE154F7651490462506780","timestamp":20965563,"v":true,"name":"icon_button","left":0.0,"top":398.0,"width":45.0,"height":45.0,"gid":"lA6D75EA0261491132739527","locked":false,"is":24,"icon":"github","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wC69A6581FF1490463501213","screen_cid":"s7AE154F7651490462506780","timestamp":20965569,"v":true,"name":"icon_button","left":45.0,"top":398.0,"width":45.0,"height":45.0,"gid":"lA6D75EA0261491132739527","locked":false,"is":24,"icon":"linux","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w407D25EED41490463507026","screen_cid":"s7AE154F7651490462506780","timestamp":20965573,"v":true,"name":"icon_button","left":90.0,"top":398.0,"width":45.0,"height":45.0,"gid":"lA6D75EA0261491132739527","locked":false,"is":24,"icon":"user","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wA66F3C3F511490463512653","screen_cid":"s7AE154F7651490462506780","timestamp":20965579,"v":true,"name":"icon_button","left":135.0,"top":398.0,"width":45.0,"height":45.0,"gid":"lA6D75EA0261491132739527","locked":false,"is":24,"icon":"optin-monster","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w05AFC2549C1490464185971","screen_cid":"s7AE154F7651490462506780","timestamp":20965611,"v":true,"name":"rounded_rect","left":0.0,"top":478.0,"width":360.0,"height":175.0,"gid":"l668A7CBA281491132673296","locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":5,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w1E5AC215541490464185979","screen_cid":"s7AE154F7651490462506780","timestamp":20965615,"v":true,"name":"text_view","left":10.0,"top":488.0,"width":300.0,"height":23.0,"gid":"l668A7CBA281491132673296","locked":false,"text":"<p>Basketball 3 vs 3 @ Twente University<br></p>","fs":16,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":23,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wB612697E441490464185985","screen_cid":"s7AE154F7651490462506780","timestamp":20965619,"v":true,"name":"text_view","left":10.0,"top":460.0,"width":140.0,"height":18.0,"gid":"l668A7CBA281491132673296","locked":false,"text":"<p>Tuesday 16 Apr, 17.00h<br></p>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"grey","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#607d8b","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w527440FF7F1490464185990","screen_cid":"s7AE154F7651490462506780","timestamp":20965623,"v":true,"name":"text_view","left":45.0,"top":535.0,"width":275.0,"height":18.0,"gid":"l668A7CBA281491132673296","locked":false,"text":"University of Twente, Sport Centrum<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w0AF13161BB1490464185996","screen_cid":"s7AE154F7651490462506780","timestamp":20965627,"v":true,"name":"text_view","left":45.0,"top":568.0,"width":200.0,"height":18.0,"gid":"l668A7CBA281491132673296","locked":false,"text":"union card required<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w3DAE36E14D1490464186005","screen_cid":"s7AE154F7651490462506780","timestamp":20965631,"v":true,"name":"icon_button","left":10.0,"top":533.0,"width":20.0,"height":20.0,"gid":"l668A7CBA281491132673296","locked":false,"is":24,"icon":"map-marker","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w4B824F7C2C1490464186010","screen_cid":"s7AE154F7651490462506780","timestamp":20965635,"v":true,"name":"icon_button","left":10.0,"top":563.0,"width":25.0,"height":24.0,"gid":"l668A7CBA281491132673296","locked":false,"is":24,"icon":"money","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w4164C8FCAC1490551556679","screen_cid":"s7AE154F7651490462506780","timestamp":20965783,"v":true,"name":"icon_button","left":315.0,"top":278.0,"width":45.0,"height":45.0,"gid":"lA6D75EA0261491132739527","locked":false,"is":24,"icon":"futbol-o","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wA9AF9BC6F51490551749240","screen_cid":"s7AE154F7651490462506780","timestamp":20965818,"v":true,"name":"icon_button","left":315.0,"top":479.0,"width":45.0,"height":45.0,"gid":"l668A7CBA281491132673296","locked":false,"is":24,"icon":"dribbble","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w5E0B8BAC721491126590501","screen_cid":"s7AE154F7651490462506780","timestamp":20965942,"v":true,"name":"rounded_rect","left":0.0,"top":70.0,"width":180.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":5,"lh":20,"th":"blue","td":"normal","bo":0,"i":0,"bg":"#738ffe","bc":"#4e6cef","tc":"#fff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wCD6C66E3391491126600725","screen_cid":"s7AE154F7651490462506780","timestamp":20965949,"v":true,"name":"rounded_rect","left":180.0,"top":70.0,"width":180.0,"height":47.0,"gid":"l297AA5E7101491138408970","locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":5,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wE70EF089DC1491126649800","screen_cid":"s7AE154F7651490462506780","timestamp":20965956,"v":true,"name":"text_view","left":60.0,"top":81.0,"width":70.0,"height":19.0,"gid":null,"locked":false,"text":"ACTIVITIES","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#ffffff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w28EDC6C65B1491126697574","screen_cid":"s7AE154F7651490462506780","timestamp":20965963,"v":true,"name":"text_view","left":240.0,"top":81.0,"width":50.0,"height":19.0,"gid":"lEE0314D1721491138468519","locked":false,"text":"VENUES","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w5196C1A17F1491127142576","screen_cid":"s7AE154F7651490462506780","timestamp":20966019,"v":true,"name":"icon_button","left":0.0,"top":587.0,"width":45.0,"height":45.0,"gid":"l668A7CBA281491132673296","locked":false,"is":24,"icon":"reddit-alien","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wF11BEF0DD91491127142582","screen_cid":"s7AE154F7651490462506780","timestamp":20966023,"v":true,"name":"icon_button","left":45.0,"top":587.0,"width":45.0,"height":45.0,"gid":"l668A7CBA281491132673296","locked":false,"is":24,"icon":"user","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wEA5EC9BDBE1491127142587","screen_cid":"s7AE154F7651490462506780","timestamp":20966027,"v":true,"name":"icon_button","left":90.0,"top":587.0,"width":45.0,"height":45.0,"gid":"l668A7CBA281491132673296","locked":false,"is":24,"icon":"github-alt","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wB936BE2BE61491127142590","screen_cid":"s7AE154F7651490462506780","timestamp":20966031,"v":true,"name":"icon_button","left":135.0,"top":587.0,"width":45.0,"height":45.0,"gid":"l668A7CBA281491132673296","locked":false,"is":24,"icon":"qq","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w71E1BD81B61491127217027","screen_cid":"s7AE154F7651490462506780","timestamp":20966045,"v":true,"name":"icon_button","left":180.0,"top":398.0,"width":45.0,"height":45.0,"gid":"lA6D75EA0261491132739527","locked":false,"is":24,"icon":"drupal","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w78F3D137C41491127217031","screen_cid":"s7AE154F7651490462506780","timestamp":20966049,"v":true,"name":"icon_button","left":225.0,"top":398.0,"width":45.0,"height":45.0,"gid":"lA6D75EA0261491132739527","locked":false,"is":24,"icon":"android","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w1D278F0B171491132759440","screen_cid":"s7AE154F7651490462506780","timestamp":20966674,"v":true,"name":"button","left":101.0,"top":200.0,"width":80.0,"height":30.0,"gid":"l098598EF331491138318009","locked":false,"text":"NEW","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":5,"th":"blue","td":"normal","bo":0,"i":0,"bg":"#738ffe","bc":"#4e6cef","tc":"#ffffff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wF7B28957F71491132772439","screen_cid":"s7AE154F7651490462506780","timestamp":20966677,"v":true,"name":"button","left":181.0,"top":200.0,"width":80.0,"height":30.0,"gid":"l2D7FFC945B1491137165246","locked":false,"text":"MAP","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":5,"th":"blue","td":"normal","bo":0,"i":0,"bg":"#738ffe","bc":"#4e6cef","tc":"#ffffff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wBE71A37A9C1491133003021","screen_cid":"s7AE154F7651490462506780","timestamp":20966691,"v":true,"name":"icon_button","left":147.0,"top":24.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":324,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wA6274565B81491133021461","screen_cid":"s7AE154F7651490462506780","timestamp":20966697,"v":true,"name":"icon_button","left":156.0,"top":20.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w23E410ABC51491133022052","screen_cid":"s7AE154F7651490462506780","timestamp":20966701,"v":true,"name":"icon_button","left":167.0,"top":24.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":40,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w99063508511490463598408","screen_cid":"s1F82C276351490463598401","timestamp":20965599,"v":true,"name":"status_bar","left":null,"top":null,"width":360.0,"height":23.0,"gid":null,"locked":false,"text":"AT&amp;T","th":"light","bg":"","tc":"","bc":"","o":100,"z":3},{"cid":"w455442BB521491128853309","screen_cid":"s1F82C276351490463598401","timestamp":20966193,"v":true,"name":"rounded_rect","left":0.0,"top":23.0,"width":360.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":3,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w316BEFD3051491129171455","screen_cid":"s1F82C276351490463598401","timestamp":20966217,"v":true,"name":"text_view","left":60.0,"top":30.0,"width":240.0,"height":18.0,"gid":null,"locked":false,"text":"<p>Football 7 vs 7. Everybody is welcome :)</p>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w49F0F117CC1491129201150","screen_cid":"s1F82C276351490463598401","timestamp":20966223,"v":true,"name":"icon_button","left":0.0,"top":25.0,"width":45.0,"height":45.0,"gid":"l6538D6BCF91491129275014","locked":false,"is":24,"icon":"arrow-right","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":180,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w4D4D7469761491129254341","screen_cid":"s1F82C276351490463598401","timestamp":20966228,"v":true,"name":"text_view","left":60.0,"top":50.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"Monday 15 Apr, 15.00h","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wC86F15D7181491129370399","screen_cid":"s1F82C276351490463598401","timestamp":20966235,"v":true,"name":"text_view","left":10.0,"top":88.0,"width":270.0,"height":22.0,"gid":"lB932AA4D271491131187741","locked":false,"text":"Football 7 vs 7. Everybody is welcome :)","fs":15,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":22,"td":"normal","bo":1,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w938C6E2C8B1491129400613","screen_cid":"s1F82C276351490463598401","timestamp":20966241,"v":true,"name":"icon_button","left":310.0,"top":75.0,"width":45.0,"height":45.0,"gid":"lB932AA4D271491131187741","locked":false,"is":24,"icon":"futbol-o","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w06AF434EB01491129432397","screen_cid":"s1F82C276351490463598401","timestamp":20966245,"v":true,"name":"text_view","left":40.0,"top":120.0,"width":100.0,"height":16.0,"gid":"lB932AA4D271491131187741","locked":false,"text":"Federico Rodes<br>","fs":11,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":16,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wD5AC6897A91491129454910","screen_cid":"s1F82C276351490463598401","timestamp":20966250,"v":true,"name":"icon_button","left":10.0,"top":115.0,"width":20.0,"height":25.0,"gid":"lB932AA4D271491131187741","locked":false,"is":24,"icon":"user","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w97F77154951491129536365","screen_cid":"s1F82C276351490463598401","timestamp":20966258,"v":true,"name":"text_view","left":120.0,"top":118.0,"width":60.0,"height":18.0,"gid":"lB932AA4D271491131187741","locked":false,"text":"(Admin)","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"lblue","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#03a9f4","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wD7EF98DD291491129612014","screen_cid":"s1F82C276351490463598401","timestamp":20966266,"v":true,"name":"icon_button","left":10.0,"top":160.0,"width":20.0,"height":25.0,"gid":"lB932AA4D271491131187741","locked":false,"is":24,"icon":"calendar","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w76A41FC40E1491129640581","screen_cid":"s1F82C276351490463598401","timestamp":20966272,"v":true,"name":"icon_button","left":0.0,"top":180.0,"width":45.0,"height":45.0,"gid":"lB932AA4D271491131187741","locked":false,"is":24,"icon":"clock-o","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wD84CB4B8741491129660683","screen_cid":"s1F82C276351490463598401","timestamp":20966276,"v":true,"name":"icon_button","left":0.0,"top":205.0,"width":45.0,"height":45.0,"gid":"lB932AA4D271491131187741","locked":false,"is":24,"icon":"money","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w3B314739DE1491129684166","screen_cid":"s1F82C276351490463598401","timestamp":20966280,"v":true,"name":"icon_button","left":0.0,"top":235.0,"width":45.0,"height":45.0,"gid":"lB932AA4D271491131187741","locked":false,"is":24,"icon":"map-marker","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wD93B0FF1BF1491129706157","screen_cid":"s1F82C276351490463598401","timestamp":20966284,"v":true,"name":"text_view","left":45.0,"top":167.0,"width":200.0,"height":18.0,"gid":"lB932AA4D271491131187741","locked":false,"text":"Monday 15 Apr<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wA41B4B9EAE1491129729278","screen_cid":"s1F82C276351490463598401","timestamp":20966292,"v":true,"name":"text_view","left":45.0,"top":194.0,"width":200.0,"height":18.0,"gid":"lB932AA4D271491131187741","locked":false,"text":"15.00h","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w691FADA2E91491129746541","screen_cid":"s1F82C276351490463598401","timestamp":20966297,"v":true,"name":"text_view","left":45.0,"top":221.0,"width":200.0,"height":18.0,"gid":"lB932AA4D271491131187741","locked":false,"text":"FREE","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w31B854955F1491129779392","screen_cid":"s1F82C276351490463598401","timestamp":20966306,"v":true,"name":"text_view","left":45.0,"top":250.0,"width":200.0,"height":18.0,"gid":"lB932AA4D271491131187741","locked":false,"text":"Rigtersbleek, Enschede<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w96FEEC88B21491129830637","screen_cid":"s1F82C276351490463598401","timestamp":20966313,"v":true,"name":"map_view","left":0.0,"top":280.0,"width":360.0,"height":170.0,"gid":"lB932AA4D271491131187741","locked":false,"z":5,"fixed":false,"fixed_type":1},{"cid":"w3F8AE60D301491129906695","screen_cid":"s1F82C276351490463598401","timestamp":20966329,"v":true,"name":"text_view","left":10.0,"top":460.0,"width":280.0,"height":18.0,"gid":"lB932AA4D271491131187741","locked":false,"text":"<p>Description of the activity goes here...<br></p>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w0B6722F2121491129999577","screen_cid":"s1F82C276351490463598401","timestamp":20966335,"v":true,"name":"text_view","left":10.0,"top":497.0,"width":200.0,"height":23.0,"gid":"lB932AA4D271491131187741","locked":false,"text":"Participants","fs":16,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":23,"td":"normal","bo":1,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w5904B0C29D1491130077798","screen_cid":"s1F82C276351490463598401","timestamp":20966343,"v":true,"name":"icon_button","left":10.0,"top":570.0,"width":45.0,"height":45.0,"gid":"lB932AA4D271491131187741","locked":false,"is":24,"icon":"github","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w21AE4F15C41491130077802","screen_cid":"s1F82C276351490463598401","timestamp":20966347,"v":true,"name":"icon_button","left":55.0,"top":570.0,"width":45.0,"height":45.0,"gid":"lB932AA4D271491131187741","locked":false,"is":24,"icon":"linux","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w782C284C521491130077805","screen_cid":"s1F82C276351490463598401","timestamp":20966351,"v":true,"name":"icon_button","left":100.0,"top":570.0,"width":45.0,"height":45.0,"gid":"lB932AA4D271491131187741","locked":false,"is":24,"icon":"user","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wFE55F0FCB41491130077809","screen_cid":"s1F82C276351490463598401","timestamp":20966355,"v":true,"name":"icon_button","left":145.0,"top":570.0,"width":45.0,"height":45.0,"gid":"lB932AA4D271491131187741","locked":false,"is":24,"icon":"optin-monster","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w68215B02C21491130077816","screen_cid":"s1F82C276351490463598401","timestamp":20966359,"v":true,"name":"icon_button","left":190.0,"top":570.0,"width":45.0,"height":45.0,"gid":"lB932AA4D271491131187741","locked":false,"is":24,"icon":"drupal","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wDF9FAF1DBF1491130077821","screen_cid":"s1F82C276351490463598401","timestamp":20966363,"v":true,"name":"icon_button","left":235.0,"top":570.0,"width":45.0,"height":45.0,"gid":"lB932AA4D271491131187741","locked":false,"is":24,"icon":"android","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w2B9D3E133A1491130103428","screen_cid":"s1F82C276351490463598401","timestamp":20966372,"v":true,"name":"button","left":10.0,"top":530.0,"width":100.0,"height":30.0,"gid":"lB932AA4D271491131187741","locked":false,"text":"Join","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":5,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wA16F7FF6381491130451555","screen_cid":"s1F82C276351490463598401","timestamp":20966380,"v":true,"name":"text_view","left":5.0,"top":610.0,"width":55.0,"height":18.0,"gid":"lB932AA4D271491131187741","locked":false,"text":"Federico","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w4252CC42D41491130467700","screen_cid":"s1F82C276351490463598401","timestamp":20966384,"v":true,"name":"text_view","left":60.0,"top":610.0,"width":45.0,"height":18.0,"gid":"lB932AA4D271491131187741","locked":false,"text":"Cecilia","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w0FC26DA1891491130488927","screen_cid":"s1F82C276351490463598401","timestamp":20966389,"v":true,"name":"text_view","left":105.0,"top":610.0,"width":40.0,"height":18.0,"gid":"lB932AA4D271491131187741","locked":false,"text":"Nicola","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wAB813A1D891491133135136","screen_cid":"s1F82C276351490463598401","timestamp":20966735,"v":true,"name":"icon_button","left":105.0,"top":360.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wC0F83518FC1490464568478","screen_cid":"sD24B8F7F701490464568474","timestamp":20965683,"v":true,"name":"status_bar","left":null,"top":null,"width":360.0,"height":23.0,"gid":null,"locked":false,"text":"AT&amp;T","th":"light","bg":"","tc":"","bc":"","o":100,"z":3},{"cid":"wADE40525EF1490464601012","screen_cid":"sD24B8F7F701490464568474","timestamp":20965688,"v":true,"name":"text_view","left":18.0,"top":150.0,"width":320.0,"height":26.0,"gid":null,"locked":false,"text":"No luck? Let's create a game for you...<br>","fs":18,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":26,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w4F06C30F481490464601016","screen_cid":"sD24B8F7F701490464568474","timestamp":20965692,"v":true,"name":"rounded_rect","left":0.0,"top":298.0,"width":360.0,"height":175.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":3,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wEA2ABEDA681490464601019","screen_cid":"sD24B8F7F701490464568474","timestamp":20965696,"v":true,"name":"text_view","left":10.0,"top":308.0,"width":288.0,"height":23.0,"gid":null,"locked":false,"text":"<p>Football 4 vs 4 @ Performance Factory<br></p>","fs":16,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":23,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wF72DEA580D1490464601023","screen_cid":"sD24B8F7F701490464568474","timestamp":20965700,"v":true,"name":"text_view","left":10.0,"top":280.0,"width":140.0,"height":18.0,"gid":null,"locked":false,"text":"<p>Tuesday 16 Apr, 17.00h<br></p>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"grey","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#607d8b","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wF5C91EB2991490464601027","screen_cid":"sD24B8F7F701490464568474","timestamp":20965704,"v":true,"name":"text_view","left":45.0,"top":355.0,"width":275.0,"height":18.0,"gid":null,"locked":false,"text":"Performance Factory, Enschede City Center<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w7D3B5C121C1490464601033","screen_cid":"sD24B8F7F701490464568474","timestamp":20965708,"v":true,"name":"text_view","left":45.0,"top":388.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"FREE","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wF1041D858B1490464601038","screen_cid":"sD24B8F7F701490464568474","timestamp":20965712,"v":true,"name":"icon_button","left":10.0,"top":353.0,"width":20.0,"height":20.0,"gid":null,"locked":false,"is":24,"icon":"map-marker","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w435DF26DB31490464601043","screen_cid":"sD24B8F7F701490464568474","timestamp":20965716,"v":true,"name":"icon_button","left":10.0,"top":383.0,"width":25.0,"height":24.0,"gid":null,"locked":false,"is":24,"icon":"money","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wB0C04F4CC41490464735744","screen_cid":"sD24B8F7F701490464568474","timestamp":20965744,"v":true,"name":"button","left":193.0,"top":418.0,"width":130.0,"height":30.0,"gid":null,"locked":false,"text":"Create Game","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":5,"th":"pink","td":"normal","bo":0,"i":0,"bg":"#ff6091","bc":"#d81b60","tc":"#fff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w0892274AAC1490522270251","screen_cid":"sD24B8F7F701490464568474","timestamp":20965753,"v":true,"name":"text_view","left":43.0,"top":518.0,"width":130.0,"height":25.0,"gid":null,"locked":false,"text":"Still no luck? <br>","fs":17,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":25,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w3FF5654EC71490522307789","screen_cid":"sD24B8F7F701490464568474","timestamp":20965758,"v":true,"name":"text_view","left":153.0,"top":520.0,"width":170.0,"height":23.0,"gid":null,"locked":false,"text":"Create a game by hand<br>","fs":16,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"blue","lh":23,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#5677fc","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wBBA07C8E1A1490522536166","screen_cid":"sD24B8F7F701490464568474","timestamp":20965771,"v":true,"name":"text_view","left":34.0,"top":190.0,"width":293.0,"height":72.0,"gid":null,"locked":false,"text":"<p>(comment) the following games are auto-generated based on know venues availability and characteristics (indoor or outdoor), forecast, user proximity and daylight (in case of outdoor venues).<br></p>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"lorange","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#ff9800","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w0957A7B9261490551782393","screen_cid":"sD24B8F7F701490464568474","timestamp":20965841,"v":true,"name":"icon_button","left":313.0,"top":298.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"futbol-o","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w80A6E031EC1491128347364","screen_cid":"sD24B8F7F701490464568474","timestamp":20966143,"v":true,"name":"rounded_rect","left":0.0,"top":23.0,"width":360.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":5,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w2D6F8A03071491128347368","screen_cid":"sD24B8F7F701490464568474","timestamp":20966147,"v":true,"name":"text_view","left":130.0,"top":38.0,"width":100.0,"height":18.0,"gid":null,"locked":false,"text":"pickupgames.net<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w22D727EF441491128347374","screen_cid":"sD24B8F7F701490464568474","timestamp":20966151,"v":true,"name":"rounded_rect","left":0.0,"top":70.0,"width":180.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":5,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"#acd9e6","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w9DD3B5F4C61491128347378","screen_cid":"sD24B8F7F701490464568474","timestamp":20966155,"v":true,"name":"rounded_rect","left":180.0,"top":70.0,"width":180.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":5,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wF0E3C5AEA41491128347383","screen_cid":"sD24B8F7F701490464568474","timestamp":20966159,"v":true,"name":"text_view","left":60.0,"top":81.0,"width":70.0,"height":19.0,"gid":null,"locked":false,"text":"ACTIVITIES","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w9F3EA6CA561491128347386","screen_cid":"sD24B8F7F701490464568474","timestamp":20966163,"v":true,"name":"text_view","left":240.0,"top":81.0,"width":50.0,"height":19.0,"gid":null,"locked":false,"text":"VENUES","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wE348578E941491130718269","screen_cid":"sA4A32A1B991491130718264","timestamp":20966395,"v":true,"name":"status_bar","left":null,"top":null,"width":360.0,"height":23.0,"gid":null,"locked":false,"text":"AT&amp;T","th":"light","bg":"","tc":"","bc":"","o":100,"z":3},{"cid":"w2F91DE3C881491130726520","screen_cid":"sA4A32A1B991491130718264","timestamp":20966399,"v":true,"name":"rounded_rect","left":0.0,"top":23.0,"width":360.0,"height":47.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":3,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wB6E6BF615A1491130726530","screen_cid":"sA4A32A1B991491130718264","timestamp":20966403,"v":true,"name":"text_view","left":60.0,"top":30.0,"width":240.0,"height":18.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"text":"<p>Football 7 vs 7. Everybody is welcome :)</p>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wF3F65ED6371491130726539","screen_cid":"sA4A32A1B991491130718264","timestamp":20966407,"v":true,"name":"icon_button","left":0.0,"top":25.0,"width":45.0,"height":45.0,"gid":"lEE1A5DB7291491130726497","locked":false,"is":24,"icon":"arrow-right","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":180,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w832C2232701491130726547","screen_cid":"sA4A32A1B991491130718264","timestamp":20966411,"v":true,"name":"text_view","left":60.0,"top":50.0,"width":200.0,"height":18.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"text":"Monday 15 Apr, 15.00h","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w8048C952241491130726554","screen_cid":"sA4A32A1B991491130718264","timestamp":20966415,"v":true,"name":"map_view","left":0.0,"top":70.0,"width":360.0,"height":123.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"z":3,"fixed":false,"fixed_type":1},{"cid":"wDB5F98FCCF1491130726566","screen_cid":"sA4A32A1B991491130718264","timestamp":20966419,"v":true,"name":"text_view","left":10.0,"top":203.0,"width":280.0,"height":18.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"text":"<p>Description of the activity goes here...<br></p>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w2C836581A61491130726571","screen_cid":"sA4A32A1B991491130718264","timestamp":20966423,"v":true,"name":"text_view","left":10.0,"top":240.0,"width":200.0,"height":23.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"text":"Participants","fs":16,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":23,"td":"normal","bo":1,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wD96219E17F1491130726576","screen_cid":"sA4A32A1B991491130718264","timestamp":20966427,"v":true,"name":"icon_button","left":10.0,"top":313.0,"width":45.0,"height":45.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"is":24,"icon":"github","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wF902B801331491130726580","screen_cid":"sA4A32A1B991491130718264","timestamp":20966431,"v":true,"name":"icon_button","left":55.0,"top":313.0,"width":45.0,"height":45.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"is":24,"icon":"linux","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w0E328DCF0D1491130726583","screen_cid":"sA4A32A1B991491130718264","timestamp":20966435,"v":true,"name":"icon_button","left":100.0,"top":313.0,"width":45.0,"height":45.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"is":24,"icon":"user","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w5BD01B91B91491130726586","screen_cid":"sA4A32A1B991491130718264","timestamp":20966439,"v":true,"name":"icon_button","left":145.0,"top":313.0,"width":45.0,"height":45.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"is":24,"icon":"optin-monster","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w845FEA746F1491130726589","screen_cid":"sA4A32A1B991491130718264","timestamp":20966443,"v":true,"name":"icon_button","left":190.0,"top":313.0,"width":45.0,"height":45.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"is":24,"icon":"drupal","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w5810B6D3281491130726593","screen_cid":"sA4A32A1B991491130718264","timestamp":20966447,"v":true,"name":"icon_button","left":235.0,"top":313.0,"width":45.0,"height":45.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"is":24,"icon":"android","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w924CEB6BFB1491130726596","screen_cid":"sA4A32A1B991491130718264","timestamp":20966451,"v":true,"name":"button","left":10.0,"top":273.0,"width":100.0,"height":30.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"text":"Join","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":3,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w21F6FCFA3A1491130726599","screen_cid":"sA4A32A1B991491130718264","timestamp":20966455,"v":true,"name":"text_view","left":5.0,"top":353.0,"width":55.0,"height":18.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"text":"Federico","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w273F0906FA1491130726603","screen_cid":"sA4A32A1B991491130718264","timestamp":20966459,"v":true,"name":"text_view","left":60.0,"top":353.0,"width":45.0,"height":18.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"text":"Cecilia","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wFF554DD8301491130726605","screen_cid":"sA4A32A1B991491130718264","timestamp":20966463,"v":true,"name":"text_view","left":105.0,"top":353.0,"width":40.0,"height":18.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"text":"Nicola","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w87CC9410051491130771886","screen_cid":"sA4A32A1B991491130718264","timestamp":20966499,"v":true,"name":"text_view","left":10.0,"top":400.0,"width":200.0,"height":23.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"text":"Comments","fs":16,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":23,"td":"normal","bo":1,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wD0D1F762AD1491130793810","screen_cid":"sA4A32A1B991491130718264","timestamp":20966504,"v":true,"name":"icon_button","left":10.0,"top":455.0,"width":45.0,"height":45.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"is":24,"icon":"github","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wF20C8CCE651491130804704","screen_cid":"sA4A32A1B991491130718264","timestamp":20966509,"v":true,"name":"mtooltip","left":55.0,"top":460.0,"width":270.0,"height":65.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"text":"Helloo","fs":14,"br":5,"ha":"left","va":"top","z":5,"th":"","lh":20,"td":"normal","bo":0,"i":0,"bg":"#8DFA69","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","bs":1,"bc":"","ro":0,"padding":10,"tt_placement":"left","tt_offset":10,"tt_arrow_size":10,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wF7CFD0EBA61491130843401","screen_cid":"sA4A32A1B991491130718264","timestamp":20966515,"v":true,"name":"mtext_input","left":20.0,"top":600.0,"width":270.0,"height":30.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"text":"Write something...","fs":14,"br":8,"bs":1,"ha":"left","z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","td":"normal","bo":0,"i":0,"ls":0,"fixed":false,"fixed_type":1,"input_type":"text"},{"cid":"wC260B20A101491130865638","screen_cid":"sA4A32A1B991491130718264","timestamp":20966519,"v":true,"name":"icon_button","left":305.0,"top":590.0,"width":45.0,"height":45.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"is":24,"icon":"send","br":0,"bs":0,"z":5,"th":"light","bg":"#1338f0","bc":"","tc":"#fff","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w990D039E0D1491130927792","screen_cid":"sA4A32A1B991491130718264","timestamp":20966526,"v":true,"name":"text_view","left":69.0,"top":440.0,"width":200.0,"height":18.0,"gid":"lE3EF01EFBA1491131153869","locked":false,"text":"2 hours ago<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#5e5c5e","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w6E4145DC531491135008860","screen_cid":"sC420FC95F81491135008854","timestamp":20966787,"v":true,"name":"status_bar","left":null,"top":null,"width":360.0,"height":23.0,"gid":null,"locked":false,"text":"AT&amp;T","th":"light","bg":"","tc":"","bc":"","o":100,"z":3},{"cid":"w506291DD0E1491135020060","screen_cid":"sC420FC95F81491135008854","timestamp":20966792,"v":true,"name":"rounded_rect","left":0.0,"top":23.0,"width":360.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":3,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w90DA0250831491135062112","screen_cid":"sC420FC95F81491135008854","timestamp":20966812,"v":true,"name":"text_view","left":60.0,"top":37.0,"width":200.0,"height":20.0,"gid":null,"locked":false,"text":"New Activity<br>","fs":14,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":20,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wB474F7514F1491135091760","screen_cid":"sC420FC95F81491135008854","timestamp":20966819,"v":true,"name":"icon_button","left":0.0,"top":24.0,"width":45.0,"height":45.0,"gid":"l9F474E7A291491135143983","locked":false,"is":24,"icon":"arrow-left","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w1A0CF80F631491135184612","screen_cid":"sC420FC95F81491135008854","timestamp":20966829,"v":true,"name":"mselect","left":35.0,"top":130.0,"width":295.0,"height":30.0,"gid":null,"locked":false,"text":"Football\n\nBasketball\nRugby","fs":14,"bs":1,"z":5,"th":"","lh":20,"bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","td":"normal","bo":0,"i":0,"ls":0,"fixed":false,"fixed_type":1},{"cid":"w62FC0B580C1491135218242","screen_cid":"sC420FC95F81491135008854","timestamp":20966834,"v":true,"name":"text_view","left":35.0,"top":110.0,"width":200.0,"height":19.0,"gid":null,"locked":false,"text":"Sport","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":19,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w405DDC73431491135267530","screen_cid":"sC420FC95F81491135008854","timestamp":20966840,"v":true,"name":"text_view","left":35.0,"top":445.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"Date","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w9332461D6B1491135289205","screen_cid":"sC420FC95F81491135008854","timestamp":20966844,"v":true,"name":"mtext_input","left":35.0,"top":470.0,"width":295.0,"height":30.0,"gid":null,"locked":false,"text":"dd/mm/yy","fs":14,"br":8,"bs":1,"ha":"left","z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","td":"normal","bo":0,"i":0,"ls":0,"fixed":false,"fixed_type":1,"input_type":"text"},{"cid":"wADF500DEA21491135313753","screen_cid":"sC420FC95F81491135008854","timestamp":20966849,"v":true,"name":"text_view","left":35.0,"top":515.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"Time","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wC9C24EB4391491135313764","screen_cid":"sC420FC95F81491135008854","timestamp":20966853,"v":true,"name":"mtext_input","left":35.0,"top":540.0,"width":295.0,"height":30.0,"gid":null,"locked":false,"text":"hh:mm","fs":14,"br":8,"bs":1,"ha":"left","z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","td":"normal","bo":0,"i":0,"ls":0,"fixed":false,"fixed_type":1,"input_type":"text"},{"cid":"w72BAF501DD1491135360756","screen_cid":"sC420FC95F81491135008854","timestamp":20966862,"v":true,"name":"text_view","left":35.0,"top":185.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"Choose Venue<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w8CD11479D01491135595577","screen_cid":"sC420FC95F81491135008854","timestamp":20966878,"v":true,"name":"mselect","left":35.0,"top":210.0,"width":295.0,"height":30.0,"gid":null,"locked":false,"text":"Performance Factory\n\nTwente University Indoors\n\nRigtersbleek\n\n","fs":14,"bs":1,"z":5,"th":"","lh":20,"bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","td":"normal","bo":0,"i":0,"ls":0,"fixed":false,"fixed_type":1},{"cid":"wCA15AAAE561491135687749","screen_cid":"sC420FC95F81491135008854","timestamp":20966897,"v":true,"name":"map_view","left":36.0,"top":290.0,"width":294.0,"height":140.0,"gid":null,"locked":false,"z":5,"fixed":false,"fixed_type":1},{"cid":"wDB70BD81241491135801265","screen_cid":"sC420FC95F81491135008854","timestamp":20966919,"v":true,"name":"text_view","left":35.0,"top":252.0,"width":200.0,"height":18.0,"gid":"lD4531AC7181491136682263","locked":false,"text":"Can't find the venue?<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"lblue","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#03a9f4","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w081BF6A5AA1491135826781","screen_cid":"sC420FC95F81491135008854","timestamp":20966923,"v":true,"name":"icon_button","left":105.0,"top":370.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w5BCAE7CA611491135862165","screen_cid":"sC420FC95F81491135008854","timestamp":20966928,"v":true,"name":"button","left":35.5,"top":590.0,"width":109.0,"height":30.0,"gid":"lF3F747442E1491136693417","locked":false,"text":"Create Activity","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":5,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wBE77F1F0D81491135962725","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966932,"v":true,"name":"status_bar","left":null,"top":null,"width":360.0,"height":23.0,"gid":null,"locked":false,"text":"AT&amp;T","th":"light","bg":"","tc":"","bc":"","o":100,"z":3},{"cid":"w37AADE6D641491135976290","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966936,"v":true,"name":"rounded_rect","left":0.0,"top":23.0,"width":360.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":3,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w1AABDD65491491135976297","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966940,"v":true,"name":"text_view","left":60.0,"top":37.0,"width":200.0,"height":20.0,"gid":null,"locked":false,"text":"New Activity<br>","fs":14,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":20,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wD4CED48DE51491135976304","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966944,"v":true,"name":"icon_button","left":0.0,"top":24.0,"width":45.0,"height":45.0,"gid":"l22F60FAD391491135976287","locked":false,"is":24,"icon":"arrow-left","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w750EBD86A81491135976308","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966948,"v":true,"name":"mselect","left":35.0,"top":130.0,"width":295.0,"height":30.0,"gid":null,"locked":false,"text":"Football\n\nBasketball\nRugby","fs":14,"bs":1,"z":3,"th":"","lh":20,"bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","td":"normal","bo":0,"i":0,"ls":0,"fixed":false,"fixed_type":1},{"cid":"w40CFFD5AA01491135976314","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966952,"v":true,"name":"text_view","left":35.0,"top":110.0,"width":200.0,"height":19.0,"gid":null,"locked":false,"text":"Sport","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":19,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w5D87353A6A1491135976320","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966956,"v":true,"name":"text_view","left":35.0,"top":445.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"Date","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wDE68352D621491135976328","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966960,"v":true,"name":"mtext_input","left":35.0,"top":470.0,"width":295.0,"height":30.0,"gid":null,"locked":false,"text":"dd/mm/yy","fs":14,"br":8,"bs":1,"ha":"left","z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","td":"normal","bo":0,"i":0,"ls":0,"fixed":false,"fixed_type":1,"input_type":"text"},{"cid":"w5EBE517ACB1491135976334","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966964,"v":true,"name":"text_view","left":35.0,"top":515.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"Time","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w2C49B852EE1491135976339","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966968,"v":true,"name":"mtext_input","left":35.0,"top":540.0,"width":295.0,"height":30.0,"gid":null,"locked":false,"text":"hh:mm","fs":14,"br":8,"bs":1,"ha":"left","z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","td":"normal","bo":0,"i":0,"ls":0,"fixed":false,"fixed_type":1,"input_type":"text"},{"cid":"w959156C1591491135976343","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966972,"v":true,"name":"text_view","left":35.0,"top":185.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"Choose Venue<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wFED32B52871491135976347","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966976,"v":true,"name":"mselect","left":35.0,"top":210.0,"width":295.0,"height":30.0,"gid":null,"locked":false,"text":"Performance Factory\n\nTwente University Indoors\n\nRigtersbleek\n\n","fs":14,"bs":1,"z":3,"th":"","lh":20,"bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","td":"normal","bo":0,"i":0,"ls":0,"fixed":false,"fixed_type":1},{"cid":"w63464A2E8E1491135976370","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966984,"v":true,"name":"text_view","left":35.0,"top":252.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"Can't find the venue?<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"lblue","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#03a9f4","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w489F0ADC5E1491135976373","screen_cid":"s05D0E8E01D1491135962719","timestamp":20966988,"v":true,"name":"button","left":35.5,"top":590.0,"width":109.0,"height":30.0,"gid":null,"locked":false,"text":"Create Activity","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":3,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w6B66B331CA1491135988594","screen_cid":"s05D0E8E01D1491135962719","timestamp":20967006,"v":true,"name":"rounded_rect","left":20.0,"top":151.0,"width":325.0,"height":390.0,"gid":null,"locked":false,"text":"<p> </p>","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":5,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w8B9BE36C161491136005416","screen_cid":"s05D0E8E01D1491135962719","timestamp":20967010,"v":true,"name":"text_view","left":35.0,"top":169.0,"width":200.0,"height":22.0,"gid":null,"locked":false,"text":"Add Venue<br>","fs":15,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":22,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wAC29550D821491136035960","screen_cid":"s05D0E8E01D1491135962719","timestamp":20967014,"v":true,"name":"mtext_input","left":35.0,"top":236.0,"width":200.0,"height":30.0,"gid":null,"locked":false,"text":"Roombeek - Enschede North","fs":14,"br":8,"bs":1,"ha":"left","z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","td":"normal","bo":0,"i":0,"ls":0,"fixed":false,"fixed_type":1,"input_type":"text"},{"cid":"w4B19DCF2411491136048368","screen_cid":"s05D0E8E01D1491135962719","timestamp":20967019,"v":true,"name":"text_view","left":36.0,"top":216.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"Venue Name<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wC191BA0A7E1491136157574","screen_cid":"s05D0E8E01D1491135962719","timestamp":20967040,"v":true,"name":"map_view","left":20.0,"top":314.0,"width":325.0,"height":145.0,"gid":null,"locked":false,"z":5,"fixed":false,"fixed_type":1},{"cid":"w4A21736AB11491136497659","screen_cid":"s05D0E8E01D1491135962719","timestamp":20967086,"v":true,"name":"button","left":130.0,"top":486.0,"width":86.0,"height":30.0,"gid":"l4EBB7C49021491136672576","locked":false,"text":"Add Venue","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":5,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wADF5FE346F1491147689036","screen_cid":"s05D0E8E01D1491135962719","timestamp":20967799,"v":true,"name":"text_view","left":35.0,"top":286.0,"width":265.0,"height":18.0,"gid":null,"locked":false,"text":"Click on the map to locate the venue<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wB0148CE04A1491147770328","screen_cid":"s05D0E8E01D1491135962719","timestamp":20967826,"v":true,"name":"icon_button","left":55.0,"top":320.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w04181278431491137040508","screen_cid":"sA3BC96CCEE1491137040482","timestamp":20967120,"v":true,"name":"status_bar","left":null,"top":null,"width":360.0,"height":23.0,"gid":null,"locked":false,"text":"AT&amp;T","th":"light","bg":"","tc":"","bc":"","o":100,"z":3},{"cid":"w4CFD9D48FE1491137078457","screen_cid":"sA3BC96CCEE1491137040482","timestamp":20967125,"v":true,"name":"rounded_rect","left":0.0,"top":23.0,"width":360.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":3,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w19E06E49DF1491137078479","screen_cid":"sA3BC96CCEE1491137040482","timestamp":20967145,"v":true,"name":"icon_button","left":147.0,"top":24.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":324,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w3716AB72341491137078483","screen_cid":"sA3BC96CCEE1491137040482","timestamp":20967149,"v":true,"name":"icon_button","left":156.0,"top":20.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wD15ABB69C61491137078490","screen_cid":"sA3BC96CCEE1491137040482","timestamp":20967153,"v":true,"name":"icon_button","left":167.0,"top":24.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":40,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w05B79C74321491137086212","screen_cid":"sA3BC96CCEE1491137040482","timestamp":20967156,"v":true,"name":"map_view","left":0.0,"top":70.0,"width":360.0,"height":570.0,"gid":null,"locked":false,"z":4,"fixed":false,"fixed_type":1},{"cid":"w2E29EFC1981491137096955","screen_cid":"sA3BC96CCEE1491137040482","timestamp":20967162,"v":true,"name":"icon_button","left":25.0,"top":195.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w279304215E1491137102305","screen_cid":"sA3BC96CCEE1491137040482","timestamp":20967173,"v":true,"name":"icon_button","left":5.0,"top":490.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w27765905431491137107665","screen_cid":"sA3BC96CCEE1491137040482","timestamp":20967177,"v":true,"name":"icon_button","left":245.0,"top":140.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wDAE00F22B81491137112627","screen_cid":"sA3BC96CCEE1491137040482","timestamp":20967181,"v":true,"name":"icon_button","left":105.0,"top":205.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w2F070E7F821491137134180","screen_cid":"sA3BC96CCEE1491137040482","timestamp":20967188,"v":true,"name":"button","left":138.0,"top":550.0,"width":80.0,"height":30.0,"gid":"l402C22C9761491137157370","locked":false,"text":"List","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":5,"th":"blue","td":"normal","bo":0,"i":0,"bg":"#738ffe","bc":"#4e6cef","tc":"#fff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w865F2D13791491137311557","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967195,"v":true,"name":"status_bar","left":null,"top":null,"width":360.0,"height":23.0,"gid":null,"locked":false,"text":"AT&amp;T","th":"light","bg":"","tc":"","bc":"","o":100,"z":3},{"cid":"w9D2ACEB3391491137321849","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967200,"v":true,"name":"rounded_rect","left":0.0,"top":23.0,"width":360.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":3,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w85EFF1D8561491137321856","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967204,"v":true,"name":"text_view","left":20.0,"top":124.0,"width":320.0,"height":56.0,"gid":null,"locked":false,"text":"<p>List of Football and Basketball venues in Enschede.<br></p>","fs":19,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"dark","lh":28,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#555","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wEFC25BEA4E1491137321869","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967212,"v":true,"name":"text_view","left":200.0,"top":156.0,"width":130.0,"height":18.0,"gid":"l4F04253BFB1491137321835","locked":false,"text":"<p>change sports or city<br></p>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"lblue","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#03a9f4","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w8B43351B151491137321931","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967260,"v":true,"name":"rounded_rect","left":0.0,"top":70.0,"width":180.0,"height":47.0,"gid":"lE063C3D2941491138398346","locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":3,"lh":20,"th":"blue","td":"normal","bo":0,"i":0,"bg":"#ffffff","bc":"#4e6cef","tc":"#fff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w8AA3282CBA1491137321936","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967264,"v":true,"name":"rounded_rect","left":180.0,"top":70.0,"width":180.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":3,"lh":20,"th":"blue","td":"normal","bo":0,"i":0,"bg":"#738ffe","bc":"#4e6cef","tc":"#fff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wF07868AA711491137321942","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967268,"v":true,"name":"text_view","left":60.0,"top":81.0,"width":70.0,"height":19.0,"gid":"l903CE5AD7A1491138441421","locked":false,"text":"ACTIVITIES","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"dark","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#555","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wE1AF13CA4C1491137321948","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967272,"v":true,"name":"text_view","left":240.0,"top":81.0,"width":50.0,"height":19.0,"gid":null,"locked":false,"text":"VENUES","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#ffffff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w5216F621011491137321964","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967292,"v":true,"name":"icon_button","left":147.0,"top":24.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":324,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wBD5FA02D9A1491137321967","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967296,"v":true,"name":"icon_button","left":156.0,"top":20.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wCB836DED3A1491137321970","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967300,"v":true,"name":"icon_button","left":167.0,"top":24.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":40,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wD36665D9081491137321885","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967220,"v":true,"name":"text_view","left":10.0,"top":260.0,"width":140.0,"height":18.0,"gid":"l134DCE4B0E1491137321846","locked":false,"text":"<p>Monday 15 Apr, 15.00h<br></p>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"grey","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"#607d8b","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w8AA4E4EE931491137459955","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967372,"v":true,"name":"image_view","left":0.0,"top":450.0,"width":360.0,"height":200.0,"gid":null,"locked":false,"bs":0,"br":0,"image":"/uploads/images/23/238457/raw_1491137909.jpeg","z":5,"th":"","bg":"","bc":"","tc":"","o":100,"p":true,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null,"filter":""},{"cid":"w3DDFDD829F1491137501610","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967380,"v":true,"name":"text_view","left":15.0,"top":600.0,"width":250.0,"height":26.0,"gid":null,"locked":false,"text":"Twente University Outdoors <br>","fs":18,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"light","lh":26,"td":"normal","bo":1,"i":0,"bg":"","bc":"","tc":"#fff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w2BDC719CC91491137538293","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967385,"v":true,"name":"icon_button","left":265.0,"top":590.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"dribbble","br":0,"bs":0,"z":5,"th":"light","bg":"","bc":"","tc":"#fff","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wD70AB5A0161491137979625","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967406,"v":true,"name":"image_view","left":0.0,"top":183.0,"width":360.0,"height":267.0,"gid":"l7400E246971491148729065","locked":false,"bs":0,"br":0,"image":"/uploads/images/23/238460/raw_1491138153.jpeg","z":5,"th":"","bg":"","bc":"","tc":"","o":100,"p":true,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null,"filter":""},{"cid":"wE771D45DF21491138244485","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967426,"v":true,"name":"text_view","left":15.0,"top":404.0,"width":250.0,"height":26.0,"gid":"l7400E246971491148729065","locked":false,"text":"<p>The Cage - UT Outdoors <br></p>","fs":18,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"light","lh":26,"td":"normal","bo":1,"i":0,"bg":"","bc":"","tc":"#fff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wA4939DCDE11491138244491","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967430,"v":true,"name":"icon_button","left":260.0,"top":395.0,"width":45.0,"height":45.0,"gid":"l7400E246971491148729065","locked":false,"is":24,"icon":"futbol-o","br":0,"bs":0,"z":5,"th":"light","bg":"","bc":"","tc":"#fff","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w15AAF1E4871491138345919","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967443,"v":true,"name":"button","left":100.0,"top":190.0,"width":80.0,"height":30.0,"gid":"l51B4DE323C1491148069273","locked":false,"text":"NEW","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":5,"th":"blue","td":"normal","bo":0,"i":0,"bg":"#738ffe","bc":"#4e6cef","tc":"#ffffff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wBB5E99C21A1491138345924","screen_cid":"s028ADB4AEB1491137311539","timestamp":20967447,"v":true,"name":"button","left":180.0,"top":190.0,"width":80.0,"height":30.0,"gid":"l8719E7360F1491148078241","locked":false,"text":"MAP","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":5,"th":"blue","td":"normal","bo":0,"i":0,"bg":"#738ffe","bc":"#4e6cef","tc":"#ffffff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w2EF94F10351491139481998","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967460,"v":true,"name":"status_bar","left":null,"top":null,"width":360.0,"height":23.0,"gid":null,"locked":false,"text":"AT&amp;T","th":"light","bg":"","tc":"","bc":"","o":100,"z":3},{"cid":"wEFDED3A5FF1491139486344","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967464,"v":true,"name":"rounded_rect","left":0.0,"top":23.0,"width":360.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":3,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w25B6616CC81491139486351","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967468,"v":true,"name":"image_view","left":0.0,"top":30.0,"width":360.0,"height":267.0,"gid":null,"locked":false,"bs":0,"br":0,"image":"/uploads/images/23/238460/raw_1491138153.jpeg","z":3,"th":"","bg":"","bc":"","tc":"","o":100,"p":true,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null,"filter":""},{"cid":"w07136C17291491139486364","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967472,"v":true,"name":"text_view","left":45.0,"top":34.0,"width":250.0,"height":23.0,"gid":null,"locked":false,"text":"<p>The Cage - UT Outdoors <br></p>","fs":16,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"dark","lh":23,"td":"normal","bo":1,"i":0,"bg":"","bc":"","tc":"#555","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wB9FD34F7CD1491139494347","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967479,"v":true,"name":"icon_button","left":0.0,"top":25.0,"width":45.0,"height":45.0,"gid":"l4D300BC6841491139808353","locked":false,"is":24,"icon":"arrow-left","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w008C242C3D1491139548113","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967492,"v":true,"name":"text_view","left":20.0,"top":310.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"Description goes here<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w676E5602A71491139631264","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967659,"v":true,"name":"map_view","left":0.0,"top":460.0,"width":360.0,"height":180.0,"gid":null,"locked":false,"z":5,"fixed":false,"fixed_type":1},{"cid":"w694256EBEA1491139640866","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967663,"v":true,"name":"icon_button","left":35.0,"top":535.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w7764D2631E1491139653376","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967666,"v":true,"name":"icon_button","left":0.0,"top":415.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-marker","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w3EA8BE5EB91491139660980","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967671,"v":true,"name":"text_view","left":40.0,"top":430.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"Exact address goes here<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w28DC80512A1491139721816","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967682,"v":true,"name":"icon_button","left":0.0,"top":380.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"money","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wDF5008325B1491139748178","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967686,"v":true,"name":"text_view","left":45.0,"top":397.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"FREE","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w4A42F343441491140019419","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967692,"v":true,"name":"icon_button","left":0.0,"top":352.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"futbol-o","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wED3885A79F1491152240460","screen_cid":"s5E8F6DE9991491139481992","timestamp":20967913,"v":true,"name":"text_view","left":60.0,"top":345.0,"width":200.0,"height":36.0,"gid":null,"locked":false,"text":"TODO: availability or page for scrubbing<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":5,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w8CFD75B53E1491140166152","screen_cid":"s8B0A868A161491140166150","timestamp":20967698,"v":true,"name":"status_bar","left":null,"top":null,"width":360.0,"height":23.0,"gid":null,"locked":false,"text":"AT&amp;T","th":"light","bg":"","tc":"","bc":"","o":100,"z":3},{"cid":"w17789FAD0C1491140173012","screen_cid":"s8B0A868A161491140166150","timestamp":20967702,"v":true,"name":"text_view","left":35.0,"top":98.0,"width":200.0,"height":22.0,"gid":null,"locked":false,"text":"Add Venue<br>","fs":15,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":22,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w8695ECC8B11491140173017","screen_cid":"s8B0A868A161491140166150","timestamp":20967706,"v":true,"name":"mtext_input","left":35.0,"top":165.0,"width":200.0,"height":30.0,"gid":null,"locked":false,"text":"Roombeek - Enschede North","fs":14,"br":8,"bs":1,"ha":"left","z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","td":"normal","bo":0,"i":0,"ls":0,"fixed":false,"fixed_type":1,"input_type":"text"},{"cid":"wF26EF13DD81491140173021","screen_cid":"s8B0A868A161491140166150","timestamp":20967710,"v":true,"name":"text_view","left":36.0,"top":145.0,"width":200.0,"height":18.0,"gid":null,"locked":false,"text":"Venue Name<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wA6E27B202B1491140173033","screen_cid":"s8B0A868A161491140166150","timestamp":20967718,"v":true,"name":"text_view","left":35.0,"top":215.0,"width":265.0,"height":18.0,"gid":null,"locked":false,"text":"Click on the map to locate the venue<br>","fs":13,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":18,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"w33573EDAAD1491140173041","screen_cid":"s8B0A868A161491140166150","timestamp":20967722,"v":true,"name":"map_view","left":36.0,"top":240.0,"width":294.0,"height":145.0,"gid":null,"locked":false,"z":3,"fixed":false,"fixed_type":1},{"cid":"w7917A8C3E91491140173055","screen_cid":"s8B0A868A161491140166150","timestamp":20967734,"v":true,"name":"button","left":44.0,"top":420.0,"width":86.0,"height":30.0,"gid":"l747C201EE81491140173010","locked":false,"text":"Add Venue","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":3,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w7C8BC2F1751491146983097","screen_cid":"s8B0A868A161491140166150","timestamp":20967758,"v":true,"name":"rounded_rect","left":0.0,"top":23.0,"width":360.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":3,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wF9E26A20D81491146983116","screen_cid":"s8B0A868A161491140166150","timestamp":20967762,"v":true,"name":"text_view","left":60.0,"top":37.0,"width":200.0,"height":20.0,"gid":null,"locked":false,"text":"Add Venue<br>","fs":14,"br":0,"bs":0,"ha":"left","va":"top","z":3,"th":"","lh":20,"td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0","clip":null},{"cid":"wC53186B8741491146990736","screen_cid":"s8B0A868A161491140166150","timestamp":20967765,"v":true,"name":"icon_button","left":0.0,"top":24.0,"width":45.0,"height":45.0,"gid":"l270B9CF6801491147006436","locked":false,"is":24,"icon":"arrow-left","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w0AEAB771591491147102844","screen_cid":"s8B0A868A161491140166150","timestamp":20967783,"v":true,"name":"icon_button","left":240.0,"top":298.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w23136845C51491147942750","screen_cid":"sBDE7503A211491147942733","timestamp":20967838,"v":true,"name":"status_bar","left":null,"top":null,"width":360.0,"height":23.0,"gid":null,"locked":false,"text":"AT&amp;T","th":"light","bg":"","tc":"","bc":"","o":100,"z":3},{"cid":"w16BAC2CED91491147949772","screen_cid":"sBDE7503A211491147942733","timestamp":20967842,"v":true,"name":"rounded_rect","left":0.0,"top":23.0,"width":360.0,"height":47.0,"gid":null,"locked":false,"text":"","fs":14,"br":0,"bs":1,"ha":"center","va":"middle","z":3,"lh":20,"th":"","td":"normal","bo":0,"i":0,"bg":"","bc":"","tc":"","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"padding":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wA701D9566F1491147949779","screen_cid":"sBDE7503A211491147942733","timestamp":20967846,"v":true,"name":"icon_button","left":147.0,"top":24.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":324,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w0ED1AC022F1491147949784","screen_cid":"sBDE7503A211491147942733","timestamp":20967850,"v":true,"name":"icon_button","left":156.0,"top":20.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w49F480CABB1491147949790","screen_cid":"sBDE7503A211491147942733","timestamp":20967854,"v":true,"name":"icon_button","left":167.0,"top":24.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":3,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":40,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wDEBD98469F1491147949794","screen_cid":"sBDE7503A211491147942733","timestamp":20967858,"v":true,"name":"map_view","left":0.0,"top":70.0,"width":360.0,"height":570.0,"gid":null,"locked":false,"z":3,"fixed":false,"fixed_type":1},{"cid":"wF00877787B1491147949808","screen_cid":"sBDE7503A211491147942733","timestamp":20967862,"v":true,"name":"button","left":138.0,"top":550.0,"width":80.0,"height":30.0,"gid":"l65E0EFBD0B1491148004266","locked":false,"text":"List","fs":14,"br":8,"bs":1,"ha":"center","va":"middle","z":3,"th":"blue","td":"normal","bo":0,"i":0,"bg":"#738ffe","bc":"#4e6cef","tc":"#fff","o":100,"ts":0,"tsc":"#aaaaaa","ds":0,"sc":"#222222","ro":0,"ls":0,"icon":"","is":14,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w956B9D11E01491147958084","screen_cid":"sBDE7503A211491147942733","timestamp":20967865,"v":true,"name":"icon_button","left":0.0,"top":460.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w970FEFD91D1491147961992","screen_cid":"sBDE7503A211491147942733","timestamp":20967872,"v":true,"name":"icon_button","left":45.0,"top":580.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wB3E35204421491147966178","screen_cid":"sBDE7503A211491147942733","timestamp":20967882,"v":true,"name":"icon_button","left":155.0,"top":460.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"w5FEB64DF341491147970509","screen_cid":"sBDE7503A211491147942733","timestamp":20967886,"v":true,"name":"icon_button","left":10.0,"top":265.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"},{"cid":"wDAD0DA09DF1491147978199","screen_cid":"sBDE7503A211491147942733","timestamp":20967892,"v":true,"name":"icon_button","left":100.0,"top":145.0,"width":45.0,"height":45.0,"gid":null,"locked":false,"is":24,"icon":"map-pin","br":0,"bs":0,"z":5,"th":"","bg":"","bc":"","tc":"","o":100,"ds":0,"sc":"#222222","ro":0,"ls":0,"fixed":false,"fixed_type":1,"ani_name":"none","ani_delay":"0","ani_count":"1","ani_duration":"0"}],"links":[{"cid":"lB35C2F372B1490462520709","screen_cid":"s95E59D57DC1490460964317","target_cid":"s7AE154F7651490462506780","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l427D1DCEAB1490461557643","screen_cid":"s90B1546E5F1490460964325","target_cid":"s95E59D57DC1490460964317","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l9C819A63EC1490463109988","screen_cid":"s7AE154F7651490462506780","target_cid":"s95E59D57DC1490460964317","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l668A7CBA281491132673296","screen_cid":"s7AE154F7651490462506780","target_cid":"s1F82C276351490463598401","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"lA6D75EA0261491132739527","screen_cid":"s7AE154F7651490462506780","target_cid":"s1F82C276351490463598401","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l2D7FFC945B1491137165246","screen_cid":"s7AE154F7651490462506780","target_cid":"sA3BC96CCEE1491137040482","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l098598EF331491138318009","screen_cid":"s7AE154F7651490462506780","target_cid":"sC420FC95F81491135008854","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l297AA5E7101491138408970","screen_cid":"s7AE154F7651490462506780","target_cid":"s028ADB4AEB1491137311539","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"lEE0314D1721491138468519","screen_cid":"s7AE154F7651490462506780","target_cid":"s028ADB4AEB1491137311539","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l6538D6BCF91491129275014","screen_cid":"s1F82C276351490463598401","target_cid":"s7AE154F7651490462506780","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"lB932AA4D271491131187741","screen_cid":"s1F82C276351490463598401","target_cid":"sA4A32A1B991491130718264","transition":"none","gesture":"up","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"lEE1A5DB7291491130726497","screen_cid":"sA4A32A1B991491130718264","target_cid":"s7AE154F7651490462506780","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"lE3EF01EFBA1491131153869","screen_cid":"sA4A32A1B991491130718264","target_cid":"s1F82C276351490463598401","transition":"none","gesture":"down","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l9F474E7A291491135143983","screen_cid":"sC420FC95F81491135008854","target_cid":"s7AE154F7651490462506780","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"lD4531AC7181491136682263","screen_cid":"sC420FC95F81491135008854","target_cid":"s05D0E8E01D1491135962719","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"lF3F747442E1491136693417","screen_cid":"sC420FC95F81491135008854","target_cid":"s1F82C276351490463598401","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l22F60FAD391491135976287","screen_cid":"s05D0E8E01D1491135962719","target_cid":"s7AE154F7651490462506780","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l4EBB7C49021491136672576","screen_cid":"s05D0E8E01D1491135962719","target_cid":"sC420FC95F81491135008854","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l402C22C9761491137157370","screen_cid":"sA3BC96CCEE1491137040482","target_cid":"s7AE154F7651490462506780","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l4F04253BFB1491137321835","screen_cid":"s028ADB4AEB1491137311539","target_cid":"s95E59D57DC1490460964317","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"lE063C3D2941491138398346","screen_cid":"s028ADB4AEB1491137311539","target_cid":"s7AE154F7651490462506780","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l903CE5AD7A1491138441421","screen_cid":"s028ADB4AEB1491137311539","target_cid":"s7AE154F7651490462506780","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l51B4DE323C1491148069273","screen_cid":"s028ADB4AEB1491137311539","target_cid":"s8B0A868A161491140166150","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l8719E7360F1491148078241","screen_cid":"s028ADB4AEB1491137311539","target_cid":"sBDE7503A211491147942733","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l7400E246971491148729065","screen_cid":"s028ADB4AEB1491137311539","target_cid":"s5E8F6DE9991491139481992","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l4D300BC6841491139808353","screen_cid":"s5E8F6DE9991491139481992","target_cid":"s028ADB4AEB1491137311539","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l747C201EE81491140173010","screen_cid":"s8B0A868A161491140166150","target_cid":"sC420FC95F81491135008854","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l270B9CF6801491147006436","screen_cid":"s8B0A868A161491140166150","target_cid":"s028ADB4AEB1491137311539","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"},{"cid":"l65E0EFBD0B1491148004266","screen_cid":"sBDE7503A211491147942733","target_cid":"s028ADB4AEB1491137311539","transition":"none","gesture":"tap","timer":0.0,"menu_offset":75,"reset":true,"ani_duration":"0.2s","ani_delay":"","state_cid":null,"widget_cids":"","targetstate_cid":null,"sourcestate_cid":"default"}],"panels":[],"screen_aligns":[],"screenstates":[],"widgetstates":[],"panelstates":[],"devices":{"android":{"google_nexus":{"width":360,"height":640,"name":"Google Pixel"},"samsung":{"width":360,"height":640,"name":"Samsung"},"Xiaomi":{"width":360,"height":640,"name":"XiaoMi"},"Huawei":{"width":360,"height":640,"name":"Huawei"},"Meizu":{"width":360,"height":600,"name":"Meizu"},"google_nexus_4":{"width":384,"height":640,"name":"Google Nexus 4","hide":true},"customize":{"width":360,"height":640,"name":"Customize"}},"iphone":{"iphone_4":{"width":320,"height":480,"scale":100,"icon_size":"120x120","name":"iPhone 4","hide":true},"iphone_5":{"width":320,"height":568,"scale":100,"icon_size":"120x120","name":"iPhone 5"},"iphone_6":{"width":375,"height":667,"scale":100,"icon_size":"180x180","name":"iPhone 6/7"},"iphone_6_plus":{"width":414,"height":736,"scale":100,"icon_size":"180x180","name":"iPhone 6/7 Plus"},"ipad_3_4":{"width":768,"height":1024,"scale":75,"icon_size":"152x152","name":"iPad"},"ipad_pro":{"width":1024,"height":1366,"scale":75,"icon_size":"152x152","name":"iPad Pro"}},"ipad":{"ipad_3_4":{"width":768,"height":1024,"scale":75,"icon_size":"152x152","name":"iPad"},"ipad_pro":{"width":1024,"height":1366,"scale":75,"icon_size":"152x152","name":"iPad Pro"}},"web":{"desktop":{"width":1440,"height":1024,"name":"Webpage"}},"default":{"iphone":"iphone_5","ipad":"ipad_3_4","android":"google_nexus"}},"collaborators":[],"threads":[],"comments":[],"teams":[]}</script>
