@@ -29,7 +29,7 @@ class LoginPage extends Component {
     reduxActions.dispatchSetBooleanField('canSubmit', false);
 
     Meteor.loginWithFacebook({
-      requestPermissions: ['user_friends', 'public_profile', 'email'],
+      requestPermissions: ['public_profile', 'email', 'read_friendlists'],
     }, (err) => {
       if (err) {
         // Display errors on UI

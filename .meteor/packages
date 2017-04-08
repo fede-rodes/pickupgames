@@ -22,7 +22,7 @@ alanning:roles
 aldeed:collection2
 shell-server@0.2.1
 okgrow:router-autoscroll
-accounts-facebook@1.0.11
+accounts-facebook@1.0.12
 service-configuration@1.0.11
 themeteorchef:bert
 tmeasday:publish-counts
