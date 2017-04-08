@@ -5,12 +5,12 @@ My previous pick-up games project (Meteor 1.2 + Blaze) can be found here: https:
 
 The aim of this project is to partially re-build fulbacho.net (adding improvements and lots of simplifications) while using a much modern stack, namely: Meteor 1.4 (almost 1.5), React, Redux, Flow router and CSS-Modules. Additionally, I would like to take the style to the extreme and for this reason I would propose to focus on mobile views only: max-width: 600px and centered (same view for all kind of devices).
 
-## NEWS!! (last updated: 02-04-2017)
+## NEWS!! (last updated: 08-04-2017)
 I just started writing the spec for the pickupgames app (lots of work needs to be done yet), and decided to pause the code for a bit until the spec is fully defined. In that way, those who are interested in the project can start contributing with ideas and once we all agree with the features the app needs to have we can divide the project into milestones and start coding :)
 
 Here is the link to the spec: https://docs.google.com/document/d/1uTo2BchpBs2C2lP0J_te-kxNxvuYsmPUpRXGcWDzV6s/edit?usp=sharing, don't hesitate to leave comments!
 
-You can play with the interactive mock-ups by cloning the repo and mock-ups app / folder (just open the index.html with your prefered web browser)
+You can play with the interactive mock-ups here: https://invis.io/FCB83MLW7#/228112476_1-0_Home
 
 ## Get started
 1. cd to your meteor projects folder
