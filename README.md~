@@ -10,6 +10,8 @@ I just started writing the spec for the pickupgames app (lots of work needs to b
 
 Here is the link to the spec: https://docs.google.com/document/d/1uTo2BchpBs2C2lP0J_te-kxNxvuYsmPUpRXGcWDzV6s/edit?usp=sharing, don't hesitate to leave comments!
 
+You can play with the interactive mock-ups by cloning the repo and mock-ups app / folder (just open the index.html with your prefered web browser)
+
 ## Get started
 1. cd to your meteor projects folder
 2. git clone https://github.com/fede-rodes/pickupgames.git && cd pickupgames
