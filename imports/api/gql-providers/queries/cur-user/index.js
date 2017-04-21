@@ -8,12 +8,12 @@ import gql from 'graphql-tag';
 const GET_CUR_USER_DATA = gql`
   query getCurUser {
     curUser {
+      _id
       emails {
         address
         verified
       }
       randomString
-      _id
     }
   }
 `;
@@ -81,7 +81,22 @@ const GET_CUR_USER_DATA = gql`
  *  connect(...),
  * )(MyComponent);
  */
-const config = { options: { notifyOnNetworkStatusChange: true } };
+const config = {
+  options: { notifyOnNetworkStatusChange: true },
+  // Destructure the default props to more explicit ones
+  // props: ({ data: { error, loading, curUser, refetch } }) => {
+  //  if (loading) return { curUserLoading: true };
+  //  if (error) return { hasErrors: true };
+
+  //  return {
+  //    curUser,
+  //    refetch,
+  //  };
+  // },
+};
+
+// Create enhancer function
+const withCurUserData = graphql(GET_CUR_USER_DATA, config);
 
 // data = {
 // curUser: Object
@@ -96,7 +111,5 @@ const config = { options: { notifyOnNetworkStatusChange: true } };
 // updateQuery: function ()
 // variables: Object
 // }
-// Create our enhancer function.
-const withCurUserData = graphql(GET_CUR_USER_DATA, config);
 
 export default withCurUserData;

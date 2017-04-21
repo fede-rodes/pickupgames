@@ -3,11 +3,10 @@ import { compose } from 'react-apollo'; // could use Recompose or import from re
 import PropTypes from 'prop-types';
 import { pick } from 'lodash';
 
-import { withRedux, withData } from './container.js';
+import { withRedux } from './container.js';
+import withCurUserData from '../../../../api/gql-providers/queries/cur-user';
 import Constants from '../../../../api/constants.js';
-import InputControlled from '../../form-components/input-controlled.jsx';
-
-
+import InputControlled from '../../form-components/input-controlled.js';
 
 /*
  * Demonstrate the use of `withApollo` higher order component to give access to
@@ -150,7 +149,7 @@ class SettingsForm extends Component {
         </button>
       </form>
     );
-  };
+  }
 }
 
 /* SettingsForm.propTypes = {
@@ -200,4 +199,4 @@ SettingsForm.defaultProps = {
 
 
 // export default SettingsForm;
-export default compose(withRedux, withData)(SettingsForm);
+export default compose(withRedux, withCurUserData)(SettingsForm);
