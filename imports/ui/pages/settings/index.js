@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../../Header.js';
+// import Header from '../../Header.js';
 import SettingsForm from '../../components/settings/settings-form/index.js';
 
 // TODO: redirect user to Login page if not authenticated
@@ -13,6 +13,11 @@ import SettingsForm from '../../components/settings/settings-form/index.js';
 * @summary Contains all the 'View' logic and takes care of view dispatching.
 * Actions should be dispatched here and NOT in any child component!
 */
+const Settings = () => <SettingsForm />;
+
+export default Settings;
+
+/*
 const Settings = () => (
     <div className="App">
       <Header />
@@ -25,6 +30,7 @@ const Settings = () => (
 );
 
 export default Settings;
+*/
 
 //------------------------------------------------------------------------------
 // APOLLO INTEGRATION:

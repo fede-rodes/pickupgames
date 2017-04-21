@@ -5,7 +5,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 // Integration with google analytics. See: https://github.com/apollographql/GitHunt-React/blob/master/ui/client.js
 // import * as ReactGA from 'react-ga';
 
-import Routes from './Routes.js';
+import Routes from './routes.js';
 
 const history = createBrowserHistory();
 
