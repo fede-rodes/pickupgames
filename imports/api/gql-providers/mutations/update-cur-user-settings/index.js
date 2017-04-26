@@ -8,7 +8,7 @@ import gql from 'graphql-tag';
 const UPDATE_CUR_USER_SETTINGS = gql`
   mutation updateCurUserSettings($location: String!) { # definition / schema
     updateCurUserSettings(location: $location) { # call
-      curUser { # result
+      # curUser { # result
         _id
         name
         location
@@ -17,7 +17,7 @@ const UPDATE_CUR_USER_SETTINGS = gql`
           verified
         }
         randomString
-      }
+      #}
     }
   }
 `;

@@ -1,0 +1,16 @@
+#mutation {
+#   updateCurUserSettings (location: "Enschede") {
+#    _id
+#    name
+#
+#    }
+# }
+
+{
+  curUser {
+    _id
+    name
+    location
+    randomString
+  }
+}

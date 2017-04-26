@@ -51,12 +51,12 @@ export const resolvers = {
        * We access to the current user here thanks to the context. The current
        * user is added to the context thanks to the `meteor/apollo` package.
        */
-      // return context.user || null;
-      const curUser = context.user;
+      return context.user || null;
+      /* const curUser = context.user;
       console.log('curUser', curUser);
       const curUserId = curUser._id;
       console.log('curUserExt', Meteor.users.findOne({ _id: curUserId }));
-      return Meteor.users.findOne({ _id: curUserId });
+      return Meteor.users.findOne({ _id: curUserId }); */
     },
     allUsers(root, args, context) {
       return Meteor.users.find({}).fetch();

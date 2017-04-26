@@ -5,6 +5,7 @@ import { pick } from 'lodash';
 
 import { withRedux } from './container.js';
 import withCurUserData from '../../../../api/gql-providers/queries/cur-user';
+import updateCurUserSettingsMutation from '../../../../api/gql-providers/mutations/update-cur-user-settings';
 import Constants from '../../../../api/constants.js';
 import InputControlled from '../../form-components/input-controlled.js';
 
@@ -52,7 +53,7 @@ class SettingsForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log('handleFormSubmit');
-    const { reduxState, reduxActions } = this.props;
+    const { reduxState, reduxActions, updateCurUserSettingsMutation } = this.props;
     const formFields = [
       'sports',
       'location',
@@ -68,6 +69,9 @@ class SettingsForm extends Component {
     const newSettings = pick(reduxState, formFields);
 
     console.log(newSettings);
+
+    const { location } = reduxState;
+    updateCurUserSettingsMutation({ variables: { location }});
 
     // Check for errors
     // const errors = Markers.api.checkNewMarkerFields(newMarker);
@@ -107,7 +111,12 @@ class SettingsForm extends Component {
   render() {
     // Destructure props
     const {
-      reduxState,
+      reduxState: {
+        canSubmit,
+        sports,
+        location,
+        errors,
+      },
       data: {
         error,
         loading,
@@ -186,7 +195,7 @@ SettingsForm.propTypes = {
     refetch: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
   }).isRequired,
-  mutate: PropTypes.func.isRequired,
+  updateCurUserSettingsMutation: PropTypes.func.isRequired,
 };
 
 SettingsForm.defaultProps = {
@@ -198,4 +207,8 @@ SettingsForm.defaultProps = {
   }),
 };
 
-export default compose(withRedux, withCurUserData)(SettingsForm);
+export default compose(
+  withRedux,
+  withCurUserData,
+  updateCurUserSettingsMutation
+)(SettingsForm);
