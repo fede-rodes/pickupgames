@@ -186,6 +186,7 @@ SettingsForm.propTypes = {
     refetch: PropTypes.func.isRequired,
     loading: PropTypes.bool.isRequired,
   }).isRequired,
+  mutate: PropTypes.func.isRequired,
 };
 
 SettingsForm.defaultProps = {
@@ -197,6 +198,4 @@ SettingsForm.defaultProps = {
   }),
 };
 
-
-// export default SettingsForm;
 export default compose(withRedux, withCurUserData)(SettingsForm);

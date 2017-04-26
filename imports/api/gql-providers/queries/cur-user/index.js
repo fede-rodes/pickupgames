@@ -9,6 +9,10 @@ const GET_CUR_USER_DATA = gql`
   query getCurUser {
     curUser {
       _id
+      name
+      settings {
+        location
+      }
       emails {
         address
         verified

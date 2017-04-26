@@ -56,7 +56,7 @@ const rootReducer = combineReducers({
 const logger = createLogger();
 
 const enhancers = [
-  applyMiddleware(client.middleware(), /*ReduxThunk,*/ logger),
+  applyMiddleware(client.middleware(), /*ReduxThunk, logger */),
   DevTools.instrument(),
   // applyMiddleware(client.middleware()),
   // If you are using the devToolsExtension, you can add it here also

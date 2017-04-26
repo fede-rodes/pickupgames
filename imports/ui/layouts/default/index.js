@@ -10,7 +10,7 @@ import LoginForm from '../../components/login-form';
 
 const DefaultLayout = ({ data, children }) => {
   const { error, loading, curUser, refetch } = data;
-  // console.log('data', data);
+  console.log('data', data);
 
   if (loading) return <Loading />;
   if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
