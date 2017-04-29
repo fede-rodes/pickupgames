@@ -1,4 +1,5 @@
 // Import your server-side configs
+import './apollo-server.js';
 import './config.js';
 import './startup.js';
 import './accounts.js';

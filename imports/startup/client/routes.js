@@ -13,7 +13,7 @@ const Routes = () => (
   <div>
     <Route exact path="/" component={FeedPageContainer} />
     {/* <Route exact path="/settings" component={Settings} /> */}
-    <Route exact path="/new-activity" component={NewMarkerPageContainer} />
+    <Route exact path="/create-activity" component={NewMarkerPageContainer} />
     <Route exact path="/activity-details" component={MarkerPageContainer} />
     <Route exact path="/admin-activity" component={AdminMarkerPageContainer} />
   </div>
