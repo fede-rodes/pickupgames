@@ -7,6 +7,7 @@ import { pick, isEqual } from 'lodash';
 import withRedux from '../redux-provider.js';
 // import withCurUserData from '../../../../api/gql-providers/queries/cur-user';
 import createActivityMutation from '../../../../api/gql-providers/mutations/create-activity';
+import Users_mutations_attachActivityToUser from '../../../../api/gql-providers/mutations/attach-activity-to-user';
 
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Form, Button } from 'antd';
@@ -116,6 +117,7 @@ class NewActivityForm extends Component {
       reduxState,
       reduxActions,
       createActivityMutation,
+      Users_mutations_attachActivityToUser,
       router,
     } = this.props;
 
@@ -168,14 +170,40 @@ class NewActivityForm extends Component {
       // TODO: redirect user back to previous route
       console.log('history', router.history);
       // console.log('res', res);
-      router.history.push(`/activity-details/${_id}`);
+      // router.history.push(`/activity-details/${_id}`);
       // TODO: clean redux store after redirect
+      console.log('before 2 mutation', _id);
+      Users_mutations_attachActivityToUser({ variables: { activityId: _id, actionType: 'NEW' } })
+      .then((res) => {
+        console.log('res', res);
+        router.history.push(`/activity-details/${_id}`);
+      })
+      .catch((err) => {
+        console.log(err);
+        Bert.alert(err.reason, 'danger', 'growl-top-right');
+        reduxActions.dispatchSetBooleanField('canSubmit', true);
+      });;
     })
     .catch((err) => {
+      console.log(err);
       Bert.alert(err.reason, 'danger', 'growl-top-right');
       reduxActions.dispatchSetBooleanField('canSubmit', true);
     });
 
+    /*
+        createActivityMutation({ variables: { ...newMarker } })
+        .then(({ data: { createActivity: { _id } } }) => {
+          // TODO: redirect user back to previous route
+          console.log('history', router.history);
+          // console.log('res', res);
+          router.history.push(`/activity-details/${_id}`);
+          // TODO: clean redux store after redirect
+        })
+        .catch((err) => {
+          Bert.alert(err.reason, 'danger', 'growl-top-right');
+          reduxActions.dispatchSetBooleanField('canSubmit', true);
+        });
+    */
     /* Meteor.call('Markers.methods.createMarker', newMarker, (err1, markerId) => {
       if (err1) {
         Bert.alert(err1.reason, 'danger', 'growl-top-right');
@@ -292,6 +320,7 @@ NewActivityForm.propTypes = {
   }).isRequired,
   reduxActions: PropTypes.object.isRequired,
   createActivityMutation: PropTypes.func.isRequired,
+  Users_mutations_attachActivityToUser: PropTypes.func.isRequired,
   router: PropTypes.object.isRequired,
 };
 
@@ -299,7 +328,8 @@ export default compose(
   withRouter,
   withRedux,
   // withCurUserData,
-  createActivityMutation
+  createActivityMutation,
+  Users_mutations_attachActivityToUser
 )(NewActivityForm);
 
 // export default withRedux(NewActivityForm);

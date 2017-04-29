@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Random } from 'meteor/random';
-import { check, Match } from 'meteor/check';
-import _ from 'lodash';
+// import { check, Match } from 'meteor/check';
+import { find } from 'lodash';
 // import AuxFunctions from '../../api/aux-functions.js';
 import Markers from '../../api/markers/namespace.js';
 import '../../api/markers/api.js'; // Activities.api
@@ -30,6 +30,8 @@ export const typeDefs = [
     #settings: Settings
     location: String
     emails: [Email]
+    createdMarkers: [String]
+    joinedMarkers: [String]
     randomString: String
   }
 
@@ -56,9 +58,15 @@ export const typeDefs = [
     allUsers: [User]
   }
 
+  enum ACTION_TYPES {
+    NEW
+    JOIN_UNJOIN
+  }
+
   type Mutation {
     updateCurUserSettings(location: String!): User
     createActivity(sport: String!, venueId: ID!, date: String!, time: String!): Activity
+    Users_mutations_attachActivityToUser(activityId: ID!, actionType: ACTION_TYPES!): User
   }
   `,
 ];
@@ -136,6 +144,55 @@ export const resolvers = {
 
       const activityId = Markers.collection.insert(newActivity);
       return Markers.collection.findOne({ _id: activityId });
+    },
+    Users_mutations_attachActivityToUser(root, args, context) {
+      console.log('root', root);
+      console.log('args', args);
+      console.log('context', context);
+      const curUser = context.user;
+      const curUserId = curUser._id;
+
+      // Is the current user logged in?
+      if (!curUserId) {
+        throw new Error('user is not logged in at Users.mutations.attachActivityToUser');
+      }
+
+      // TODO: Check marker existance?
+      // Destructure
+      const { activityId: markerId, actionType } = args;
+
+      // Set modifier based on actionType and user data
+      // const curUser = Meteor.users.findOne({ _id: curUserId });
+      let modifier = {};
+      switch (actionType) {
+        case 'NEW':
+          modifier = {
+            $addToSet: {
+              createdMarkers: markerId,
+              // joinedMarkers: markerId,
+            },
+          };
+          break;
+        case 'JOIN_UNJOIN': {
+          // Is the marker already in the user doc? If so, unjoin, otherwise join.
+          const joinedAlready = find(curUser.joinedMarkers, (joinedMarkerId) =>
+            (joinedMarkerId === markerId)
+          );
+          modifier = {
+            [joinedAlready ? '$pull' : '$addToSet']: {
+              joinedMarkers: markerId,
+            },
+          };
+          break;
+        }
+        default:
+          throw new Error('wrong value at Users.mutations.attachActivityToUser');
+      }
+
+      // Update user doc
+      Meteor.users.update({ _id: curUserId }, modifier);
+
+      return Meteor.users.findOne({ _id: curUserId });
     },
   },
 };

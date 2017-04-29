@@ -40,3 +40,19 @@ mutation {
     randomString
   }
 }
+
+mutation {
+   Users_mutations_attachActivityToUser (activityId: "Wzw3yzqGPHewkXmyy", actionType: "NEW") {
+        _id
+        name
+        location
+        emails {
+          address
+          verified
+        }
+        randomString
+        createdMarkers
+        joinedMarkers
+
+    }
+ }
