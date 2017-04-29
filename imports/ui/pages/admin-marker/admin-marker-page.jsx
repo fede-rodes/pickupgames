@@ -89,26 +89,6 @@ class AdminMarkerPage extends Component {
     }
 
     return true;
-    /* const {
-      title,
-      date,
-      time,
-      location,
-      description,
-      maxParticipants,
-      cost,
-      participants,
-    } = meteorData;
-
-    reduxActions.dispatchUpdateTextField('title', title || '');
-    reduxActions.dispatchSetDateField('date', date || new Date());
-    reduxActions.dispatchSetDateField('time', time || new Date());
-    reduxActions.dispatchUpdateTextField('address', location && location.description || '');
-    reduxActions.dispatchUpdateSelectedLocation('location', location || '');
-    reduxActions.dispatchUpdateTextField('description', description || '');
-    reduxActions.dispatchSetNumericField(maxParticipants, parseInt(maxParticipants, 10) || 0);
-    reduxActions.dispatchUpdateTextField('cost', cost || '');
-    // reduxActions.dispatchUpdateArrayField('participants', participants); */
   }
 
   handleFormInputChange({ fieldName, value }) {
