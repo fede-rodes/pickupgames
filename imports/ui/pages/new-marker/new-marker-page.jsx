@@ -1,16 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Card } from 'antd';
 import DefaultLayout from '../../layouts/default/default-layout.jsx';
 import NewActivityForm from '../../components/new-activity/new-activity-form';
 
-//------------------------------------------------------------------------------
-// PAGE COMPONENT DEFINITION:
-//------------------------------------------------------------------------------
-/**
-* @summary Contains all the 'Page' logic and takes care of view dispatching.
-* Actions should be dispatched here and NOT in any child component!
-*/
 const NewMarkerPage = () => (
   <DefaultLayout width="600px">
     <Card>

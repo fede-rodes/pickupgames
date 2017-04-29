@@ -3,10 +3,10 @@ import { Random } from 'meteor/random';
 import { check, Match } from 'meteor/check';
 import _ from 'lodash';
 // import AuxFunctions from '../../api/aux-functions.js';
-/* import Activities from './activities/namespace.js';
-import './activities/api.js'; // Activities.api
-import './activities/server/api.js'; // Activities.api
-import './activities/collection.js'; // Activities.collection */
+import Markers from '../../api/markers/namespace.js';
+import '../../api/markers/api.js'; // Activities.api
+import '../../api/markers/server/api.js'; // Activities.api
+import '../../api/markers/collection.js'; // Activities.collection
 // import Users from '../users/namespace.js';
 // import '../users/api.js'; // Users.api
 
@@ -58,7 +58,7 @@ export const typeDefs = [
 
   type Mutation {
     updateCurUserSettings(location: String!): User
-    #createActivity(sport: String!, venueId: ID!, date: String!, time: String!): Activity
+    createActivity(sport: String!, venueId: ID!, date: String!, time: String!): Activity
   }
   `,
 ];
@@ -112,7 +112,7 @@ export const resolvers = {
       Meteor.users.update({ _id: curUserId }, { $set: { location } });
       return Meteor.users.findOne({ _id: curUserId });
     },
-    /* createActivity(root, args, context) {
+    createActivity(root, args, context) {
       console.log('root', root);
       console.log('args', args);
       console.log('context', context);
@@ -134,9 +134,9 @@ export const resolvers = {
         followers: [curUserId],
       };
 
-      const activityId = Activities.collection.insert(newActivity);
-      return Activities.collection.findOne({ _id: activityId });
-    }, */
+      const activityId = Markers.collection.insert(newActivity);
+      return Markers.collection.findOne({ _id: activityId });
+    },
   },
 };
 // }

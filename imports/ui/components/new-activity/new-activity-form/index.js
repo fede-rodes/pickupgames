@@ -1,7 +1,13 @@
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { Meteor } from 'meteor/meteor';
-import _ from 'lodash';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
+import { compose } from 'react-apollo'; // could use Recompose or import from redux instead
+import { pick, isEqual } from 'lodash';
+
+import withRedux from '../redux-provider.js';
+// import withCurUserData from '../../../../api/gql-providers/queries/cur-user';
+import createActivityMutation from '../../../../api/gql-providers/mutations/create-activity';
+
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Form, Button } from 'antd';
 const FormItem = Form.Item;
@@ -15,8 +21,6 @@ import SelectControlled from '../../forms/select-controlled.jsx';
 import DatePickerControlled from '../../forms/date-picker-controlled.jsx';
 import TimePickerControlled from '../../forms/time-picker-controlled.jsx';
 // import GoogleAutoCompleteControlled from '../../forms/google-auto-complete-controlled.jsx';
-
-import Actions from '../../../../api/redux/client/actions.js';
 import Markers from '../../../../api/markers/namespace.js';
 import '../../../../api/markers/api.js'; // Markers.api
 
@@ -45,16 +49,16 @@ class NewActivityForm extends Component {
     GoogleMaps.api.init('js-new-marker-map', center, Constants.NEW_MARKER_DEFAULT_ZOOM);
   }
 
-  componentWillReceiveProps(nextProps) {
+  /* componentWillReceiveProps(nextProps) {
     const nextPlace = nextProps.reduxState.selectedLocation;
     const curPlace = this.props.reduxState.selectedLocation;
 
-    /* console.log('------------------');
-    console.log('willReceiveProps');
-    console.log('GoogleMaps.api.placeIsEmpty(nextPlace):');
-    console.log(GoogleMaps.api.placeIsEmpty(nextPlace));
-    console.log('GoogleMaps.api.placesAreEqual(curPlace, nextPlace):');
-    console.log(GoogleMaps.api.placesAreEqual(curPlace, nextPlace)); */
+    // console.log('------------------');
+    // console.log('willReceiveProps');
+    // console.log('GoogleMaps.api.placeIsEmpty(nextPlace):');
+    // console.log(GoogleMaps.api.placeIsEmpty(nextPlace));
+    // console.log('GoogleMaps.api.placesAreEqual(curPlace, nextPlace):');
+    // console.log(GoogleMaps.api.placesAreEqual(curPlace, nextPlace));
     // TODO: try to use _.isEmpty instead of GoogleMaps.api.placeIsEmpty
     if (GoogleMaps.api.placeIsEmpty(nextPlace)) {
       return false; // do not re-render
@@ -70,7 +74,7 @@ class NewActivityForm extends Component {
     GoogleMaps.api.addMarker(center);
 
     return true;
-  }
+  } */
 
   handleInputChange({ fieldName, value }) {
     const { reduxState, reduxActions } = this.props;
@@ -108,17 +112,24 @@ class NewActivityForm extends Component {
 
   handleSubmit(e) {
     e.nativeEvent.preventDefault();
-    const { reduxState, reduxActions } = this.props;
+    const {
+      reduxState,
+      reduxActions,
+      createActivityMutation,
+      router,
+    } = this.props;
+
     const formFields = [
       'sport',
-      'title',
-      'description',
+      'venueId',
+      // 'title',
+      // 'description',
       'date',
       'time',
-      'address',
-      'selectedLocation',
-      'maxParticipants',
-      'cost',
+      // 'address',
+      // 'selectedLocation',
+      // 'maxParticipants',
+      // 'cost',
     ];
 
     // Clear errors if any
@@ -128,7 +139,7 @@ class NewActivityForm extends Component {
     reduxActions.dispatchSetBooleanField('canSubmit', false);
 
     // Get new marker fields from redux state
-    const newMarker = _.pick(reduxState, formFields);
+    const newMarker = pick(reduxState, formFields);
 
     // Check for errors
     const errors = Markers.api.checkNewMarkerFields(newMarker);
@@ -150,7 +161,22 @@ class NewActivityForm extends Component {
       return;
     }
 
-    Meteor.call('Markers.methods.createMarker', newMarker, (err1, markerId) => {
+    console.log('props', this.props);
+
+    createActivityMutation({ variables: { ...newMarker } })
+    .then(({ data: { createActivity: { _id } } }) => {
+      // TODO: redirect user back to previous route
+      console.log('history', router.history);
+      // console.log('res', res);
+      router.history.push(`/activity-details/${_id}`);
+      // TODO: clean redux store after redirect
+    })
+    .catch((err) => {
+      Bert.alert(err.reason, 'danger', 'growl-top-right');
+      reduxActions.dispatchSetBooleanField('canSubmit', true);
+    });
+
+    /* Meteor.call('Markers.methods.createMarker', newMarker, (err1, markerId) => {
       if (err1) {
         Bert.alert(err1.reason, 'danger', 'growl-top-right');
         // Re-enable submit button
@@ -167,7 +193,7 @@ class NewActivityForm extends Component {
           }
         });
       }
-    });
+    }); */
   }
 
   render() {
@@ -198,19 +224,19 @@ class NewActivityForm extends Component {
             onChange={this.handleInputChange}
           />
         </FormItem>
-        {/* <FormItem
+        <FormItem
           label="Select Venue*"
           validateStatus={AuxFunctions.getFieldNameErrors(errors, 'venueId') && 'error' || ''}
           help={AuxFunctions.getFieldNameErrors(errors, 'venueId')}
         >
-          <GoogleAutoCompleteControlled
+          <SelectControlled
             id="venueId"
-            placeholder="Exact address"
+            placeholder="Select venue"
             value={venueId}
+            options={['1', '2', '3']}
             onChange={this.handleInputChange}
-            onSelect={handleLocationOptionSelect}
           />
-        </FormItem> */}
+        </FormItem>
         <div id="js-new-marker-map" className="mt1 mb2 full-width h200"></div>
         <FormItem
           label="Date*"
@@ -265,50 +291,15 @@ NewActivityForm.propTypes = {
     }).isRequired,
   }).isRequired,
   reduxActions: PropTypes.object.isRequired,
+  createActivityMutation: PropTypes.func.isRequired,
+  router: PropTypes.object.isRequired,
 };
-//------------------------------------------------------------------------------
-// REDUX INTEGRATION:
-//------------------------------------------------------------------------------
-/**
-* @summary Wrapper around the 'Page' component to handle UI State (Redux)
-* integration.
-*/
-const namespace = 'newMarker';
 
-function mapStateToProps(state) {
-  return { reduxState: state[namespace] };
-}
+export default compose(
+  withRouter,
+  withRedux,
+  // withCurUserData,
+  createActivityMutation
+)(NewActivityForm);
 
-function mapDispatchToProps(dispatch) {
-  // Bind actions to current Page (namespace).
-  const reduxActions = {
-    dispatchUpdateTextField(fieldName, value) {
-      return dispatch(Actions.updateTextField(namespace, fieldName, value));
-    },
-    dispatchSetNumericField(fieldName, value) {
-      return dispatch(Actions.setNumericField(namespace, fieldName, value));
-    },
-    dispatchSetDateField(fieldName, value) {
-      return dispatch(Actions.setDateField(namespace, fieldName, value));
-    },
-    dispatchSetBooleanField(fieldName, value) {
-      return dispatch(Actions.setBooleanField(namespace, fieldName, value));
-    },
-    dispatchUpdateSelectedLocation(data) {
-      return dispatch(Actions.updateSelectedLocation(namespace, data));
-    },
-    dispatchSetErrors(errorsObj) {
-      return dispatch(Actions.setErrors(namespace, errorsObj));
-    },
-    dispatchClearErrors(fieldName) {
-      return dispatch(Actions.clearErrors(namespace, fieldName));
-    },
-  };
-
-  return { reduxActions };
-}
-
-// Create enhancer function
-const withRedux = connect(mapStateToProps, mapDispatchToProps);
-
-export default withRedux(NewActivityForm);
+// export default withRedux(NewActivityForm);

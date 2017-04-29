@@ -40,8 +40,7 @@ Markers.collection.deny({
 // =============================================================================
 // SEE: http://themeteorchef.com/snippets/using-the-collection2-package/
 //------------------------------------------------------------------------------
-Markers.collection.attachSchema(new SimpleSchema({
-
+const schema = new SimpleSchema({
   //----------------------------------------------------------------------------
   // Mandatory fields
   //----------------------------------------------------------------------------
@@ -64,25 +63,27 @@ Markers.collection.attachSchema(new SimpleSchema({
     allowedValues: Constants.MARKER_SPORTS_ARRAY,
   },
 
-  title: {
+  venueId: {
     type: String,
-    label: 'Brief description about the activity',
-    max: Constants.MARKER_TITLE_MAX_LENGTH,
+    label: 'Id of the venue where the activity is going to take place',
+    optional: true,
   },
 
   date: {
-    type: Date,
+    // type: Date,
+    type: String,
     label: 'Date of the activity',
     // TODO: reject if date <= yesterday
   },
 
   time: {
-    type: Date,
+    // type: Date,
+    type: String,
     label: 'Starting time for the activity',
     // regEx: /^[0-9:]{5}$/,
   },
 
-  location: {
+  /* location: {
     type: Object,
   },
 
@@ -129,6 +130,12 @@ Markers.collection.attachSchema(new SimpleSchema({
       }
       return true;
     },
+  }, */
+
+  title: {
+    type: String,
+    label: 'Brief description about the activity',
+    max: Constants.MARKER_TITLE_MAX_LENGTH,
   },
 
   participants: {
@@ -216,4 +223,6 @@ Markers.collection.attachSchema(new SimpleSchema({
     optional: true,
   }, */
 
-}));
+});
+
+Markers.collection.attachSchema(schema);

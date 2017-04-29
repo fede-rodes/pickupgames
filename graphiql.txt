@@ -1,0 +1,42 @@
+mutation {
+   updateCurUserSettings (location: "Bolivia") {
+        _id
+        name
+        location
+        emails {
+          address
+          verified
+        }
+        randomString
+
+
+    }
+ }
+
+mutation {
+  createActivity (sport: "football", venueId: "1", date: "bla", time: "bla") {
+  	_id
+  	sport
+  	venueId
+  	date
+  	time
+  	createdBy
+  	createdAt
+  	title
+  	followers
+  	participants
+  	status
+  	repeat
+  	admins
+    randomString
+   }
+}
+
+{
+  curUser {
+    _id
+    name
+    location
+    randomString
+  }
+}
