@@ -1,4 +1,33 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import { Router } from 'react-router-dom';
+import createBrowserHistory from 'history/createBrowserHistory';
+
+// Integration with google analytics. See: https://github.com/apollographql/GitHunt-React/blob/master/ui/client.js
+// import * as ReactGA from 'react-ga';
+
+import Routes from './routes.js';
+
+const history = createBrowserHistory();
+
+/*
+// Initialize Analytics
+ReactGA.initialize('UA-74643563-4');
+
+function logPageView() {
+  ReactGA.set({ page: window.location.pathname });
+  ReactGA.pageview(window.location.pathname);
+}
+*/
+
+const App = () => (
+  <Router history={history} /* onUpdate={logPageView} */>
+    <Routes />
+  </Router>
+);
+
+export default App;
+
+/* import React, { PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import _ from 'underscore';
@@ -13,7 +42,7 @@ import LoginPage from '../pages/login/login-page.jsx';
 * It takes care of global subscriptions (displaying a loading indicator when
 * global subscriptions aren't ready) + handles authentication (and roles).
 * @see {@link https://themeteorchef.com/snippets/authentication-with-react-and-flow-router/}
-*/
+
 const App = ({ content, meteorData }) => {
   const { subsReady, loggingIn, loggedIn } = meteorData;
 
@@ -39,7 +68,7 @@ App.propTypes = {
 /**
 * @summary Container wrapper around App to handle Meteor reactive data.
 * @see {@link https://themeteorchef.com/snippets/authentication-with-react-and-flow-router/}
-*/
+
 const AppContainer = createContainer(({ content }) => {
   // Global subsriptions
   const handles = [
@@ -60,4 +89,4 @@ const AppContainer = createContainer(({ content }) => {
   };
 }, App);
 
-export default AppContainer;
+export default AppContainer; */

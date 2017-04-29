@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import _ from 'underscore';
 import { check } from 'meteor/check';
-import { FlowRouter } from 'meteor/kadira:flow-router';
+// import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Bert } from 'meteor/themeteorchef:bert';
 import Markers from '../../../api/markers/namespace.js';
 import '../../../api/markers/api.js'; // Markers.api
@@ -33,7 +33,7 @@ class ProfilePage extends Component {
   }
 
   handleMarkerLinkClick(markerId) {
-    FlowRouter.go(`/marker/${markerId}`);
+    // FlowRouter.go(`/marker/${markerId}`);
   }
 
   render() {

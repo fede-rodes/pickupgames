@@ -1,9 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { Meteor } from 'meteor/meteor';
-import { createContainer } from 'meteor/react-meteor-data';
+// import { createContainer } from 'meteor/react-meteor-data';
 import Actions from '../../../api/redux/client/actions.js';
-import HomeMobile from './login-mobile.jsx';
+import LoginMobile from './login-mobile.jsx';
 
 //------------------------------------------------------------------------------
 // PAGE COMPONENT DEFINITION:
@@ -47,7 +47,7 @@ class LoginPage extends Component {
     const { reduxState } = this.props;
 
     return (
-      <HomeMobile
+      <LoginMobile
         // Pass data down
         reduxState={reduxState}
         // Pass methods down
@@ -94,4 +94,7 @@ function mapDispatchToProps(dispatch) {
   return { reduxActions };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
+// Create enhancer function
+const withRedux = connect(mapStateToProps, mapDispatchToProps);
+
+export default withRedux(LoginPage);

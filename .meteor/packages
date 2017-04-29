@@ -17,7 +17,7 @@ es5-shim@4.6.15                # ECMAScript 5 compatibility for older browsers.
 ecmascript@0.6.1              # Enable ECMAScript2015+ syntax in app code
 
 react-meteor-data
-kadira:flow-router
+#kadira:flow-router
 alanning:roles
 aldeed:collection2
 shell-server@0.2.1
@@ -33,3 +33,4 @@ gadicohen:headers
 thebakery:ipgeocoder
 juliancwirko:postcss
 nathantreid:css-modules
+apollo

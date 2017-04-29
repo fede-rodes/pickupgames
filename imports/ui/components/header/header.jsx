@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import { FlowRouter } from 'meteor/kadira:flow-router';
+// import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Icon, Popover } from 'antd';
 import Constants from '../../../api/constants.js';
 import styles from './styles.scss';
@@ -62,7 +62,7 @@ class Header extends Component {
         Meteor.logout();
         break;
       default:
-        FlowRouter.go(key);
+        // FlowRouter.go(key);
         break;
     }
   }

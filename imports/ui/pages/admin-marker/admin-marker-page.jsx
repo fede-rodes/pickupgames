@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import _ from 'underscore';
 // import { $ } from 'meteor/jquery';
-import { FlowRouter } from 'meteor/kadira:flow-router';
+// import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Bert } from 'meteor/themeteorchef:bert';
 import Actions from '../../../api/redux/client/actions.js';
 import Markers from '../../../api/markers/namespace.js';

@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import { mount } from 'react-mounter';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 // import { EJSON } from 'meteor/ejson';
@@ -24,7 +24,7 @@ console.log('[router] loading routes');
 * FlowRouter path. In order ensure that the path is FlowRouter compliant,
 * we need to replace '&amp;' back to '&' after user logs in.
 * @see {@link https://kadira.io/academy/meteor-routing-guide/content/triggers}
-*/
+
 function ensurePath(context, redirect) {
   const path = context.path.replace(/&amp;/g, '&');
   if (context.path !== path) {
@@ -145,3 +145,4 @@ FlowRouter.notFound = {
     });
   },
 };
+*/

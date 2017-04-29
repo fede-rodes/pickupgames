@@ -4,7 +4,7 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 import _ from 'underscore';
 // import { $ } from 'meteor/jquery';
-import { FlowRouter } from 'meteor/kadira:flow-router';
+// import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Bert } from 'meteor/themeteorchef:bert';
 import Actions from '../../../api/redux/client/actions.js';
 import Markers from '../../../api/markers/namespace.js';
@@ -123,7 +123,7 @@ class NewMarkerPage extends Component {
             reduxActions.dispatchSetBooleanField('canSubmit', true);
           } else {
             Bert.alert('Activity create successfully!', 'success', 'growl-top-right');
-            FlowRouter.go('marker', { markerId });
+            // FlowRouter.go('marker', { markerId });
           }
         });
       }

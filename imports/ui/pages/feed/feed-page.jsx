@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
-import { FlowRouter } from 'meteor/kadira:flow-router';
+// import { FlowRouter } from 'meteor/kadira:flow-router';
 import _ from 'underscore';
 import { check, Match } from 'meteor/check';
 import { Counts } from 'meteor/tmeasday:publish-counts';
@@ -117,10 +117,10 @@ class FeedPage extends Component {
       // ... set default search value based redux store or...
       if (!_.isEmpty(reduxState.place)) {
         const { params, queryParams } = UrlHelpers.genRouteParams('list', 'place', reduxState.place);
-        FlowRouter.go('feed', params, queryParams);
+        // FlowRouter.go('feed', params, queryParams);
       } else if (!_.isEmpty(reduxState.mapBounds) && _.isNumber(reduxState.zoom)) {
         const { params, queryParams } = UrlHelpers.genRouteParams('list', 'mapBounds', { ...reduxState.mapBounds, zoom: reduxState.zoom });
-        FlowRouter.go('feed', params, queryParams);
+        // FlowRouter.go('feed', params, queryParams);
       }
 
       // ... if redux state is empty, using the search value stored in the
@@ -130,10 +130,10 @@ class FeedPage extends Component {
         const { place, map } = formattedUser.searchValue;
         if (!_.isEmpty(place)) {
           const { params, queryParams } = UrlHelpers.genRouteParams('list', 'place', place);
-          FlowRouter.go('feed', params, queryParams);
+          // FlowRouter.go('feed', params, queryParams);
         } else if (!_.isEmpty(map)) {
           const { params, queryParams } = UrlHelpers.genRouteParams('list', 'mapBounds', map);
-          FlowRouter.go('feed', params, queryParams);
+          // FlowRouter.go('feed', params, queryParams);
         } else {
           throw new Error('curUser.searchValue missing at FeedPage.componentDidMount');
         }
@@ -174,7 +174,7 @@ class FeedPage extends Component {
     // The user clicks the button at the bottom of the page in order to change
     // the view type (from 'list' to 'map' or viceversa). Every time this
     // happens update the url to trigger the view change.
-    FlowRouter.setParams({ view });
+    // FlowRouter.setParams({ view });
   }
 
   handleSearchTextChange({ fieldName, value }) {
@@ -197,9 +197,9 @@ class FeedPage extends Component {
     // re-subscription in the list of results.
     if (!_.isUndefined(description)) {
       const { params, queryParams } = UrlHelpers.genRouteParams('list', 'place', { placeId, description, center });
-      FlowRouter.go('feed', params, queryParams);
+      // FlowRouter.go('feed', params, queryParams);
     } else if (!_.isUndefined(radius)) {
-      FlowRouter.setQueryParams({ radius });
+      // FlowRouter.setQueryParams({ radius });
     }
   }
 
@@ -225,15 +225,15 @@ class FeedPage extends Component {
     // in the list of results.
     const { mapBounds, zoom } = this.props.reduxState;
     const { params, queryParams } = UrlHelpers.genRouteParams('map', 'mapBounds', { ...mapBounds, zoom });
-    FlowRouter.go('feed', params, queryParams);
+    // FlowRouter.go('feed', params, queryParams);
   }
 
   handleNewMarkerButtonClick() {
-    FlowRouter.go('new-marker');
+    // FlowRouter.go('new-marker');
   }
 
   handleMarkerCardClick(markerId) {
-    FlowRouter.go('marker', { markerId });
+    // FlowRouter.go('marker', { markerId });
   }
 
   handlePageLimitReached() {
@@ -242,7 +242,7 @@ class FeedPage extends Component {
     // a new subscriptions.
     const prevPageNumber = this.props.urlState.pageNumber;
     console.log('prevPageNumber', prevPageNumber);
-    FlowRouter.setQueryParams({ pageNumber: prevPageNumber + 1 });
+    // FlowRouter.setQueryParams({ pageNumber: prevPageNumber + 1 });
   }
 
   render() {
@@ -260,21 +260,27 @@ class FeedPage extends Component {
     const ViewMobile = view === 'list' ? FeedListMobile : FeedMapMobile;
 
     return (
-      <ViewMobile
-        // pass data down
-        reduxState={reduxState}
-        meteorData={meteorData}
-        // pass methods down
-        handleViewChange={this.handleViewChange}
-        handleSearchTextChange={this.handleSearchTextChange}
-        handlePlaceChange={this.handlePlaceChange}
-        handleMapPan={this.handleMapPan}
-        handleRedoSearchHereButtonClick={this.handleRedoSearchHereButtonClick}
-        handleNewMarkerButtonClick={this.handleNewMarkerButtonClick}
-        handleMarkerCardClick={this.handleMarkerCardClick}
-        handlePageLimitReached={this.handlePageLimitReached}
-      />
+      <div>
+        :) hola
+      </div>
     );
+
+  /* return (
+    <ViewMobile
+      // pass data down
+      reduxState={reduxState}
+      meteorData={meteorData}
+      // pass methods down
+      handleViewChange={this.handleViewChange}
+      handleSearchTextChange={this.handleSearchTextChange}
+      handlePlaceChange={this.handlePlaceChange}
+      handleMapPan={this.handleMapPan}
+      handleRedoSearchHereButtonClick={this.handleRedoSearchHereButtonClick}
+      handleNewMarkerButtonClick={this.handleNewMarkerButtonClick}
+      handleMarkerCardClick={this.handleMarkerCardClick}
+      handlePageLimitReached={this.handlePageLimitReached}
+    />
+  ); */
   }
 }
 
