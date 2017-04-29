@@ -33,27 +33,14 @@ const selectedLocationReducer = (state = initSelectedLocationState, action) => {
 const initNewMarkerPageState = {
   canSubmit: true,
   sport: '',
-  title: '',
-  description: '',
+  venueId: '',
   date: null,
   time: null,
-  address: '',
-  selectedLocation: {
-    placeId: '',
-    description: '',
-    center: {},
-  },
-  maxParticipants: null,
-  cost: '',
   errors: {
     sport: [],
-    title: [],
-    description: [],
+    venueId: [],
     date: [],
     time: [],
-    address: [],
-    maxParticipants: [],
-    cost: [],
   },
 };
 const newMarkerPageReducer = (state = initNewMarkerPageState, action) => {
@@ -70,10 +57,7 @@ const newMarkerPageReducer = (state = initNewMarkerPageState, action) => {
           [fieldName]: booleanFieldReducer(state[fieldName], action),
         };
       case 'sport':
-      case 'title':
-      case 'description':
-      case 'address':
-      case 'cost':
+      case 'venueId':
         return {
           ...state,
           [fieldName]: textFieldReducer(state[fieldName], action),
@@ -84,7 +68,7 @@ const newMarkerPageReducer = (state = initNewMarkerPageState, action) => {
           ...state,
           [fieldName]: dateFieldReducer(state[fieldName], action),
         };
-      case 'selectedLocation':
+      /* case 'selectedLocation':
         return {
           ...state,
           [fieldName]: selectedLocationReducer(state[fieldName], action),
@@ -93,7 +77,7 @@ const newMarkerPageReducer = (state = initNewMarkerPageState, action) => {
         return {
           ...state,
           [fieldName]: numericFieldReducer(state[fieldName], action),
-        };
+        }; */
       case 'errors':
         return {
           ...state,

@@ -104,24 +104,19 @@ class NewMarkerMobile extends Component {
               />
             </FormItem>
             <FormItem
-              label="Title*"
-              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'title') && 'error' || ''}
-              help={AuxFunctions.getFieldNameErrors(errors, 'title')}
+              label="Select Venue*"
+              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'venueId') && 'error' || ''}
+              help={AuxFunctions.getFieldNameErrors(errors, 'venueId')}
             >
-              <InputControlled
-                type="textarea"
-                id="title"
-                placeholder="Title"
-                value={title}
+              <GoogleAutoCompleteControlled
+                id="venueId"
+                placeholder="Exact address"
+                value={venueId}
                 onChange={handleFormInputChange}
-                autosize={{ minRows: 2, maxRows: 4 }}
-              />
-              <Counter
-                limit={Constants.MARKER_TITLE_MAX_LENGTH}
-                cur={title.length}
-                className="block right-align"
+                onSelect={handleLocationOptionSelect}
               />
             </FormItem>
+            <div id="js-new-marker-map" className="mt1 mb2 full-width h200"></div>
             <FormItem
               label="Date*"
               validateStatus={AuxFunctions.getFieldNameErrors(errors, 'date') && 'error' || ''}
@@ -144,70 +139,6 @@ class NewMarkerMobile extends Component {
                 placeholder="Time"
                 value={time}
                 onChange={handleFormInputChange}
-              />
-            </FormItem>
-            <FormItem
-              label="Address*"
-              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'address') && 'error' || ''}
-              help={AuxFunctions.getFieldNameErrors(errors, 'address')}
-            >
-              <GoogleAutoCompleteControlled
-                id="address"
-                placeholder="Exact address"
-                value={address}
-                onChange={handleFormInputChange}
-                onSelect={handleLocationOptionSelect}
-              />
-            </FormItem>
-            <div id="js-new-marker-map" className="mt1 mb2 full-width h200"></div>
-            <FormItem
-              label={<span>Description <strong>(Optional)</strong></span>}
-              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'description') && 'error' || ''}
-              help={AuxFunctions.getFieldNameErrors(errors, 'description')}
-            >
-              <InputControlled
-                type="textarea"
-                id="description"
-                placeholder="Description"
-                value={description}
-                onChange={handleFormInputChange}
-                autosize={{ minRows: 4, maxRows: 6 }}
-              />
-              <Counter
-                limit={Constants.MARKER_DESCRIPTION_MAX_LENGTH}
-                cur={description.length}
-                className="block right-align"
-              />
-            </FormItem>
-            <FormItem
-              label={<span>Maximum number of participants <strong>(Optional)</strong></span>}
-              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants') && 'error' || ''}
-              help={AuxFunctions.getFieldNameErrors(errors, 'maxParticipants')}
-            >
-              <SelectControlled
-                id="maxParticipants"
-                placeholder="Maximum number of participants"
-                value={maxParticipants && maxParticipants.toString() || null}
-                options={maxParticipantsOptions}
-                onChange={handleFormInputChange}
-              />
-            </FormItem>
-            <FormItem
-              label={<span>Cost per person <strong>(Optional)</strong></span>}
-              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'cost') && 'error' || ''}
-              help={AuxFunctions.getFieldNameErrors(errors, 'cost')}
-            >
-              <InputControlled
-                type="text"
-                id="cost"
-                placeholder="ex. FREE, unionCard required, 5 euros, ..."
-                value={cost}
-                onChange={handleFormInputChange}
-              />
-              <Counter
-                limit={Constants.MARKER_COST_MAX_LENGTH}
-                cur={cost.length}
-                className="block right-align"
               />
             </FormItem>
             <Button
@@ -259,3 +190,21 @@ NewMarkerMobile.propTypes = {
 };
 
 export default NewMarkerMobile;
+
+
+/*
+            <FormItem
+              label="Select Venue*"
+              validateStatus={AuxFunctions.getFieldNameErrors(errors, 'venueId') && 'error' || ''}
+              help={AuxFunctions.getFieldNameErrors(errors, 'venueId')}
+            >
+              <GoogleAutoCompleteControlled
+                id="venueId"
+                placeholder="Exact address"
+                value={address}
+                onChange={handleFormInputChange}
+                onSelect={handleLocationOptionSelect}
+              />
+            </FormItem>
+            <div id="js-new-marker-map" className="mt1 mb2 full-width h200"></div>
+*/

@@ -1,8 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Card } from 'antd';
-import DefaultLayout from '../../layouts/default/default-layout.jsx';
-import NewActivityForm from '../../components/new-activity/new-activity-form';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Meteor } from 'meteor/meteor';
+import _ from 'lodash';
+import { Bert } from 'meteor/themeteorchef:bert';
+import { Form, Button } from 'antd';
+const FormItem = Form.Item;
+import AuxFunctions from '../../../../api/aux-functions.js';
+import Constants from '../../../../api/constants.js';
+import GoogleMaps from '../../../../api/google-maps/namespace.js';
+import '../../../../api/google-maps/api.js'; // GoogleMaps.api
+// import Counter from '../../forms/counter.jsx';
+import SelectControlled from '../../forms/select-controlled.jsx';
+// import InputControlled from '../../forms/input-controlled.jsx';
+import DatePickerControlled from '../../forms/date-picker-controlled.jsx';
+import TimePickerControlled from '../../forms/time-picker-controlled.jsx';
+// import GoogleAutoCompleteControlled from '../../forms/google-auto-complete-controlled.jsx';
+
+import Actions from '../../../../api/redux/client/actions.js';
+import Markers from '../../../../api/markers/namespace.js';
+import '../../../../api/markers/api.js'; // Markers.api
 
 //------------------------------------------------------------------------------
 // PAGE COMPONENT DEFINITION:
@@ -11,60 +27,57 @@ import NewActivityForm from '../../components/new-activity/new-activity-form';
 * @summary Contains all the 'Page' logic and takes care of view dispatching.
 * Actions should be dispatched here and NOT in any child component!
 */
-const NewMarkerPage = () => (
-  <DefaultLayout width="600px">
-    <Card>
-      <h1>Create Activity</h1>
-      <NewActivityForm />
-    </Card>
-    {/* TODO: add new venue modal */}
-  </DefaultLayout>
-);
-
-export default NewMarkerPage;
-
-
-/*
-import React, { Component, PropTypes } from 'react';
-import { connect } from 'react-redux';
-import { Meteor } from 'meteor/meteor';
-import { createContainer } from 'meteor/react-meteor-data';
-import _ from 'underscore';
-// import { $ } from 'meteor/jquery';
-// import { FlowRouter } from 'meteor/kadira:flow-router';
-import { Bert } from 'meteor/themeteorchef:bert';
-import Actions from '../../../api/redux/client/actions.js';
-import Markers from '../../../api/markers/namespace.js';
-import '../../../api/markers/api.js'; // Markers.api
-import AuxFunctions from '../../../api/aux-functions.js';
-import Constants from '../../../api/constants.js';
-import NewMarkerMobile from './new-marker-mobile.jsx';
-
-//------------------------------------------------------------------------------
-// PAGE COMPONENT DEFINITION:
-//------------------------------------------------------------------------------
-/**
-* @summary Contains all the 'Page' logic and takes care of view dispatching.
-* Actions should be dispatched here and NOT in any child component!
-
-class NewMarkerPage extends Component {
+class NewActivityForm extends Component {
   // See ES6 Classes section at: https://facebook.github.io/react/docs/reusable-components.html
   constructor(props) {
     super(props);
-    this.handleFormInputChange = this.handleFormInputChange.bind(this);
-    this.handleLocationOptionSelect = this.handleLocationOptionSelect.bind(this);
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    // this.handleLocationOptionSelect = this.handleLocationOptionSelect.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleFormInputChange({ fieldName, value }) {
+  componentDidMount() {
+    // TODO: center based on user feed place / mapBounds
+    const center = {
+      lat: Constants.USER_DEFAULT_LAT,
+      lng: Constants.USER_DEFAULT_LNG,
+    };
+    GoogleMaps.api.init('js-new-marker-map', center, Constants.NEW_MARKER_DEFAULT_ZOOM);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const nextPlace = nextProps.reduxState.selectedLocation;
+    const curPlace = this.props.reduxState.selectedLocation;
+
+    /* console.log('------------------');
+    console.log('willReceiveProps');
+    console.log('GoogleMaps.api.placeIsEmpty(nextPlace):');
+    console.log(GoogleMaps.api.placeIsEmpty(nextPlace));
+    console.log('GoogleMaps.api.placesAreEqual(curPlace, nextPlace):');
+    console.log(GoogleMaps.api.placesAreEqual(curPlace, nextPlace)); */
+    // TODO: try to use _.isEmpty instead of GoogleMaps.api.placeIsEmpty
+    if (GoogleMaps.api.placeIsEmpty(nextPlace)) {
+      return false; // do not re-render
+    }
+    if (_.isEqual(curPlace, nextPlace)) {
+      return false; // do not re-render
+    }
+
+    // Remove previous marker before adding the new ones.
+    GoogleMaps.api.clearMarkers();
+    const { center } = nextPlace;
+    GoogleMaps.api.setCenter(center);
+    GoogleMaps.api.addMarker(center);
+
+    return true;
+  }
+
+  handleInputChange({ fieldName, value }) {
     const { reduxState, reduxActions } = this.props;
     const { errors } = reduxState;
 
     // Update redux state
     switch (fieldName) {
-      case 'maxParticipants':
-        reduxActions.dispatchSetNumericField(fieldName, parseInt(value, 10));
-        break;
       case 'date':
       case 'time':
         reduxActions.dispatchSetDateField(fieldName, value);
@@ -80,7 +93,7 @@ class NewMarkerPage extends Component {
     }
   }
 
-  handleLocationOptionSelect(selectedLocation) {
+  /* handleLocationOptionSelect(selectedLocation) {
     const { reduxState, reduxActions } = this.props;
     const { errors } = reduxState;
 
@@ -91,9 +104,9 @@ class NewMarkerPage extends Component {
     if (errors.address.length > 0) {
       reduxActions.dispatchClearErrors('address');
     }
-  }
+  } */
 
-  handleFormSubmit(e) {
+  handleSubmit(e) {
     e.nativeEvent.preventDefault();
     const { reduxState, reduxActions } = this.props;
     const formFields = [
@@ -158,46 +171,97 @@ class NewMarkerPage extends Component {
   }
 
   render() {
-    const { reduxState } = this.props;
+    const {
+      reduxState: {
+        canSubmit,
+        sport,
+        venueId,
+        date,
+        time,
+        errors,
+      },
+    } = this.props;
 
     return (
-      <NewMarkerMobile
-        // pass data down
-        reduxState={reduxState}
-        // pass methods down
-        handleFormInputChange={this.handleFormInputChange}
-        handleLocationOptionSelect={this.handleLocationOptionSelect}
-        handleFormSubmit={this.handleFormSubmit}
-      />
+
+      <Form onSubmit={this.handleSubmit}>
+        <FormItem
+          label="Sport*"
+          validateStatus={AuxFunctions.getFieldNameErrors(errors, 'sport') && 'error' || ''}
+          help={AuxFunctions.getFieldNameErrors(errors, 'sport')}
+        >
+          <SelectControlled
+            id="sport"
+            placeholder="Sport"
+            value={sport}
+            options={Constants.MARKER_SPORTS_ARRAY}
+            onChange={this.handleInputChange}
+          />
+        </FormItem>
+        {/* <FormItem
+          label="Select Venue*"
+          validateStatus={AuxFunctions.getFieldNameErrors(errors, 'venueId') && 'error' || ''}
+          help={AuxFunctions.getFieldNameErrors(errors, 'venueId')}
+        >
+          <GoogleAutoCompleteControlled
+            id="venueId"
+            placeholder="Exact address"
+            value={venueId}
+            onChange={this.handleInputChange}
+            onSelect={handleLocationOptionSelect}
+          />
+        </FormItem> */}
+        <div id="js-new-marker-map" className="mt1 mb2 full-width h200"></div>
+        <FormItem
+          label="Date*"
+          validateStatus={AuxFunctions.getFieldNameErrors(errors, 'date') && 'error' || ''}
+          help={AuxFunctions.getFieldNameErrors(errors, 'date')}
+        >
+          <DatePickerControlled
+            id="date"
+            placeholder="Date"
+            value={date}
+            onChange={this.handleInputChange}
+          />
+        </FormItem>
+        <FormItem
+          label="Time*"
+          validateStatus={AuxFunctions.getFieldNameErrors(errors, 'time') && 'error' || ''}
+          help={AuxFunctions.getFieldNameErrors(errors, 'time')}
+        >
+          <TimePickerControlled
+            id="time"
+            placeholder="Time"
+            value={time}
+            onChange={this.handleInputChange}
+          />
+        </FormItem>
+        <Button
+          type="primary"
+          htmlType="submit"
+          disabled={!canSubmit}
+          size="large"
+          loading={!canSubmit}
+        >
+          Create activity
+        </Button>
+      </Form>
     );
   }
 }
 
-NewMarkerPage.propTypes = {
+NewActivityForm.propTypes = {
   reduxState: PropTypes.shape({
-    canSubmit: PropTypes.bool.isRequired,
+    canSubmit: PropTypes.bool.isRequired, // TODO: use component state
     sport: PropTypes.oneOf([...Constants.MARKER_SPORTS_ARRAY, '']),
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string,
+    venueId: PropTypes.string.isRequired,
     date: PropTypes.instanceOf(Date),
     time: PropTypes.instanceOf(Date),
-    address: PropTypes.string.isRequired,
-    selectedLocation: PropTypes.shape({
-      placeId: PropTypes.string,
-      description: PropTypes.string,
-      coordinates: PropTypes.object,
-    }).isRequired,
-    maxParticipants: PropTypes.number,
-    cost: PropTypes.string,
     errors: PropTypes.shape({
       sport: PropTypes.array.isRequired,
-      title: PropTypes.array.isRequired,
-      description: PropTypes.array,
+      venueId: PropTypes.array.isRequired,
       date: PropTypes.array.isRequired,
       time: PropTypes.array.isRequired,
-      address: PropTypes.array.isRequired,
-      cost: PropTypes.array.isRequired,
-      maxParticipants: PropTypes.array.isRequired,
     }).isRequired,
   }).isRequired,
   reduxActions: PropTypes.object.isRequired,
@@ -208,7 +272,7 @@ NewMarkerPage.propTypes = {
 /**
 * @summary Wrapper around the 'Page' component to handle UI State (Redux)
 * integration.
-
+*/
 const namespace = 'newMarker';
 
 function mapStateToProps(state) {
@@ -243,18 +307,8 @@ function mapDispatchToProps(dispatch) {
 
   return { reduxActions };
 }
-//------------------------------------------------------------------------------
-// PAGE CONTAINER DEFINITION:
-//------------------------------------------------------------------------------
-/**
-* @summary Wrapper around the 'Page' component to handle Domain State Meteor
-* reactivity (component-level subscriptions etc etc), and pass data down to
-* 'Page' component.
 
-const NewMarkerPageContainer = createContainer(() => {
-  // Subscriptions go here!
-  return {};
-}, connect(mapStateToProps, mapDispatchToProps)(NewMarkerPage));
+// Create enhancer function
+const withRedux = connect(mapStateToProps, mapDispatchToProps);
 
-export default NewMarkerPageContainer;
-*/
+export default withRedux(NewActivityForm);
