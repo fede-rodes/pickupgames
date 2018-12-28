@@ -1,4 +1,7 @@
 # pickupgames.net, Meteor React Redux FlowRouter ES6 web app
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/fede-rodes/pickupgames.svg)](https://greenkeeper.io/)
+
 Web app for easily organize sport activities and connect players. Current version of the app is hosted here: https://pickupgamess.herokuapp.com
 
 My previous pick-up games project (Meteor 1.2 + Blaze) can be found here: https://www.fulbacho.net
